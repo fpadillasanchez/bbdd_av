@@ -1,0 +1,7 @@
+\echo de
+CREATE TABLE de{
+
+	id_Plat INTEGER FOREIGN KEY,
+	id_Tipus INTEGER FOREIGN KEY
+	
+};

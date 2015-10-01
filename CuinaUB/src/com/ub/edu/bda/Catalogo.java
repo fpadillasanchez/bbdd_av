@@ -8,11 +8,18 @@ private String nombre ;
 private String descripcion ;
 
 //afegim l'objecte Articulo amb cardinalitat N
-private Set<Articulo> articulos;
+private Set<Recepta> articulos;
 
 //afegim l'objecte Catalogo amb cardinalitat N
 
-private Set<Tienda> tiendas;
+private Set<Xef> tiendas;
+
+//afegim l'objecte Articulo amb cardinalitat N
+private Set<Tipus_Menjar> tipusMenjar;
+
+//afegim l'objecte Catalogo amb cardinalitat N
+
+private Set<Plat> plat;
 
 
 
@@ -53,22 +60,39 @@ public void setDescripcion(String descripcion) {
 
 //NOUS GETTERS I SETTERS
 
-public Set<Articulo> getArticulos() {
-	return articulos;
-}
+    public Set<Recepta> getArticulos() {
+        return articulos;
+    }
 
-public void setArticulos(Set<Articulo> articulos) {
-	this.articulos = articulos;
-}
+    public void setArticulos(Set<Recepta> articulos) {
+        this.articulos = articulos;
+    }
 
-//NOUS GETTERS I SETTERS TIENDAS
-public Set<Tienda> getTiendas() {
-	return tiendas;
-}
+    public Set<Xef> getTiendas() {
+        return tiendas;
+    }
 
-public void setTiendas(Set<Tienda> tiendas) {
-	this.tiendas = tiendas;
-}
+    public void setTiendas(Set<Xef> tiendas) {
+        this.tiendas = tiendas;
+    }
+
+    public Set<Tipus_Menjar> getTipusMenjar() {
+        return tipusMenjar;
+    }
+
+    public void setTipusMenjar(Set<Tipus_Menjar> tipusMenjar) {
+        this.tipusMenjar = tipusMenjar;
+    }
+
+    public Set<Plat> getPlat() {
+        return plat;
+    }
+
+    public void setPlat(Set<Plat> plat) {
+        this.plat = plat;
+    }
+
+
 
 }
 

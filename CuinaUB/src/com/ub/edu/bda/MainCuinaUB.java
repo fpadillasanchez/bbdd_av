@@ -1,5 +1,7 @@
  package com.ub.edu.bda;
 
+import static com.ub.edu.bda.Consola.escriu;
+import static com.ub.edu.bda.Consola.llegeixInt;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +13,15 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.type.StringType;
 
-public class TestHB {
-
+public class MainCuinaUB {
+/*
 	/**
 	 * @param args
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+            /*
 		 Session session = null;
 	        Transaction tx = null;
 	        Articulo art = new Articulo("Lavadora AEG", 23.4);
@@ -59,5 +62,39 @@ public class TestHB {
 	        }
 
 	}
+    */
+    
+    int menu_Recepta = 1;
+    int menu_Tipusplat = 1;
+    int menu_Tipusmenjar = 1;
+    int menu_Xef = 1;
+    int menu_Ingredient = 1;
+    
+    int opcMenu = 0;
+    
+    int exitCuinaUB = -1;
+    
+    while(exitCuinaUB != 1){
+        escriu("Menú Principal CuinaUB");
+        escriu("\n1-Recepta\n2-Tipus de plat\n3-Tipus de menjar\n4-Xef\n5-Ingredient");
+        opcMenu = llegeixInt();
+        
+        switch(opcMenu){
+             case 1://Recepta
+                 
+                 
+                 
+             case 2://Tipus Plat
+                 
+             case 3://Tipus Menjar
+                 
+             case 4://Xef
+                 
+             case 5://Ingredient
+        }
+    
+    }
+    
 
+}
 }

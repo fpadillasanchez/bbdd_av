@@ -9,7 +9,7 @@ private String dificultat;
 private Integer id_Xef;
 
 // afegim l'objecte cataleg en cardinalitat 1
-private Catalogo catalogo;
+private Integer id_Plat;
 
 
 public Recepta() {
@@ -17,14 +17,14 @@ public Recepta() {
 	// TODO Auto-generated constructor stub
 }
 
-    public Recepta(Integer id_Recepta, String elaboracio, String temps, String nom, String dificultat, Integer id_Xef, Catalogo catalogo) {
+    public Recepta(Integer id_Recepta, String elaboracio, String temps, String nom, String dificultat, Integer id_Xef, Integer id_Plat) {
         this.id_Recepta = id_Recepta;
         this.elaboracio = elaboracio;
         this.temps = temps;
         this.nom = nom;
         this.dificultat = dificultat;
         this.id_Xef = id_Xef;
-        this.catalogo = catalogo;
+        this.id_Plat = id_Plat;
     }
 
     public Integer getId_Recepta() {
@@ -83,12 +83,12 @@ public Recepta() {
 
 
 //NOUS GETTERS I SETTERS
-public Catalogo getCatalogo() {
-	return catalogo;
+public Integer getId_Plat() {
+	return id_Plat;
 }
 
-public void setCatalogo(Catalogo catalogo) {
-	this.catalogo = catalogo;
+public void setId_Plat(Integer id_Plat) {
+	this.id_Plat = id_Plat;
 }
 
 

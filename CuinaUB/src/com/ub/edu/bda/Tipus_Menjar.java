@@ -2,9 +2,9 @@ package com.ub.edu.bda;
 
 public class Tipus_Menjar {
 private Integer id_Tipus;
-private String nom;
+private Integer id_Recepta;
 // afegim l'objecte cataleg en cardinalitat 1
-private Catalogo catalogo;
+private String nom;
 
 
 public Tipus_Menjar() {
@@ -12,10 +12,10 @@ public Tipus_Menjar() {
 	// TODO Auto-generated constructor stub
 }
 
-    public Tipus_Menjar(Integer id_Tipus, String nom, Catalogo catalogo) {
+    public Tipus_Menjar(Integer id_Tipus, Integer id_Recepta, String nom) {
         this.id_Tipus = id_Tipus;
         this.nom = nom;
-        this.catalogo = catalogo;
+        this.id_Recepta = id_Recepta;
     }
 
     public Integer getId_Tipus() {
@@ -36,13 +36,13 @@ public Tipus_Menjar() {
 
 
 //NOUS GETTERS I SETTERS
-public Catalogo getCatalogo() {
-	return catalogo;
-}
+    public Integer getId_Recepta() {
+        return id_Recepta;
+    }
 
-public void setCatalogo(Catalogo catalogo) {
-	this.catalogo = catalogo;
-}
+    public void setId_Recepta(Integer id_Recepta) {
+        this.id_Recepta = id_Recepta;
+    }
 
 
 

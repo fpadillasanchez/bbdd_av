@@ -3,12 +3,9 @@ package com.ub.edu.bda;
 import java.util.Set;
 
 public class Catalogo {
-private Integer id ;
-private String nombre ;
-private String descripcion ;
 
 //afegim l'objecte Articulo amb cardinalitat N
-private Set<Recepta> articulos;
+private Set<Recepta> receptes;
 
 //afegim l'objecte Catalogo amb cardinalitat N
 
@@ -21,6 +18,8 @@ private Set<Tipus_Menjar> tipusMenjar;
 
 private Set<Plat> plat;
 
+private Set<Xef> xef;
+
 
 
 public Catalogo() {
@@ -28,44 +27,15 @@ public Catalogo() {
 
 }
 
-public Catalogo(String nombre, String descripcion) {
-	super();
-	this.nombre = nombre;
-	this.descripcion = descripcion;
-}
-
-public Integer getId() {
-	return id;
-}
-
-public void setId(Integer id) {
-	this.id = id;
-}
-
-public String getNombre() {
-	return nombre;
-}
-
-public void setNombre(String nombre) {
-	this.nombre = nombre;
-}
-
-public String getDescripcion() {
-	return descripcion;
-}
-
-public void setDescripcion(String descripcion) {
-	this.descripcion = descripcion;
-}
 
 //NOUS GETTERS I SETTERS
 
-    public Set<Recepta> getArticulos() {
-        return articulos;
+    public Set<Recepta> getReceptes() {
+        return receptes;
     }
 
-    public void setArticulos(Set<Recepta> articulos) {
-        this.articulos = articulos;
+    public void setReceptes(Set<Recepta> receptes) {
+        this.receptes = receptes;
     }
 
     public Set<Xef> getTiendas() {
@@ -90,6 +60,14 @@ public void setDescripcion(String descripcion) {
 
     public void setPlat(Set<Plat> plat) {
         this.plat = plat;
+    }
+
+    public Set<Xef> getXef() {
+        return xef;
+    }
+
+    public void setXef(Set<Xef> xef) {
+        this.xef = xef;
     }
 
 

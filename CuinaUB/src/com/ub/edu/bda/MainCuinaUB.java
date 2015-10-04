@@ -1,9 +1,11 @@
- package com.ub.edu.bda;
+package com.ub.edu.bda;
 
 import static com.ub.edu.bda.Consola.escriu;
 import static com.ub.edu.bda.Consola.llegeixInt;
+import static com.ub.edu.bda.Consola.llegeixString;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
@@ -14,87 +16,233 @@ import org.hibernate.Transaction;
 import org.hibernate.type.StringType;
 
 public class MainCuinaUB {
-/*
-	/**
-	 * @param args
-	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void main(String[] args) {
+    /*
+     /**
+     * @param args
+     */
+
+    static Catalogo catalogo = new Catalogo();
+    static Session session = null;
+    static Transaction tx = null;
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void main(String[] args) {
 		// TODO Auto-generated method stub
-            /*
-		 Session session = null;
-	        Transaction tx = null;
-	        Articulo art = new Articulo("Lavadora AEG", 23.4);
+
+        /*
+         Articulo art = new Articulo("Lavadora AEG", 23.4);
 	        
-	        try {
-	            session = ConnectorHB.getSession();
-	            tx = session.beginTransaction();
-	            session.save(art);
-	            //El objecto art esta enlazado
+         try {
+         session = ConnectorHB.getSession();
+         tx = session.beginTransaction();
+         session.save(art);
+         //El objecto art esta enlazado
 	            
-	            art.setDescripcion("Seat Leon"); //Esto se modificara en la BD no los datos iniciales.
-	            tx.commit();
+         art.setDescripcion("Seat Leon"); //Esto se modificara en la BD no los datos iniciales.
+         
 	            
-	            List<Catalogo> listado = new ArrayList<Catalogo>();
-	            Query q = session.createQuery("from Catalogo");
-	            listado = q.list();
+         List<Catalogo> listado = new ArrayList<Catalogo>();
+         Query q = session.createQuery("from Catalogo");
+         listado = q.list();
 	            
-	            for (Catalogo catalogo : listado) {
-	            	System.out.println(catalogo.getDescripcion());
-	            	for(Articulo articulo: catalogo.getArticulos())
-	                System.out.println(articulo.getDescripcion());
-	            }
-	            System.out.println("Proceso finalizado...");
-	            //US DE QUERY SQL PER TROBAR OBJECTES
-	           List <Articulo> articulos = session.createSQLQuery("SELECT * FROM ARTICULO").addEntity(Articulo.class).list();
-	            for(Articulo articulo: articulos)
-	                System.out.println(articulo.getDescripcion());
+         for (Catalogo catalogo : listado) {
+         System.out.println(catalogo.getDescripcion());
+         for(Articulo articulo: catalogo.getArticulos())
+         System.out.println(articulo.getDescripcion());
+         }
+         System.out.println("Proceso finalizado...");
+         //US DE QUERY SQL PER TROBAR OBJECTES
+         List <Articulo> articulos = session.createSQLQuery("SELECT * FROM ARTICULO").addEntity(Articulo.class).list();
+         for(Articulo articulo: articulos)
+         System.out.println(articulo.getDescripcion());
 	            
 	  
-	            Query q1= session.createSQLQuery("SELECT descripcion from ARTICULO WHERE ID=1").addScalar("descripcion",StringType.INSTANCE);
-	          System.out.println("HE OBTINGUT LA DESCRIPCIO: "+q1.list().get(0));
+         Query q1= session.createSQLQuery("SELECT descripcion from ARTICULO WHERE ID=1").addScalar("descripcion",StringType.INSTANCE);
+         System.out.println("HE OBTINGUT LA DESCRIPCIO: "+q1.list().get(0));
 	            
-	        } catch (HibernateException e) {
-	            if(tx!=null && tx.isActive()) tx.rollback();
-	            e.printStackTrace();
-	        } finally {
-	            if(session!=null) session.close();
-	        }
+         } catch (HibernateException e) {
+         if(tx!=null && tx.isActive()) tx.rollback();
+         e.printStackTrace();
+         } finally {
+         if(session!=null) session.close();
+         }
 
-	}
-    */
-    
-    int menu_Recepta = 1;
-    int menu_Tipusplat = 1;
-    int menu_Tipusmenjar = 1;
-    int menu_Xef = 1;
-    int menu_Ingredient = 1;
-    
-    int opcMenu = 0;
-    
-    int exitCuinaUB = -1;
-    
-    while(exitCuinaUB != 1){
-        escriu("Menú Principal CuinaUB");
-        escriu("\n1-Recepta\n2-Tipus de plat\n3-Tipus de menjar\n4-Xef\n5-Ingredient");
-        opcMenu = llegeixInt();
-        
-        switch(opcMenu){
-             case 1://Recepta
-                 
-                 
-                 
-             case 2://Tipus Plat
-                 
-             case 3://Tipus Menjar
-                 
-             case 4://Xef
-                 
-             case 5://Ingredient
+         }
+         */
+        int opcMenu = 0;
+
+        int exitCuinaUB = -1;
+
+        while (exitCuinaUB != 1) {
+            escriu("Menú Principal CuinaUB");
+            escriu("\n1-Recepta\n2-Tipus de plat\n3-Tipus de menjar\n4-Xef\n5-Ingredient");
+            opcMenu = llegeixInt();
+
+            switch (opcMenu) {
+                case 1://Recepta
+
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
+
+                    int inputRecepta = llegeixInt();
+                    menuRecepta(inputRecepta);
+
+                case 2://Tipus Plat
+
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats");
+                    int inputPlat = llegeixInt();
+                    menuPlat(inputPlat);
+
+                case 3://Tipus Menjar
+
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir tipus de menjar\n2-Eliminar tipus de menjar\n3-Mostrar tipus de menjar");
+                    int tipusMenjar = llegeixInt();
+                    menuTipusMenjar(tipusMenjar);
+
+                case 4://Xef
+
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir xef\n2-Eliminar xef\n3-Mostrar xefs");
+                    int inputXef = llegeixInt();
+                    menuXef(inputXef);
+
+                case 5://Ingredient
+
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir ingredient\n2-Eliminar recepta\n3-Mostrar receptes");
+                    int inputIngredient = llegeixInt();
+                    menuIngredient(inputIngredient);
+            }
+
         }
-    
-    }
-    
 
-}
+    }
+
+    private static void menuRecepta(int inputRecepta) {
+
+        switch (inputRecepta) {
+
+            case 1://add
+                addRecepta();
+
+            case 2://delete
+
+            case 3://show
+
+        }
+
+    }
+
+    private static void menuPlat(int inputPlat) {
+
+        switch (inputPlat) {
+
+            case 1:
+
+            case 2:
+
+            case 3:
+
+        }
+
+    }
+
+    private static void menuTipusMenjar(int tipusMenjar) {
+
+        switch (tipusMenjar) {
+
+            case 1:
+
+            case 2:
+
+            case 3:
+
+        }
+
+    }
+
+    private static void menuXef(int inputXef) {
+
+        switch (inputXef) {
+
+            case 1:
+
+            case 2:
+
+            case 3:
+
+        }
+
+    }
+
+    private static void menuIngredient(int inputIngredient) {
+
+        switch (inputIngredient) {
+
+            case 1:
+
+            case 2:
+
+            case 3:
+
+        }
+
+    }
+
+    /**
+     *
+     */
+    private static void addRecepta() {
+
+        int id_Recepta, id_Xef = 0;
+        String elaboracio, temps, nom, dificultat;
+
+        escriu("Identificador de la recepta");
+        // id automatic
+        id_Recepta = catalogo.getReceptes().size() + 1;
+        // a quin xef pertany
+        mostrarXefs();
+        id_Xef = llegeixInt();
+        escriu("Elaboració:");
+        elaboracio = llegeixString();
+        escriu("Temps:");
+        temps = llegeixString();
+        escriu("Nom:");
+        nom = llegeixString();
+        escriu("Dificultat:");
+        dificultat = llegeixString();
+
+        Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
+        addObjectToBD(recepta);
+
+    }
+
+    private static void mostrarXefs() {
+
+        for (Xef xef : catalogo.getXef()) {
+            escriu(xef.getId_Xef());
+        }
+    }
+
+    private static void addObjectToBD(Recepta recepta) {
+
+        try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            session.save(recepta);
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
 }

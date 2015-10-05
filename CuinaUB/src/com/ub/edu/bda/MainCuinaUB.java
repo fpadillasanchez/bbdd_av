@@ -229,37 +229,7 @@ public class MainCuinaUB {
         }
     }
 
-    /**
-     *
-     */
-    private static void addRecepta() {
-
-        int id_Recepta, id_Xef = 0;
-        String elaboracio, temps, nom, dificultat;
-
-        escriu("Identificador de la recepta");
-        // id automatic
-        id_Recepta = catalogo.getReceptes().size() + 1;
-        // a quin xef pertany
-        mostrarXefs();
-        id_Xef = llegeixInt();
-        escriu("Elaboració:");
-        elaboracio = llegeixString();
-        escriu("Temps:");
-        temps = llegeixString();
-        escriu("Nom:");
-        nom = llegeixString();
-        escriu("Dificultat:");
-        dificultat = llegeixString();
-
-        Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
-        addRecepToBD(recepta);
-
-    }
-
-    
-
-    private static void addRecepToBD(Recepta recepta) {
+      private static void addRecepToBD(Recepta recepta) {
 
         try {
             session = ConnectorHB.getSession();
@@ -338,7 +308,34 @@ public class MainCuinaUB {
             }
         }
     }
-    
+     
+    /**
+     *
+     */
+    private static void addRecepta() {
+
+        int id_Recepta, id_Xef = 0;
+        String elaboracio, temps, nom, dificultat;
+
+        escriu("Identificador de la recepta");
+        // id automatic
+        id_Recepta = catalogo.getReceptes().size() + 1;
+        // a quin xef pertany
+        mostrarXefs();
+        id_Xef = llegeixInt();
+        escriu("Elaboració:");
+        elaboracio = llegeixString();
+        escriu("Temps:");
+        temps = llegeixString();
+        escriu("Nom:");
+        nom = llegeixString();
+        escriu("Dificultat:");
+        dificultat = llegeixString();
+
+        Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
+        addRecepToBD(recepta);
+
+    }
 
     private static void addPlat() {
         
@@ -392,6 +389,21 @@ public class MainCuinaUB {
     }
 
     private static void addTipusMenjar() {
+        
+        int id_Tipus = 0;
+        String nom;
+        
+        id_Tipus = catalogo.getTipusMenjar().size();
+        
+        escriu("Introdueix el nom del tipus de menjar.\n");
+        nom = llegeixString();
+        
+        Tipus_Menjar tM = new Tipus_Menjar(id_Tipus, id_Tipus, nom);
+        /*
+        TODO
+        */
+        
+        
     }
 
     private static void addXef() {

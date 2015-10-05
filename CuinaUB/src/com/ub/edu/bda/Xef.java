@@ -44,6 +44,12 @@ public Xef() {
         this.nom = nom;
     }
 
+    public String toStringNomId() {
+        return "Xef{" + "id_Xef=" + id_Xef + ", nom=" + nom + '}';
+    }
+    
+    
+
    
 
 //NOUS GETTERS I SETTERS

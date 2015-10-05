@@ -1,6 +1,6 @@
 package com.ub.edu.bda;
 
-public class pertany_Recepta_Ingredient {
+public class Pertany_Recepta_Ingredient {
 private Integer id_R_I;
 private Integer id_Recepta;
 private Integer id_Ingredient;
@@ -9,12 +9,12 @@ private Integer id_Ingredient;
 private Catalogo catalogo;
 
 
-public pertany_Recepta_Ingredient() {
+public Pertany_Recepta_Ingredient() {
 	super();
 	// TODO Auto-generated constructor stub
 }
 
-public pertany_Recepta_Ingredient(Integer id_R_I, Integer id_Recepta, Integer id_Ingredient) {
+public Pertany_Recepta_Ingredient(Integer id_R_I, Integer id_Recepta, Integer id_Ingredient) {
 	super();
 	this.id_R_I = id_R_I;
 	this.id_Recepta = id_Recepta;
@@ -23,7 +23,7 @@ public pertany_Recepta_Ingredient(Integer id_R_I, Integer id_Recepta, Integer id
 
 
 
-public pertany_Recepta_Ingredient(Integer id_Recepta, Integer id_Ingredient) {
+public Pertany_Recepta_Ingredient(Integer id_Recepta, Integer id_Ingredient) {
 	super();
 	this.id_Recepta = id_Recepta;
 	this.id_Ingredient = id_Ingredient;

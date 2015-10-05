@@ -126,10 +126,13 @@ public class MainCuinaUB {
 
             case 1://add
                 addRecepta();
+                break;
 
             case 2://delete
+                break;
 
             case 3://show
+                break;
 
         }
 
@@ -139,11 +142,15 @@ public class MainCuinaUB {
 
         switch (inputPlat) {
 
-            case 1:
+            case 1://add
+                addPlat();
+                break;
 
-            case 2:
+            case 2://delete
+                break;
 
-            case 3:
+            case 3://show
+                break;
 
         }
 
@@ -153,11 +160,15 @@ public class MainCuinaUB {
 
         switch (tipusMenjar) {
 
-            case 1:
+            case 1://add
+                addTipusMenjar();
+                break;
 
-            case 2:
+            case 2://delete
+                break;
 
-            case 3:
+            case 3://show
+                break;
 
         }
 
@@ -167,11 +178,15 @@ public class MainCuinaUB {
 
         switch (inputXef) {
 
-            case 1:
+            case 1://add
+                addXef(); 
+                break;
 
-            case 2:
+            case 2://delete
+                break;
 
-            case 3:
+            case 3://show
+                break;
 
         }
 
@@ -181,14 +196,31 @@ public class MainCuinaUB {
 
         switch (inputIngredient) {
 
-            case 1:
+            case 1://add
+                addIngredient();
+                break;
 
-            case 2:
+            case 2://delete
+                break;
 
-            case 3:
+            case 3://show
+                break;
 
         }
 
+    }
+    
+    private static void mostrarXefs() {
+
+        for (Xef xef : catalogo.getXef()) {
+            escriu(xef.getId_Xef());
+        }
+    }
+    
+    private static void mostrarReceptes(){
+        for(Recepta recepte: catalogo.getReceptes()){
+            escriu(recepte.toStringNomReceptId());
+        }
     }
 
     /**
@@ -215,18 +247,13 @@ public class MainCuinaUB {
         dificultat = llegeixString();
 
         Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
-        addObjectToBD(recepta);
+        addRecepToBD(recepta);
 
     }
 
-    private static void mostrarXefs() {
+    
 
-        for (Xef xef : catalogo.getXef()) {
-            escriu(xef.getId_Xef());
-        }
-    }
-
-    private static void addObjectToBD(Recepta recepta) {
+    private static void addRecepToBD(Recepta recepta) {
 
         try {
             session = ConnectorHB.getSession();
@@ -245,4 +272,96 @@ public class MainCuinaUB {
             }
         }
     }
+    
+    private static void addPlatToBD(Plat plat) {
+        
+        try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            session.save(plat);
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    private static void addPlat() {
+        
+        int id_Recepta,id_Plat = 0;
+        String nom, descripcio;
+        
+        mostrarReceptes();
+        id_Recepta = llegeixInt();
+        
+        escriu("ID del plat automàtic.\n");
+        id_Plat = catalogo.getPlat().size();
+        
+        escriu("Nom del plat:\n");
+        nom = llegeixString();
+        
+        escriu("Descripcio del plat");
+        descripcio = llegeixString();
+        
+        Plat plat = new Plat(id_Recepta, id_Plat, nom,descripcio);
+        addPlatToBD(plat);
+    
+    }
+    
+    private static void addXef(Xef xef) {
+        
+        try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            session.save(xef);
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    private static void addIngredient() {
+        
+        int id_Ingredient, id_Familia = 0;
+        
+    }
+
+    private static void addTipusMenjar() {
+    }
+
+    private static void addXef() {
+        int int_Estrelles, id_Xef = 0;
+        String nom;
+        
+        escriu("Quantes estrelles té el xef:\n");
+        int_Estrelles = llegeixInt();
+        
+        escriu("ID del xef automàtic\n");
+        id_Xef = catalogo.getXef().size();
+        
+        escriu("Nom del xef\n");
+        nom = llegeixString();
+        
+        Xef xef = new Xef(int_Estrelles, id_Xef, nom, catalogo);
+        addXef(xef);
+    }
+
+    
+
+    
 }

@@ -1,9 +1,10 @@
 package com.ub.edu.bda;
 
 public class Plat {
-private Integer id;
-private String descripcion;
-private double precio;
+private Integer id_Plat;
+private String descripcio;
+private String nom;
+private Integer id_Recepta;
 
 // afegim l'objecte cataleg en cardinalitat 1
 private Catalogo catalogo;
@@ -14,37 +15,48 @@ public Plat() {
 	// TODO Auto-generated constructor stub
 }
 
-    public Plat(Integer id, String descripcion, double precio, Catalogo catalogo) {
-        this.id = id;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.catalogo = catalogo;
+    public Plat(Integer id_Recepta, Integer id_Plat, String nom, String descripico) {
+        this.id_Plat = id_Plat;
+        this.descripcio = descripcio;
+        this.nom = nom;
+        this.id_Recepta = id_Recepta;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_Plat() {
+        return id_Plat;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_Plat(Integer id_Plat) {
+        this.id_Plat = id_Plat;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcio() {
+        return descripcio;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 
-    public double getPrecio() {
-        return precio;
+    public String getNom() {
+        return nom;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
+    public Integer getId_Recepta() {
+        return id_Recepta;
+    }
+
+    public void setId_Recepta(Integer id_Recepta) {
+        this.id_Recepta = id_Recepta;
+    }
+
+ 
+   
+    
 
 
 

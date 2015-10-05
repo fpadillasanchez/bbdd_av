@@ -75,6 +75,11 @@ public Recepta() {
         this.id_Xef = id_Xef;
     }
 
+    
+    public String toStringNomReceptId() {
+        return "Recepta{" + "id_Recepta=" + id_Recepta + ", nom=" + nom + '}';
+    }
+
 
 
 

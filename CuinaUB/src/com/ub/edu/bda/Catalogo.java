@@ -20,8 +20,11 @@ private Set<Plat> plat;
 
 private Set<Xef> xef;
 
+private Set<Ingredient> ingredients;
 
+private Set<Familia_Ingredients> familiaIngredients;
 
+    
 public Catalogo() {
 	super();
 
@@ -68,6 +71,22 @@ public Catalogo() {
 
     public void setXef(Set<Xef> xef) {
         this.xef = xef;
+    }
+    
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Set<Familia_Ingredients> getFamiliaIngredients() {
+        return familiaIngredients;
+    }
+
+    public void setFamiliaIngredients(Set<Familia_Ingredients> familiaIngredients) {
+        this.familiaIngredients = familiaIngredients;
     }
 
 

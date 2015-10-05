@@ -222,6 +222,12 @@ public class MainCuinaUB {
             escriu(recepte.toStringNomReceptId());
         }
     }
+    
+    private static void mostrarFamilies() {
+        for(Familia_Ingredients familia: catalogo.getFamiliaIngredients()){
+            escriu(familia.toStringIDNom());
+        }
+    }
 
     /**
      *
@@ -292,6 +298,47 @@ public class MainCuinaUB {
             }
         }
     }
+     private static void addIngredientToBD(Ingredient ingredient) {
+         
+         try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            session.save(ingredient);
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        
+    }
+     
+     private static void addXefToBD(Xef xef) {
+        
+        try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            session.save(xef);
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+    
 
     private static void addPlat() {
         
@@ -315,29 +362,32 @@ public class MainCuinaUB {
     
     }
     
-    private static void addXef(Xef xef) {
-        
-        try {
-            session = ConnectorHB.getSession();
-            tx = session.beginTransaction();
-            session.save(xef);
-            tx.commit();
-
-        } catch (HibernateException e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
+    
 
     private static void addIngredient() {
         
         int id_Ingredient, id_Familia = 0;
+        String refrigeracion, nom,familia;
+        
+        id_Ingredient = catalogo.getIngredients().size();
+        
+        mostrarFamilies();
+        
+        id_Familia = llegeixInt();
+        
+        escriu("Refrigeració?");
+        refrigeracion = llegeixString();
+        
+        escriu("Nom de la familia:\n");
+        familia = llegeixString();
+        
+        escriu("Nom ingredient:\n");
+        nom = llegeixString();
+        
+        Ingredient ingredient = new Ingredient(id_Ingredient, refrigeracion, id_Familia, familia,nom);
+        
+        addIngredientToBD(ingredient);
+        
         
     }
 
@@ -358,8 +408,12 @@ public class MainCuinaUB {
         nom = llegeixString();
         
         Xef xef = new Xef(int_Estrelles, id_Xef, nom, catalogo);
-        addXef(xef);
+        addXefToBD(xef);
     }
+
+   
+
+    
 
     
 

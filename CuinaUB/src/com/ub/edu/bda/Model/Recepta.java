@@ -7,6 +7,7 @@ private String temps;
 private String nom;
 private String dificultat;
 private Integer id_Xef;
+private Integer id_Plat;
 
 // afegim l'objecte cataleg en cardinalitat 1
 private Catalogo catalogo;
@@ -73,6 +74,17 @@ public Recepta() {
     public void setId_Xef(Integer id_Xef) {
         this.id_Xef = id_Xef;
     }
+
+    public Integer getId_Plat() {
+        return id_Plat;
+    }
+
+    public void setId_Plat(Integer id_Plat) {
+        this.id_Plat = id_Plat;
+    }
+
+
+    
 
     
     public String toStringNomReceptId() {

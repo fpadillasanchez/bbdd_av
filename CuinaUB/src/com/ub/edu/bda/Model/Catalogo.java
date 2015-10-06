@@ -9,6 +9,9 @@ import com.ub.edu.bda.Model.Tipus_Menjar;
 import java.util.Set;
 
 public class Catalogo {
+private Integer id ;
+private String nombre ;
+private String descripcion ;
 
 //afegim l'objecte Articulo amb cardinalitat N
 private Set<Recepta> receptes;
@@ -35,6 +38,12 @@ public Catalogo() {
 	super();
 
 }
+
+    public Catalogo(Integer id, String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
 
 //NOUS GETTERS I SETTERS
@@ -94,6 +103,31 @@ public Catalogo() {
     public void setFamiliaIngredients(Set<Familia_Ingredients> familiaIngredients) {
         this.familiaIngredients = familiaIngredients;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
 
 
 

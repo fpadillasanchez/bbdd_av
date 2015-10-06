@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="com.ub.edu.bda.Vista.Catalogo" table="CATALOGO">
+  <class name="com.ub.edu.bda.Model.Catalogo" table="CATALOGO">
     <id column="ID" name="id">
       <generator class="identity"/>
     </id>
     <property column="NOMBRE" name="nombre"/>
     <property column="DESCRIPCION" name="descripcion"/>
-    <set cascade="all" lazy="true" name="articulos" table="articulo">
+    <set cascade="all" lazy="true" name="receptes" table="recepta">
       <key>
         <column name="ID_CATALOGO"/>
         <!-- CAMP FK de la taula articulo -->
       </key>
-      <one-to-many class="com.ub.edu.bda.Model.Articulo"/>
+      <one-to-many class="com.ub.edu.bda.Model.Recepta"/>
     </set>
-    <set cascade="all" name="tiendas" table="TIENDA_CATALOGO">
-      <key column="IDCATALOGO"/>
-      <many-to-many class="com.ub.edu.bda.Vista.Tienda" column="IDTIENDA"/>
-    </set>
+    
   </class>
 </hibernate-mapping>

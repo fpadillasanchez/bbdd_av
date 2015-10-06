@@ -37,8 +37,8 @@ public class MainCuinaUB {
 		// TODO Auto-generated method stub
 
         
-         Recepta art = new Recepta(Integer.MIN_VALUE, null, null, null, null, Integer.SIZE, Integer.SIZE);
-	        
+         Recepta art = new Recepta(Integer.MIN_VALUE, null, null, null, null, 0, 1);
+	       
          try {
          session = ConnectorHB.getSession();
          tx = session.beginTransaction();
@@ -361,8 +361,8 @@ public class MainCuinaUB {
         escriu("Dificultat:");
         dificultat = llegeixString();
 
-        Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
-        addRecepToBD(recepta);
+        //Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
+       // addRecepToBD(recepta);
 
     }
 

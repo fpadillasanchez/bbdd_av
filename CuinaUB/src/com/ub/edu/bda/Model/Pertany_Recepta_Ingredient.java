@@ -1,4 +1,4 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
 public class Pertany_Recepta_Ingredient {
 private Integer id_R_I;

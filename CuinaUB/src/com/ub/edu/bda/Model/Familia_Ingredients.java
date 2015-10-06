@@ -1,4 +1,4 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
 public class Familia_Ingredients {
 

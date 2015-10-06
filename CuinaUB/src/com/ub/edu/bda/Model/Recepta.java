@@ -1,4 +1,4 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
 public class Recepta {
 private Integer id_Recepta;
@@ -9,7 +9,7 @@ private String dificultat;
 private Integer id_Xef;
 
 // afegim l'objecte cataleg en cardinalitat 1
-private Integer id_Plat;
+private Catalogo catalogo;
 
 
 public Recepta() {
@@ -24,8 +24,7 @@ public Recepta() {
         this.nom = nom;
         this.dificultat = dificultat;
         this.id_Xef = id_Xef;
-        this.id_Plat = id_Plat;
-    }
+       }
 
     public Integer getId_Recepta() {
         return id_Recepta;
@@ -88,13 +87,15 @@ public Recepta() {
 
 
 //NOUS GETTERS I SETTERS
-public Integer getId_Plat() {
-	return id_Plat;
-}
 
-public void setId_Plat(Integer id_Plat) {
-	this.id_Plat = id_Plat;
-}
+    public Catalogo getCatalogo() {
+        return catalogo;
+    }
+
+    public void setCatalogo(Catalogo catalogo) {
+        this.catalogo = catalogo;
+    }
+
 
 
 

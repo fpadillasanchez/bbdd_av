@@ -1,8 +1,15 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Vista;
 
-import static com.ub.edu.bda.Consola.escriu;
-import static com.ub.edu.bda.Consola.llegeixInt;
-import static com.ub.edu.bda.Consola.llegeixString;
+import com.ub.edu.bda.Model.Catalogo;
+import com.ub.edu.bda.Model.Plat;
+import com.ub.edu.bda.Model.Ingredient;
+import com.ub.edu.bda.Model.Familia_Ingredients;
+import com.ub.edu.bda.Model.Recepta;
+import com.ub.edu.bda.Model.Xef;
+import com.ub.edu.bda.Model.Tipus_Menjar;
+import static com.ub.edu.bda.Controlador.Consola.escriu;
+import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
+import static com.ub.edu.bda.Controlador.Consola.llegeixString;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -56,7 +63,7 @@ public class MainCuinaUB {
          for(Articulo articulo: articulos)
          System.out.println(articulo.getDescripcion());
 	            
-	  
+	 //PER TROBAR UN OBJECTE EN CONCRET
          Query q1= session.createSQLQuery("SELECT descripcion from ARTICULO WHERE ID=1").addScalar("descripcion",StringType.INSTANCE);
          System.out.println("HE OBTINGUT LA DESCRIPCIO: "+q1.list().get(0));
 	            
@@ -68,7 +75,8 @@ public class MainCuinaUB {
          }
 
          }
-         */
+        */
+         
         int opcMenu = 0;
 
         int exitCuinaUB = -1;
@@ -211,19 +219,21 @@ public class MainCuinaUB {
     }
     
     private static void mostrarXefs() {
-
+        //TODO
         for (Xef xef : catalogo.getXef()) {
             escriu(xef.getId_Xef());
         }
     }
     
     private static void mostrarReceptes(){
+        //TODO
         for(Recepta recepte: catalogo.getReceptes()){
             escriu(recepte.toStringNomReceptId());
         }
     }
     
     private static void mostrarFamilies() {
+        //TODO
         for(Familia_Ingredients familia: catalogo.getFamiliaIngredients()){
             escriu(familia.toStringIDNom());
         }
@@ -236,7 +246,7 @@ public class MainCuinaUB {
             tx = session.beginTransaction();
             session.save(recepta);
             tx.commit();
-
+            catalogo.getReceptes().add(recepta);
         } catch (HibernateException e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
@@ -295,6 +305,25 @@ public class MainCuinaUB {
             session = ConnectorHB.getSession();
             tx = session.beginTransaction();
             session.save(xef);
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+     
+     private static void addTipusMenjar(Tipus_Menjar tM) {
+         try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            session.save(tM);
             tx.commit();
 
         } catch (HibernateException e) {
@@ -397,11 +426,10 @@ public class MainCuinaUB {
         
         escriu("Introdueix el nom del tipus de menjar.\n");
         nom = llegeixString();
+        //La relació entre plat i el tipus de menjar no esta definida
+        Tipus_Menjar tM = new Tipus_Menjar(id_Tipus, null, nom);
+        addTipusMenjar(tM);
         
-        Tipus_Menjar tM = new Tipus_Menjar(id_Tipus, id_Tipus, nom);
-        /*
-        TODO
-        */
         
         
     }
@@ -422,6 +450,8 @@ public class MainCuinaUB {
         Xef xef = new Xef(int_Estrelles, id_Xef, nom, catalogo);
         addXefToBD(xef);
     }
+
+    
 
    
 

@@ -1,4 +1,4 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
 public class Plat {
 private Integer id_Plat;

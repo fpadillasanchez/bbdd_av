@@ -1,5 +1,11 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
+import com.ub.edu.bda.Model.Plat;
+import com.ub.edu.bda.Model.Ingredient;
+import com.ub.edu.bda.Model.Familia_Ingredients;
+import com.ub.edu.bda.Model.Recepta;
+import com.ub.edu.bda.Model.Xef;
+import com.ub.edu.bda.Model.Tipus_Menjar;
 import java.util.Set;
 
 public class Catalogo {

@@ -1,4 +1,4 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
 public class Xef {
 private Integer int_Estrelles;
@@ -43,6 +43,12 @@ public Xef() {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public String toStringNomId() {
+        return "Xef{" + "id_Xef=" + id_Xef + ", nom=" + nom + '}';
+    }
+    
+    
 
    
 

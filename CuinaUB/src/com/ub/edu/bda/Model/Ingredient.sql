@@ -1,5 +1,5 @@
 \echo ingredient
-CREATE TABLE ingredient{
+CREATE TABLE Ingredient{
 
 	id_Ingredient INTEGER PRIMARY KEY,
 	refrigeracio TEXT NOT NULL,

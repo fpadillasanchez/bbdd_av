@@ -1,11 +1,11 @@
-package com.ub.edu.bda;
+package com.ub.edu.bda.Model;
 
 public class Tipus_Menjar {
 private Integer id_Tipus;
 private Integer id_Recepta;
-// afegim l'objecte cataleg en cardinalitat 1
 private String nom;
 
+private Catalogo catalogo;
 
 public Tipus_Menjar() {
 	super();

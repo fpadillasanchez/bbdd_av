@@ -36,8 +36,8 @@ public class MainCuinaUB {
     public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-        /*
-         Articulo art = new Articulo("Lavadora AEG", 23.4);
+        
+         Recepta art = new Recepta(Integer.MIN_VALUE, null, null, null, null, Integer.SIZE, Integer.SIZE);
 	        
          try {
          session = ConnectorHB.getSession();
@@ -45,8 +45,8 @@ public class MainCuinaUB {
          session.save(art);
          //El objecto art esta enlazado
 	            
-         art.setDescripcion("Seat Leon"); //Esto se modificara en la BD no los datos iniciales.
-         
+         //art.setDescripcion("Seat Leon"); //Esto se modificara en la BD no los datos iniciales.
+         /*
 	            
          List<Catalogo> listado = new ArrayList<Catalogo>();
          Query q = session.createQuery("from Catalogo");
@@ -66,7 +66,7 @@ public class MainCuinaUB {
 	 //PER TROBAR UN OBJECTE EN CONCRET
          Query q1= session.createSQLQuery("SELECT descripcion from ARTICULO WHERE ID=1").addScalar("descripcion",StringType.INSTANCE);
          System.out.println("HE OBTINGUT LA DESCRIPCIO: "+q1.list().get(0));
-	            
+	         */   
          } catch (HibernateException e) {
          if(tx!=null && tx.isActive()) tx.rollback();
          e.printStackTrace();
@@ -74,8 +74,8 @@ public class MainCuinaUB {
          if(session!=null) session.close();
          }
 
-         }
-        */
+         
+        
          
         int opcMenu = 0;
 

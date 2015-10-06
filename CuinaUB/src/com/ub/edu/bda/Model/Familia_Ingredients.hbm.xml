@@ -5,7 +5,22 @@
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-
+    <class name="com.ub.edu.bda.Model.Familia_Ingredients" table="Familia_Ingredients">
+    <id column="ID" name="id_FamiliaIngredients">
+      <generator class="identity"/>
+    </id>
+    <property column="ID_FAMILIES" name="ID_FAMILIES"/>
+    <property column="ESTRELLES" name="int_Estrelles"/>
+    <set cascade="all" name="catalogos" table="TIENDA_CATALOGO">
+      <key column="IDTIENDA"/>
+      <many-to-many class="com.ub.edu.bda.Vista.Catalogo" column="IDCATALOGO"/>
+    </set>
+  </class>
   
 
 </hibernate-mapping>
+
+id_Familia INTEGER PRIMARY KEY,
+	nom TEXT NOT NULL,
+	descripcio character varying(60)
+		

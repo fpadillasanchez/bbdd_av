@@ -10,8 +10,8 @@
     <property column="NOM" name="nom"/>
     <property column="ESTRELLES" name="int_Estrelles"/>
         
-         <many-to-one name="catalogo" class="com.ub.edu.bda.Model.Catalogo" fetch="select">
+         <one-to-many name="catalogo" class="com.ub.edu.bda.Model.Catalogo" fetch="select">
            <column name="ID_CATALOGO" /> <!-- CAMP FK de la taula articulo IDENTICS A LES DUES ENTITATS --> 
-       </many-to-one>
+       </one-to-many>
     </class>
 </hibernate-mapping>

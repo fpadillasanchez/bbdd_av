@@ -20,6 +20,7 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 
 public class MainCuinaUB {
@@ -192,6 +193,7 @@ public class MainCuinaUB {
                 break;
 
             case 2://delete
+                deleteXef(0);
                 break;
 
             case 3:mostrarXefs();//show
@@ -226,7 +228,7 @@ public class MainCuinaUB {
 	    tx = session.beginTransaction();
             List <Xef> xefs = session.createSQLQuery("SELECT * FROM xef").addEntity(Xef.class).list();
 	    for(Xef xef: xefs)
-	        System.out.println(xef.getNom());
+	        System.out.println(xef.toStringNomId());
             } catch (HibernateException e) {
 	        if(tx!=null && tx.isActive()) tx.rollback();
 	            e.printStackTrace();
@@ -453,13 +455,27 @@ public class MainCuinaUB {
         int_Estrelles = llegeixInt();
         
         escriu("ID del xef automàtic\n");
-        id_Xef =3;// catalogo.getXef().size();
+        id_Xef = 0;// catalogo.getXef().size();
         
         escriu("Nom del xef\n");
         nom = llegeixString();
         
         Xef xef = new Xef(int_Estrelles, id_Xef, nom);
         addXefToBD(xef);
+    }
+
+    private static void deleteXef(int idXef) {
+       try {
+	    session = ConnectorHB.getSession();
+	    tx = session.beginTransaction();
+            Query q1= session.createSQLQuery("SELECT id FROM xef WHERE ID="+idXef).addScalar("id_Xef");
+	    System.out.println("Delete: "+q1.list().remove(idXef));
+            } catch (HibernateException e) {
+	        if(tx!=null && tx.isActive()) tx.rollback();
+	            e.printStackTrace();
+	    } finally {
+	        if(session!=null) session.close();
+	    }
     }
 
     

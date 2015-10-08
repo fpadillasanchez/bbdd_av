@@ -18,7 +18,7 @@
     <!--<mapping resource="com/ub/edu/bda/Model/Familia_Ingredients.hbm.xml"/>-->
     <!--<mapping resource="com/ub/edu/bda/Model/Pertany_Recepta_Ingredient.hbm.xml"/>-->
     <!--<mapping resource="com/ub/edu/bda/Model/Plat.hbm.xml"/>-->
-    <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>
+    <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
     <!--<mapping resource="com/ub/edu/bda/Model/Tipus_Menjar.hbm.xml"/>-->
   </session-factory>
 </hibernate-configuration>

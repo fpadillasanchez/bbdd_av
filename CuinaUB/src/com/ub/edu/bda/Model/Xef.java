@@ -13,7 +13,7 @@ public Xef() {
 	// TODO Auto-generated constructor stub
 }
 
-    public Xef(Integer int_Estrelles, Integer id_Xef, String nom, Catalogo catalogo) {
+    public Xef(Integer int_Estrelles, Integer id_Xef, String nom) {
         this.int_Estrelles = int_Estrelles;
         this.id_Xef = id_Xef;
         this.nom = nom;

@@ -5,13 +5,13 @@
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.ub.edu.bda.Model.Xef" table="XEF">
-    <id column="ID" name="id_Plat">
+    <class name="com.ub.edu.bda.Model.Plat" table="PLAT">
+    <id column="IDPLAT" name="id_Plat">
       <generator class="identity"/>
     </id>
     <property column="NOM" name="nom"/>
-    <property column="DESCRIPCIO" name="descripcio/>
-    <property column="IDRECEPTA" name="id_Recepta/>
+    <property column="DESCRIPCIO" name="descripcio"/>
+    <property column="IDRECEPTA" name="id_Recepta"/>
         
          
     </class>

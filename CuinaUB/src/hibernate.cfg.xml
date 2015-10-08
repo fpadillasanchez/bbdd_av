@@ -15,6 +15,7 @@
     
     <mapping resource="com/ub/edu/bda/Model/Catalogo.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
+    <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>
     <!--<mapping/>
     <mapping/>
     <mapping/>

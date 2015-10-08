@@ -35,10 +35,9 @@ public class MainCuinaUB {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void main(String[] args) {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
-        
-         /* Xef art = new Xef(1,1,"Lavadora AEG",catalogo);
+        /* Xef art = new Xef(1,1,"Lavadora AEG",catalogo);
 	        
          try {
          session = ConnectorHB.getSession();
@@ -65,7 +64,7 @@ public class MainCuinaUB {
          for(Articulo articulo: articulos)
          System.out.println(articulo.getDescripcion());
 	            
-	 //PER TROBAR UN OBJECTE EN CONCRET
+         //PER TROBAR UN OBJECTE EN CONCRET
          Query q1= session.createSQLQuery("SELECT descripcion from ARTICULO WHERE ID=1").addScalar("descripcion",StringType.INSTANCE);
          System.out.println("HE OBTINGUT LA DESCRIPCIO: "+q1.list().get(0));
 	           
@@ -74,11 +73,7 @@ public class MainCuinaUB {
          e.printStackTrace();
          } finally {
          if(session!=null) session.close();
-         }*/ 
-
-         
-        
-         
+         }*/
         int opcMenu = 0;
 
         int exitCuinaUB = -1;
@@ -91,11 +86,11 @@ public class MainCuinaUB {
             switch (opcMenu) {
                 case 1://Recepta
 
-//                    escriu("Accions disponibles a la base de dades\n");
-//                    escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
-//
-//                    int inputRecepta = llegeixInt();
-//                    menuRecepta(inputRecepta);
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
+
+                    int inputRecepta = llegeixInt();
+                    menuRecepta(inputRecepta);
 
                 case 2://Tipus Plat
 
@@ -103,14 +98,12 @@ public class MainCuinaUB {
 //                    escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats");
 //                    int inputPlat = llegeixInt();
 //                    menuPlat(inputPlat);
-
                 case 3://Tipus Menjar
 
 //                    escriu("Accions disponibles a la base de dades\n");
 //                    escriu("\n1-Afegir tipus de menjar\n2-Eliminar tipus de menjar\n3-Mostrar tipus de menjar");
 //                    int tipusMenjar = llegeixInt();
 //                    menuTipusMenjar(tipusMenjar);
-
                 case 4://Xef
 
                     escriu("Accions disponibles a la base de dades\n");
@@ -130,24 +123,23 @@ public class MainCuinaUB {
 
     }
 
-//    private static void menuRecepta(int inputRecepta) {
-//
-//        switch (inputRecepta) {
-//
-//            case 1://add
-//                addRecepta();
-//                break;
-//
-//            case 2://delete
-//                break;
-//
-//            case 3://show
-//                break;
-//
-//        }
-//
-//    }
+    private static void menuRecepta(int inputRecepta) {
 
+        switch (inputRecepta) {
+
+            case 1://add
+                addRecepta();
+                break;
+
+            case 2://delete
+                break;
+
+            case 3://show
+                break;
+
+        }
+
+    }
 //    private static void menuPlat(int inputPlat) {
 //
 //        switch (inputPlat) {
@@ -165,7 +157,6 @@ public class MainCuinaUB {
 //        }
 //
 //    }
-
 //    private static void menuTipusMenjar(int tipusMenjar) {
 //
 //        switch (tipusMenjar) {
@@ -189,14 +180,15 @@ public class MainCuinaUB {
         switch (inputXef) {
 
             case 1://add
-                addXef(); 
+                addXef();
                 break;
 
             case 2://delete
                 deleteXef(0);
                 break;
 
-            case 3:mostrarXefs();//show
+            case 3:
+                mostrarXefs();//show
                 break;
 
         }
@@ -220,64 +212,54 @@ public class MainCuinaUB {
 //        }
 //
 //    }
-    
     private static void mostrarXefs() {
         //TODO
         try {
-	    session = ConnectorHB.getSession();
-	    tx = session.beginTransaction();
-            List <Xef> xefs = session.createSQLQuery("SELECT * FROM xef").addEntity(Xef.class).list();
-	    for(Xef xef: xefs)
-	        System.out.println(xef.toStringNomId());
-            } catch (HibernateException e) {
-	        if(tx!=null && tx.isActive()) tx.rollback();
-	            e.printStackTrace();
-	    } finally {
-	        if(session!=null) session.close();
-	    }
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            List<Catalogo> listado = new ArrayList<Catalogo>();
+            Query q = session.createQuery("from Catalogo");
+            listado = q.list();
+
+            for (Catalogo catalogo : listado) {
+                System.out.println(catalogo.getDescripcion());
+                for (Xef xef : catalogo.getXefs()) {
+                    System.out.println(xef.toStringNomId());
+                }
+            }
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
-    
+
 //    private static void mostrarReceptes(){
 //        //TODO
 //        for(Recepta recepte: catalogo.getReceptes()){
 //            escriu(recepte.toStringNomReceptId());
 //        }
 //    }
-    
 //    private static void mostrarFamilies() {
 //        //TODO
 //        for(Familia_Ingredients familia: catalogo.getFamiliaIngredients()){
 //            escriu(familia.toStringIDNom());
 //        }
 //    }
+    private static void addRecepToBD(Recepta recepta) {
 
-//      private static void addRecepToBD(Recepta recepta) {
-//
-//        try {
-//            session = ConnectorHB.getSession();
-//            tx = session.beginTransaction();
-//            session.save(recepta);
-//            tx.commit();
-//            catalogo.getReceptes().add(recepta);
-//        } catch (HibernateException e) {
-//            if (tx != null && tx.isActive()) {
-//                tx.rollback();
-//            }
-//            e.printStackTrace();
-//        } finally {
-//            if (session != null) {
-//                session.close();
-//            }
-//        }
-//    }
-    
-    private static void addPlatToBD(Plat plat) {
-        
         try {
             session = ConnectorHB.getSession();
             tx = session.beginTransaction();
-            session.save(plat);
+            session.save(recepta);
             tx.commit();
+            System.out.println("Recepta guardat a la BD\n");
 
         } catch (HibernateException e) {
             if (tx != null && tx.isActive()) {
@@ -290,35 +272,57 @@ public class MainCuinaUB {
             }
         }
     }
+    /*
+     private static void addPlatToBD(Plat plat) {
+
+     try {
+     session = ConnectorHB.getSession();
+     tx = session.beginTransaction();
+     session.save(plat);
+     tx.commit();
+
+     } catch (HibernateException e) {
+     if (tx != null && tx.isActive()) {
+     tx.rollback();
+     }
+     e.printStackTrace();
+     } finally {
+     if (session != null) {
+     session.close();
+     }
+     }
+     }
+
      private static void addIngredientToBD(Ingredient ingredient) {
-         
-         try {
-            session = ConnectorHB.getSession();
-            tx = session.beginTransaction();
-            session.save(ingredient);
-            tx.commit();
 
-        } catch (HibernateException e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        
-    }
-     
-     private static void addXefToBD(Xef xef) {
-        
+     try {
+     session = ConnectorHB.getSession();
+     tx = session.beginTransaction();
+     session.save(ingredient);
+     tx.commit();
+
+     } catch (HibernateException e) {
+     if (tx != null && tx.isActive()) {
+     tx.rollback();
+     }
+     e.printStackTrace();
+     } finally {
+     if (session != null) {
+     session.close();
+     }
+     }
+
+     }
+     */
+
+    private static void addXefToBD(Xef xef) {
+
         try {
             session = ConnectorHB.getSession();
             tx = session.beginTransaction();
             session.save(xef);
             tx.commit();
-            System.out.println("xef guardat a la BD");
+            System.out.println("xef guardat a la BD\n");
 
         } catch (HibernateException e) {
             if (tx != null && tx.isActive()) {
@@ -331,9 +335,9 @@ public class MainCuinaUB {
             }
         }
     }
-     
-     private static void addTipusMenjar(Tipus_Menjar tM) {
-         try {
+
+    private static void addTipusMenjar(Tipus_Menjar tM) {
+        try {
             session = ConnectorHB.getSession();
             tx = session.beginTransaction();
             session.save(tM);
@@ -350,34 +354,39 @@ public class MainCuinaUB {
             }
         }
     }
-     
-    /**
-     *
-    
+
     private static void addRecepta() {
 
-        int id_Recepta, id_Xef = 0;
+        int id_Recepta, id_Xef, id_Plat = 0;
         String elaboracio, temps, nom, dificultat;
 
-        escriu("Identificador de la recepta");
-        // id automatic
-        id_Recepta = catalogo.getReceptes().size() + 1;
-        // a quin xef pertany
+        escriu("Identificador de la recepta"); // id automatic id_Recepta =
+        id_Recepta = llegeixInt();
+        
         mostrarXefs();
+        escriu("Escull el responsable de la recepta(xef):\n");
         id_Xef = llegeixInt();
+        
         escriu("Elaboració:");
-        elaboracio = llegeixString();
+        elaboracio= llegeixString();
+        
         escriu("Temps:");
         temps = llegeixString();
+        
         escriu("Nom:");
         nom = llegeixString();
+        
         escriu("Dificultat:");
         dificultat = llegeixString();
+        
+        //escriu("Escull plat");
+        //id_Plat = llegeixInt();
 
-        Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom, dificultat, id_Xef, id_Xef);
+        Recepta recepta = new Recepta(id_Recepta, elaboracio, temps, nom,
+                dificultat, id_Xef, null);
         addRecepToBD(recepta);
 
-    } */
+    }
 
 //    private static void addPlat() {
 //        
@@ -400,9 +409,6 @@ public class MainCuinaUB {
 //        addPlatToBD(plat);
 //    
 //    }
-    
-    
-
 //    private static void addIngredient() {
 //        
 //        int id_Ingredient, id_Familia = 0;
@@ -429,7 +435,6 @@ public class MainCuinaUB {
 //        
 //        
 //    }
-
 //    private static void addTipusMenjar() {
 //        
 //        int id_Tipus = 0;
@@ -446,45 +451,39 @@ public class MainCuinaUB {
 //        
 //        
 //    }
-
     private static void addXef() {
         int int_Estrelles, id_Xef = 0;
         String nom;
-        
+
         escriu("Quantes estrelles té el xef:\n");
         int_Estrelles = llegeixInt();
-        
+
         escriu("ID del xef automàtic\n");
         id_Xef = 0;// catalogo.getXef().size();
-        
+
         escriu("Nom del xef\n");
         nom = llegeixString();
-        
+
         Xef xef = new Xef(int_Estrelles, id_Xef, nom);
         addXefToBD(xef);
     }
-
+    //TODO
     private static void deleteXef(int idXef) {
-       try {
-	    session = ConnectorHB.getSession();
-	    tx = session.beginTransaction();
-            Query q1= session.createSQLQuery("SELECT id FROM xef WHERE ID="+idXef).addScalar("id_Xef");
-	    System.out.println("Delete: "+q1.list().remove(idXef));
-            } catch (HibernateException e) {
-	        if(tx!=null && tx.isActive()) tx.rollback();
-	            e.printStackTrace();
-	    } finally {
-	        if(session!=null) session.close();
-	    }
+        try {
+
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
-    
-
-   
-
-    
-
-    
-
-    
 }

@@ -1,11 +1,14 @@
 package com.ub.edu.bda.Model;
 
+import java.util.Set;
+
 public class Xef {
 private Integer int_Estrelles;
 private Integer id_Xef;
 private String nom;
+private Set<Recepta> receptes;
 // afegim l'objecte cataleg en cardinalitat 1
-private Catalogo catalogo;
+
 
 
 public Xef() {
@@ -13,11 +16,10 @@ public Xef() {
 	// TODO Auto-generated constructor stub
 }
 
-    public Xef(Integer int_Estrelles, Integer id_Xef, String nom) {
+    public Xef(Integer int_Estrelles, String nom) {
         this.int_Estrelles = int_Estrelles;
-        this.id_Xef = id_Xef;
         this.nom = nom;
-        this.catalogo = catalogo;
+
     }
 
     public Integer getInt_Estrelles() {
@@ -47,17 +49,20 @@ public Xef() {
     public String toStringNomId() {
         return "Xef{" + "id_Xef=" + id_Xef + ", nom=" + nom + '}';
     }
+    public void setReceptes(Set<Recepta> recepta) {
+       this.receptes = recepta;
+    }
+    public Set<Recepta> getReceptes() {
+       return this.receptes;
+    }
     
+    /* Class functions */ 
+    public void addRecepta(Recepta recepta) { 
+        this.receptes.add(recepta); 
+    }    
     
 
    
 
-//NOUS GETTERS I SETTERS
-public Catalogo getCatalogo() {
-	return catalogo;
-}
 
-public void setCatalogo(Catalogo catalogo) {
-	this.catalogo = catalogo;
-}
 }

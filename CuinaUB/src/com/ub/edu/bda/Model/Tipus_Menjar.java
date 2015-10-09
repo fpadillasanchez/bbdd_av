@@ -5,7 +5,7 @@ private Integer id_Tipus;
 private Integer id_Recepta;
 private String nom;
 
-private Catalogo catalogo;
+
 
 public Tipus_Menjar() {
 	super();

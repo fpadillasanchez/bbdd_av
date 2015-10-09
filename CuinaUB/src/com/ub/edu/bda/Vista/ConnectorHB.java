@@ -9,7 +9,8 @@ import org.hibernate.cfg.Configuration;
 
 @SuppressWarnings("deprecation")
 public class ConnectorHB {
-    private static SessionFactory sf = null;
+    private static SessionFactory sf;
+    
     
     public ConnectorHB() {
 

@@ -2,7 +2,7 @@ package com.ub.edu.bda.Model;
 
 import java.util.Set;
 
-public class Xef {
+public class Xef implements java.io.Serializable{
 private Integer int_Estrelles;
 private Integer id_Xef;
 private String nom;

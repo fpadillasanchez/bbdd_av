@@ -2,20 +2,19 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
-    <class name="com.ub.edu.bda.Recepta" table="recepta">
+<hibernate-mapping package="com.ub.edu.bda.Model">
+    <class name="recepta" table="recepta">
         <id name="id_Recepta" column="id_Recepta">
             <generator class="identity" />
         </id>
-        <property name="elaboracio" column="elaboracio" />
-        <property name="temps" column="temps" />
-        <property name="nom" column="nom" />
-        <property name="dificultat" column="dificultat" />
-        <property name="id_Xef" column="id_Xef" />
-        <property name="id_Plat" column="id_Plat" />
+        <property name="elaboracio" type="string" column="elaboracio" />
+        <property name="temps" type="string" column="temps" />
+        <property name="nom" type="int" column="nom" />
+        <property name="dificultat" type="string" column="dificultat" />
+
         
-         <many-to-one name="catalogo" class="com.ub.edu.bda.Catalogo" fetch="select">
-           <column name="ID_CATALOGO" /> <!-- CAMP FK de la taula articulo IDENTICS A LES DUES ENTITATS --> 
+         <many-to-one name="xef" class="Xef" fetch="select">
+           <column name="ID" /> <!-- CAMP FK de la taula articulo IDENTICS A LES DUES ENTITATS --> 
        </many-to-one>
     </class>
 </hibernate-mapping>

@@ -6,23 +6,23 @@ private String elaboracio;
 private String temps;
 private String nom;
 private String dificultat;
-private Integer id_Xef;
+private Xef id_Xef;
 
 
 
 
 public Recepta() {
-	super();
+	
 	// TODO Auto-generated constructor stub
 }
 
-    public Recepta(Integer id_Recepta, String elaboracio, String temps, String nom, String dificultat, Integer id_Xef, Integer id_Plat) {
-        this.id_Recepta = id_Recepta;
+    public Recepta(String elaboracio, String temps, String nom, String dificultat) {
+
         this.elaboracio = elaboracio;
         this.temps = temps;
         this.nom = nom;
         this.dificultat = dificultat;
-        this.id_Xef = id_Xef;
+       
        }
 
     public Integer getId_Recepta() {
@@ -65,13 +65,15 @@ public Recepta() {
         this.dificultat = dificultat;
     }
 
-    public Integer getId_Xef() {
+    public Xef getId_Xef() {
         return id_Xef;
     }
 
-    public void setId_Xef(Integer id_Xef) {
+    public void setId_Xef(Xef id_Xef) {
         this.id_Xef = id_Xef;
     }
+
+   
 
     
     public String toStringNomReceptId() {

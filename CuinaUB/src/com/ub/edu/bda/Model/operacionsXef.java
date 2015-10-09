@@ -8,7 +8,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import com.ub.edu.bda.Model.Xef;
 import com.ub.edu.bda.Vista.ConnectorHB;
 
 /**
@@ -16,8 +15,8 @@ import com.ub.edu.bda.Vista.ConnectorHB;
  * @author oriol
  */
 public class operacionsXef {
-    private Session sesion; 
-    private Transaction tx;
+    private Session sesion = null;
+    private Transaction tx = null;
     
     public Xef getXef(int id_Xef) throws HibernateException { 
         Xef xef = null;  

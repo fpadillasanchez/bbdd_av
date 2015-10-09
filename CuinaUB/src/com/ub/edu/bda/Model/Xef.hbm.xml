@@ -2,16 +2,19 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
-    <class name="com.ub.edu.bda.Model.Xef" table="XEF">
-    <id column="ID" name="id_Xef">
+<hibernate-mapping package="com.ub.edu.bda.Model">
+    <class name="xef" table="xef">
+    <id column="ID" type = "int" name="id_Xef">
       <generator class="identity"/>
     </id>
-    <property column="NOM" name="nom"/>
-    <property column="ESTRELLES" name="int_Estrelles"/>
+    <property column="NOM" type="string" name="nom"/>
+    <property column="ESTRELLES" type="int" name="int_Estrelles"/>
         
-         <many-to-one name="catalogo" class="com.ub.edu.bda.Model.Catalogo" fetch="select">
-           <column name="ID_CATALOGO" /> <!-- CAMP FK de la taula articulo IDENTICS A LES DUES ENTITATS --> 
-       </many-to-one>
+    <set name="receptes" table="recepta" lazy="true" cascade="all">
+           <key>
+               <column name="id_Xef" /> 
+           </key>
+            <one-to-many class="Recepta" /> 
+    </set>
     </class>
 </hibernate-mapping>

@@ -5,7 +5,7 @@
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.ub.edu.bda.Model.Plat" table="PLAT">
+    <class name="Plat" table="PLAT">
     <id column="IDPLAT" name="id_Plat">
       <generator class="identity"/>
     </id>

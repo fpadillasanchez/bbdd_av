@@ -1,5 +1,10 @@
 package com.ub.edu.bda.Model;
 
+/**
+ *
+ * @author Oriol
+ * @author Fernando
+ */
 public class Familia_Ingredients {
 
     private Integer id_familiaIngredients;
@@ -7,13 +12,10 @@ public class Familia_Ingredients {
     private String nom;
 
 // afegim l'objecte cataleg en cardinalitat 1
-
-
     public Familia_Ingredients() {
         super();
-	// TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
-
 
     public Familia_Ingredients(String descripcio, String nom) {
         super();
@@ -37,8 +39,6 @@ public class Familia_Ingredients {
         this.nom = nom;
     }
 
-
-
     public String getDescripcio() {
         return descripcio;
     }
@@ -55,7 +55,6 @@ public class Familia_Ingredients {
         this.nom = nom;
     }
 //NOUS GETTERS I SETTERS
-
 
     public String toStringIDNom() {
         return "Familia_Ingredients{" + "id_Familia=" + id_familiaIngredients + ", nom=" + nom + '}';

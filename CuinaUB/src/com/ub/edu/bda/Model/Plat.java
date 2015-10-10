@@ -3,20 +3,22 @@ package com.ub.edu.bda.Model;
 import java.util.Set;
 
 public class Plat {
-private Integer id_Plat;
-private String descripcio;
-private String nom;
-private Integer id_Recepta;
-private Set<Recepta> receptes;
 
+    private Integer id_Plat;
+    private String descripcio;
+    private String nom;
+    private Integer id_Recepta;
+    private Set<Recepta> receptes;
 
-
-
-
-public Plat() {
-	super();
+    /**
+     *
+     * @author Oriol
+     * @author Fernando
+     */
+    public Plat() {
+        super();
 	// TODO Auto-generated constructor stub
-}
+    }
 
     public Plat(String nom, String descrip) {
         this.descripcio = descrip;
@@ -47,16 +49,22 @@ public Plat() {
         this.nom = nom;
     }
 
-
     public void setReceptes(Set<Recepta> recepta) {
-       this.receptes = recepta;
+        this.receptes = recepta;
     }
+
     public Set<Recepta> getReceptes() {
-       return this.receptes;
+        return this.receptes;
     }
-    
-    /* Class functions */ 
-    public void addRecepta(Recepta recepta) { 
-        this.receptes.add(recepta); 
-    }  
+
+    /* Class functions */
+    public void addRecepta(Recepta recepta) {
+        this.receptes.add(recepta);
+    }
+
+    @Override
+    public String toString() {
+        return "Plat{" + "id_Plat=" + id_Plat + ", descripcio=" + descripcio + ", nom=" + nom + ", id_Recepta=" + id_Recepta + '}';
+    }
+
 }

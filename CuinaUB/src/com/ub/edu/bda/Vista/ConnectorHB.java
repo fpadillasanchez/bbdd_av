@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+
+
 @SuppressWarnings("deprecation")
 public class ConnectorHB {
     private static SessionFactory sf = null;

@@ -1,22 +1,24 @@
 package com.ub.edu.bda.Model;
 
 public class Tipus_Menjar {
-private Integer id_Tipus;
 
-private String nom;
+    private Integer id_Tipus;
 
+    private String nom;
 
-
-public Tipus_Menjar() {
-	super();
+    /**
+     *
+     * @author Oriol
+     * @author Fernando
+     */
+    public Tipus_Menjar() {
+        super();
 	// TODO Auto-generated constructor stub
-}
+    }
 
     public Tipus_Menjar(String nom) {
         this.nom = nom;
     }
-
-
 
     public Integer getId_Tipus() {
         return id_Tipus;
@@ -33,6 +35,5 @@ public Tipus_Menjar() {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
 
 }

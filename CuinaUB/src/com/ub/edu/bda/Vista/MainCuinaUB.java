@@ -1,23 +1,24 @@
 package com.ub.edu.bda.Vista;
 
-
+import Gestions.GestionsPlat;
+import Gestions.GestionsTipusMenjar;
+import Gestions.GestionsXef;
 import com.ub.edu.bda.Model.*;
-import com.ub.edu.bda.Model.Tipus_Menjar;
 import static com.ub.edu.bda.Controlador.Consola.escriu;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
 import static com.ub.edu.bda.Controlador.Consola.llegeixString;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.type.IntegerType;
-import org.hibernate.type.StringType;
+
+
+
+/**
+ *
+ * @author Oriol
+ * @author Fernando
+ */
+
 
 public class MainCuinaUB {
     /*
@@ -27,48 +28,14 @@ public class MainCuinaUB {
 
     static Session session = null;
     static Transaction tx = null;
+    static GestionsPlat gpPlat = new GestionsPlat();
+    static GestionsTipusMenjar gpTMenjar = new GestionsTipusMenjar();
+    static GestionsXef gfXef = new GestionsXef();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
-        /* Xef art = new Xef(1,1,"Lavadora AEG",catalogo);
-	        
-         try {
-         session = ConnectorHB.getSession();
-         tx = session.beginTransaction();
-         session.save(art);
-         tx.commit();
-         //El objecto art esta enlazado
-	           
-         art.setDescripcion("Seat Leon"); //Esto se modificara en la BD no los datos iniciales.
-         
-	            
-         List<Catalogo> listado = new ArrayList<Catalogo>();
-         Query q = session.createQuery("from Catalogo");
-         listado = q.list();
-	            
-         for (Catalogo catalogo : listado) {
-         System.out.println(catalogo.getDescripcion());
-         for(Articulo articulo: catalogo.getArticulos())
-         System.out.println(articulo.getDescripcion());
-         }
-         System.out.println("Proceso finalizado...");
-         //US DE QUERY SQL PER TROBAR OBJECTES
-         List <Articulo> articulos = session.createSQLQuery("SELECT * FROM ARTICULO").addEntity(Articulo.class).list();
-         for(Articulo articulo: articulos)
-         System.out.println(articulo.getDescripcion());
-	            
-         //PER TROBAR UN OBJECTE EN CONCRET
-         Query q1= session.createSQLQuery("SELECT descripcion from ARTICULO WHERE ID=1").addScalar("descripcion",StringType.INSTANCE);
-         System.out.println("HE OBTINGUT LA DESCRIPCIO: "+q1.list().get(0));
-	           
-         } catch (HibernateException e) {
-         if(tx!=null && tx.isActive()) tx.rollback();
-         e.printStackTrace();
-         } finally {
-         if(session!=null) session.close();
-         }*/
         int opcMenu = 0;
 
         int exitCuinaUB = -1;
@@ -87,25 +54,26 @@ public class MainCuinaUB {
                     menuRecepta(inputRecepta);
 
                 case 2://Tipus Plat
-
+                    OperacionsPlat operacionsPlat = new OperacionsPlat();
                     escriu("Accions disponibles a la base de dades\n");
-                    escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats");
+                    escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats\n4-Actualitza plats");
                     int inputPlat = llegeixInt();
-                    menuPlat(inputPlat);
+                    gpPlat.menuPlat(inputPlat, operacionsPlat);
+                    
                     break;
                 case 3://Tipus Menjar
-
+                    OperacionsTipusMenjar operacionsTipMenjar = new OperacionsTipusMenjar();
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir tipus de menjar\n2-Eliminar tipus de menjar\n3-Mostrar tipus de menjar");
                     int tipusMenjar = llegeixInt();
-                    menuTipusMenjar(tipusMenjar);
+                    gpTMenjar.menuTipusMenjar(tipusMenjar,operacionsTipMenjar);
                     break;
                 case 4://Xef
-
+                    OperacionsXef opXef = new OperacionsXef();
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir xef\n2-Eliminar xef\n3-Mostrar xefs");
                     int inputXef = llegeixInt();
-                    menuXef(inputXef);
+                    gfXef.menuXef(inputXef, opXef);
                     break;
 
                 case 5://Ingredient
@@ -115,16 +83,16 @@ public class MainCuinaUB {
                     int inputIngredient = llegeixInt();
                     menuIngredient(inputIngredient);
                     break;
-                    
+
                 //classes adicionals per decisions de disseny    
                 case 6://Familia Ingredient
 
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir Fmilia ingredients\n2-Eliminar Fmilia ingredients\n3-Mostrar Fmilia ingredients");
                     int inputFamIngredient = llegeixInt();
-                    menuFamIngredient(inputFamIngredient);    
+                    menuFamIngredient(inputFamIngredient);
                     break;
-                    
+
             }
 
         }
@@ -143,60 +111,11 @@ public class MainCuinaUB {
         }
     }
 
-    private static void menuPlat(int inputPlat) {
-        switch (inputPlat) {
-            case 1://add
-                addPlat();
-                break;
+    
+    
 
-            case 2://delete
-                break;
-            case 3:
-                mostrarPlat();//show
-                break;
+    
 
-        }
-
-    }
-
-    private static void menuTipusMenjar(int tipusMenjar) {
-
-        switch (tipusMenjar) {
-
-            case 1://add
-                addTipusMenjar();
-                break;
-
-            case 2://delete
-                break;
-            case 3:
-                mostrarTipusMenjar();
-                //show
-                break;
-
-        }
-
-    }
-
-    private static void menuXef(int inputXef) {
-
-        switch (inputXef) {
-
-            case 1://add
-                addXef();
-                break;
-
-            case 2://delete
-                deleteXef(0);
-                break;
-
-            case 3:
-                mostrarXef();//show
-                break;
-
-        }
-
-    }
     private static void menuIngredient(int inputIngredient) {
         switch (inputIngredient) {
 
@@ -214,6 +133,7 @@ public class MainCuinaUB {
 
         }
     }
+
     private static void menuFamIngredient(int inputFamIngredient) {
         switch (inputFamIngredient) {
             case 1://add
@@ -226,76 +146,8 @@ public class MainCuinaUB {
                 break;
         }
     }
-    /*
-     private static void addRecepta() {
-
-     }*/
-
-    private static void addPlat() {
-        OperacionsPlat operacionsPlat = new OperacionsPlat();
-
-        String nom, descripcio;
-
-        escriu("Introdueix el nom del plat:\n");
-        nom = llegeixString();
-
-        escriu("Introdueix la descripció del plat\n");
-        descripcio = llegeixString();
-
-        Plat plat = new Plat(nom, descripcio);
-        int ident = operacionsPlat.guardarPlat(plat);
-        // TODO - aqui falta comprobar si se ha insertado
-        System.out.println("Plat insertat: " + ident + ",nom: " + plat.getNom() + ",Descripcio: " + plat.getDescripcio());
-    }
-
-    private static void mostrarPlat() {
-        OperacionsPlat operacionsPlat = new OperacionsPlat();
-        // llistem tots els elements de Plat
-        List<Plat> listaplat = operacionsPlat.getListPlat();
-        System.out.println("Tenim " + listaplat.size() + " Plats");
-        System.out.println("_____________________________");
-        for (Plat plat : listaplat) {
-            System.out.println("--> Id: " + plat.getId_Plat() + ", nom: " + plat.getNom() + ", descripcio: " + plat.getDescripcio());
-        }
-    }
-//    private static void addIngredient() {
-
-//    }
-//    private static void addTipusMenjar() {
-//    }
-    private static void addXef() {
-        OperacionsXef operacionsXef = new OperacionsXef();
-        int int_Estrelles, id_Xef = 0;
-        String nom;
-
-        escriu("Quantes estrelles té el xef:\n");
-        int_Estrelles = llegeixInt();
-
-        escriu("Nom del xef\n");
-        nom = llegeixString();
-
-        Xef xef = new Xef(int_Estrelles, nom);
-        int ident = operacionsXef.guardarXef(xef);
-        // TODO FALTA MIRAR SI REALMENT S'HA INSERTAT
-        System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
-    }
-
-    private static void mostrarXef() {
-        OperacionsXef operacionsXef = new OperacionsXef();
-        // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
-        // Llistem tots els elements de Xef
-        List<Xef> listaxefs = operacionsXef.getListXef();
-        System.out.println("Tenim " + listaxefs.size() + " Xefs");
-        System.out.println("_____________________________");
-        for (Xef xef : listaxefs) {
-            System.out.println("--> Id: " + xef.getId_Xef() + ", nom: " + xef.getNom() + ", estrelles: " + xef.getInt_Estrelles());
-        }
-    }
-
-    //TODO
-    private static void deleteXef(int idXef) {
-
-    }
+    
+    
 
     private static void addRecepta() {
 
@@ -322,52 +174,27 @@ public class MainCuinaUB {
 
     }
 
-    private static void addTipusMenjar() {
-        OperacionsTipusMenjar operacionsTipusMenjar = new OperacionsTipusMenjar();
-
-        String nom;
-
-        escriu("Nom:\n");
-        nom = llegeixString();
-
-        Tipus_Menjar tipus_Menjar = new Tipus_Menjar(nom);
-        int ident = operacionsTipusMenjar.guardarTipusMenjar(tipus_Menjar);
-               
-       
-
-    }
-
-    private static void mostrarTipusMenjar() {
-        OperacionsTipusMenjar operacionsTipusMenjar = new OperacionsTipusMenjar();
-        // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
-        // Llistem tots els elements de Xef
-        List<Tipus_Menjar> listaTipusMenjar = operacionsTipusMenjar.getListTipus_Menjars();
-        System.out.println("Tenim " + listaTipusMenjar.size() + " Xefs");
-        System.out.println("_____________________________");
-        for (Tipus_Menjar tipus_Menjar : listaTipusMenjar) {
-            System.out.println("--> Id: " + tipus_Menjar.getId_Tipus() + ", nom: " + tipus_Menjar.getNom() );
-        }
-    }
+   
 
     private static void addIngredient() {
         OperacionsIngredient operacionsIngredient = new OperacionsIngredient();
 
-        String nom,familia,refrigeracio;
+        String nom, familia, refrigeracio;
 
         escriu("Nom:\n");
         nom = llegeixString();
-        
+
         escriu("familia:\n");
         familia = llegeixString();
-        
-         escriu("refrigeracio:\n");
+
+        escriu("refrigeracio:\n");
         refrigeracio = llegeixString();
 
         Ingredient ingredient = new Ingredient(refrigeracio, familia, nom);
         int ident = operacionsIngredient.guardarIngredient(ingredient);
-               
+
         System.out.println("Ingredient: " + ident + ",nom: " + ingredient.getNom());
-        
+
     }
 
     private static void mostrarIngredient() {
@@ -378,28 +205,27 @@ public class MainCuinaUB {
         System.out.println("Tenim " + listaingredients.size() + " Xefs");
         System.out.println("_____________________________");
         for (Ingredient ingredient : listaingredients) {
-            System.out.println("--> Id: " + ingredient.getId_Ingredient() + ", nom: " + ingredient.getNom() + ", Refrigeracio: " + ingredient.getRefrigeracio() + ", Familia: "+ ingredient.getFamilia());
+            System.out.println("--> Id: " + ingredient.getId_Ingredient() + ", nom: " + ingredient.getNom() + ", Refrigeracio: " + ingredient.getRefrigeracio() + ", Familia: " + ingredient.getFamilia());
         }
     }
 
     private static void addFamIngredient() {
         OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
 
-        String nom,descripcio;
+        String nom, descripcio;
 
         escriu("Familia:\n");
         nom = llegeixString();
-        
+
         escriu("Descripcio:\n");
         descripcio = llegeixString();
-        
-         
 
         Familia_Ingredients famIngredient = new Familia_Ingredients(descripcio, nom);
         int ident = operacionsFamIngredient.guardarFamIngredient(famIngredient);
-               
+
         System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
     }
+
     private static void mostrarFamIngredient() {
         OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
         // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
@@ -408,8 +234,12 @@ public class MainCuinaUB {
         System.out.println("Tenim " + listaFamingredients.size() + " Xefs");
         System.out.println("_____________________________");
         for (Familia_Ingredients Famingredient : listaFamingredients) {
-            System.out.println("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio() );
+            System.out.println("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
         }
     }
+
+    
+
+   
 
 }

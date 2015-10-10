@@ -2,32 +2,32 @@ package com.ub.edu.bda.Model;
 
 import java.util.Set;
 
-public class Xef  {
-private Integer estrelles;
+public class Xef {
+private Integer int_Estrelles;
 private Integer id_Xef;
 private String nom;
-//private Set<Recepta> receptes;
+private Set<Recepta> receptes;
 // afegim l'objecte cataleg en cardinalitat 1
 
 
 
 public Xef() {
-	
+	super();
 	// TODO Auto-generated constructor stub
 }
 
-    public Xef(Integer estrelles, String nom) {
-        this.estrelles = estrelles;
+    public Xef(Integer int_Estrelles, String nom) {
+        this.int_Estrelles = int_Estrelles;
         this.nom = nom;
 
     }
 
     public Integer getInt_Estrelles() {
-        return estrelles;
+        return int_Estrelles;
     }
 
     public void setInt_Estrelles(Integer int_Estrelles) {
-        this.estrelles = int_Estrelles;
+        this.int_Estrelles = int_Estrelles;
     }
 
     public Integer getId_Xef() {
@@ -49,8 +49,17 @@ public Xef() {
     public String toStringNomId() {
         return "Xef{" + "id_Xef=" + id_Xef + ", nom=" + nom + '}';
     }
-   
+    public void setReceptes(Set<Recepta> recepta) {
+       this.receptes = recepta;
+    }
+    public Set<Recepta> getReceptes() {
+       return this.receptes;
+    }
     
+    /* Class functions */ 
+    public void addRecepta(Recepta recepta) { 
+        this.receptes.add(recepta); 
+    }    
     
 
    

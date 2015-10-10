@@ -1,10 +1,14 @@
 package com.ub.edu.bda.Model;
 
+import java.util.Set;
+
 public class Plat {
 private Integer id_Plat;
 private String descripcio;
 private String nom;
 private Integer id_Recepta;
+private Set<Recepta> receptes;
+
 
 
 
@@ -14,11 +18,9 @@ public Plat() {
 	// TODO Auto-generated constructor stub
 }
 
-    public Plat(Integer id_Recepta, Integer id_Plat, String nom, String descripico) {
-        this.id_Plat = id_Plat;
-        this.descripcio = descripcio;
+    public Plat(String nom, String descrip) {
+        this.descripcio = descrip;
         this.nom = nom;
-        this.id_Recepta = id_Recepta;
     }
 
     public Integer getId_Plat() {
@@ -45,23 +47,16 @@ public Plat() {
         this.nom = nom;
     }
 
-    public Integer getId_Recepta() {
-        return id_Recepta;
-    }
 
-    public void setId_Recepta(Integer id_Recepta) {
-        this.id_Recepta = id_Recepta;
+    public void setReceptes(Set<Recepta> recepta) {
+       this.receptes = recepta;
     }
-
- 
-   
+    public Set<Recepta> getReceptes() {
+       return this.receptes;
+    }
     
-
-
-
-
-
-
-
-
+    /* Class functions */ 
+    public void addRecepta(Recepta recepta) { 
+        this.receptes.add(recepta); 
+    }  
 }

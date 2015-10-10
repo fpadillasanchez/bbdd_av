@@ -8,6 +8,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import com.ub.edu.bda.Model.Xef;
 import com.ub.edu.bda.Vista.ConnectorHB;
 
 /**
@@ -15,8 +16,8 @@ import com.ub.edu.bda.Vista.ConnectorHB;
  * @author oriol
  */
 public class operacionsXef {
-    private Session sesion = null;
-    private Transaction tx = null;
+    private Session sesion; 
+    private Transaction tx;
     
     public Xef getXef(int id_Xef) throws HibernateException { 
         Xef xef = null;  
@@ -46,7 +47,7 @@ public class operacionsXef {
         tx.rollback(); 
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he); 
     } 
-    public int guardarXef(Xef xef, Session session, Transaction tx) throws HibernateException { 
+    public int guardarXef(Xef xef) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 

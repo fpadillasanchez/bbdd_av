@@ -7,7 +7,7 @@ private Integer id_Familia;
 private String familia;
 private String nom;
 // afegim l'objecte cataleg en cardinalitat 1
-private Catalogo catalogo;
+
 
 
 public Ingredient() {
@@ -69,11 +69,4 @@ public Ingredient() {
    
 
 //NOUS GETTERS I SETTERS
-public Catalogo getCatalogo() {
-	return catalogo;
-}
-
-public void setCatalogo(Catalogo catalogo) {
-	this.catalogo = catalogo;
-}
 }

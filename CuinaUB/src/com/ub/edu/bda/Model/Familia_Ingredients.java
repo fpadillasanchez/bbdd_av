@@ -7,7 +7,7 @@ public class Familia_Ingredients {
     private String nom;
 
 // afegim l'objecte cataleg en cardinalitat 1
-    private Catalogo catalogo;
+
 
     public Familia_Ingredients() {
         super();
@@ -53,13 +53,6 @@ public class Familia_Ingredients {
     }
 //NOUS GETTERS I SETTERS
 
-    public Catalogo getCatalogo() {
-        return catalogo;
-    }
-
-    public void setCatalogo(Catalogo catalogo) {
-        this.catalogo = catalogo;
-    }
 
     public String toStringIDNom() {
         return "Familia_Ingredients{" + "id_Familia=" + id_Familia + ", nom=" + nom + '}';

@@ -8,8 +8,7 @@ private String nom;
 private String dificultat;
 private Integer id_Xef;
 
-// afegim l'objecte cataleg en cardinalitat 1
-private Catalogo catalogo;
+
 
 
 public Recepta() {
@@ -86,15 +85,6 @@ public Recepta() {
 
 
 
-//NOUS GETTERS I SETTERS
-
-    public Catalogo getCatalogo() {
-        return catalogo;
-    }
-
-    public void setCatalogo(Catalogo catalogo) {
-        this.catalogo = catalogo;
-    }
 
 
 

@@ -6,7 +6,7 @@ private Integer id_Recepta;
 private Integer id_Ingredient;
 
 // afegim l'objecte cataleg en cardinalitat 1
-private Catalogo catalogo;
+
 
 
 public Pertany_Recepta_Ingredient() {
@@ -46,13 +46,6 @@ public void setId_Ingredient(Integer id_Ingredient) {
 }
 
 //NOUS GETTERS I SETTERS
-public Catalogo getCatalogo() {
-	return catalogo;
-}
-
-public void setCatalogo(Catalogo catalogo) {
-	this.catalogo = catalogo;
-}
 
 
 

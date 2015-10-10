@@ -1,10 +1,13 @@
 package com.ub.edu.bda.Model;
 
+import java.util.Set;
+
 public class Ingredient {
 private Integer id_Ingredient;
 private String refrigeracio; 
 private String familia;
 private String nom;
+private Set<Recepta> receptes;
 // afegim l'objecte cataleg en cardinalitat 1
 
 
@@ -51,7 +54,12 @@ public Ingredient() {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
+    public void setReceptes(Set<Recepta> recepta) {
+       this.receptes = recepta;
+    }
+    public Set<Recepta> getReceptes() {
+       return this.receptes;
+    }
    
     
 

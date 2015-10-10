@@ -2,7 +2,7 @@ package com.ub.edu.bda.Model;
 
 public class Familia_Ingredients {
 
-    private Integer id_Familia;
+    private Integer id_familiaIngredients;
     private String descripcio;
     private String nom;
 
@@ -14,13 +14,6 @@ public class Familia_Ingredients {
 	// TODO Auto-generated constructor stub
     }
 
-    public Familia_Ingredients(Integer id, String descripcio,
-            String nom) {
-        super();
-        this.id_Familia = id_Familia;
-        this.descripcio = descripcio;
-        this.nom = nom;
-    }
 
     public Familia_Ingredients(String descripcio, String nom) {
         super();
@@ -28,13 +21,23 @@ public class Familia_Ingredients {
         this.nom = nom;
     }
 
-    public Integer getId_Familia() {
-        return id_Familia;
+    public Integer getId_familiaIngredients() {
+        return id_familiaIngredients;
     }
 
-    public void setId(Integer id_Familia) {
-        this.id_Familia = id_Familia;
+    public void setId_familiaIngredients(Integer id_familiaIngredients) {
+        this.id_familiaIngredients = id_familiaIngredients;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+
 
     public String getDescripcio() {
         return descripcio;
@@ -55,7 +58,7 @@ public class Familia_Ingredients {
 
 
     public String toStringIDNom() {
-        return "Familia_Ingredients{" + "id_Familia=" + id_Familia + ", nom=" + nom + '}';
+        return "Familia_Ingredients{" + "id_Familia=" + id_familiaIngredients + ", nom=" + nom + '}';
     }
 
 }

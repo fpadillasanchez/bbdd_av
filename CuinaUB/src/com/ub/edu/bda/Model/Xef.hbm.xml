@@ -4,11 +4,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package = "com.ub.edu.bda.Model">
     <class name="com.ub.edu.bda.Model.Xef" table="XEF">
-    <id column="ID" name="id_Xef">
-      <generator class="identity"/>
-    </id>
-    <property column="NOM" name="nom"/>
-    <property column="ESTRELLES" name="int_Estrelles"/>
+        <id column="ID" name="id_Xef">
+            <generator class="identity"/>
+        </id>
+        <property column="NOM" name="nom"/>
+        <property column="ESTRELLES" name="int_Estrelles"/>
+    
+        
 
     </class>
 </hibernate-mapping>

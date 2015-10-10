@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE hibernate-mapping PUBLIC
-  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package = "com.ub.edu.bda.Model">
+    <class name="com.ub.edu.bda.Model.Familia_Ingredients" table="FAMINGREDIENT">
+        <id column="ID" name="id_familiaIngredients">
+            <generator class="identity"/>
+        </id>
+        <property column="NOM" name="nom"/> 
+        <property column="DESCRIPCIO" name="descripcio"/> 
 
-<hibernate-mapping>
+        
 
-  
-
+    </class>
 </hibernate-mapping>

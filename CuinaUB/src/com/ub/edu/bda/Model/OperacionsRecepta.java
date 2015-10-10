@@ -15,29 +15,29 @@ import com.ub.edu.bda.Vista.ConnectorHB;
  *
  * @author oriol
  */
-public class OperacionsXef {
+public class OperacionsRecepta {
     private Session sesion; 
     private Transaction tx;
     
-    public Xef getXef(int id_Xef) throws HibernateException { 
-        Xef xef = null;  
+    public Recepta getRecepta(int id_Recepta) throws HibernateException { 
+        Recepta recepta = null;  
         try{ 
             connecta(); 
-            xef = (Xef) sesion.get(Xef.class, id_Xef); 
+            recepta = (Recepta) sesion.get(Recepta.class, id_Recepta); 
         } finally { 
             sesion.close(); 
         }  
-        return xef; 
+        return recepta; 
     }  
-    public List<Xef> getListXef() throws HibernateException { 
-        List<Xef> listXef = null;  
+    public List<Recepta> getListRecepta() throws HibernateException { 
+        List<Recepta> listRecepta = null;  
         try { 
             connecta(); 
-            listXef = sesion.createQuery("from Xef").list(); 
+            listRecepta = sesion.createQuery("from Recepta").list(); 
         } finally { 
             sesion.close(); 
         }  
-        return listXef; 
+        return listRecepta; 
     }      
     private void connecta() throws HibernateException { 
         sesion = ConnectorHB.getSession();
@@ -47,11 +47,11 @@ public class OperacionsXef {
         tx.rollback(); 
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he); 
     } 
-    public int guardarXef(Xef xef) throws HibernateException { 
+    public int guardarRecepta(Recepta recepta) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            id = (int) sesion.save(xef); 
+            id = (int) sesion.save(recepta); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -62,11 +62,11 @@ public class OperacionsXef {
         
         return id; 
     }
-    public int actualitzaXef(Xef xef) throws HibernateException { 
+    public int actualitzaRecepta(Recepta recepta) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            sesion.update(xef); 
+            sesion.update(recepta); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -77,11 +77,11 @@ public class OperacionsXef {
         
         return id; 
     }
-    public int borrarXef(Xef xef) throws HibernateException { 
+    public int borrarRecepta(Recepta recepta) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            sesion.delete(xef); 
+            sesion.delete(recepta); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -95,3 +95,4 @@ public class OperacionsXef {
     
     
 }
+

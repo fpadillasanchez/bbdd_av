@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ub.edu.bda.Model;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,29 +10,29 @@ import com.ub.edu.bda.Vista.ConnectorHB;
  *
  * @author oriol
  */
-public class OperacionsXef {
+public class OperacionsTipusMenjar {
     private Session sesion; 
     private Transaction tx;
     
-    public Xef getXef(int id_Xef) throws HibernateException { 
-        Xef xef = null;  
+    public Tipus_Menjar getTipusMenjar(int id_TipusMenjar) throws HibernateException { 
+        Tipus_Menjar tipusMenjar = null;  
         try{ 
             connecta(); 
-            xef = (Xef) sesion.get(Xef.class, id_Xef); 
+            tipusMenjar = (Tipus_Menjar) sesion.get(Tipus_Menjar.class, id_TipusMenjar); 
         } finally { 
             sesion.close(); 
         }  
-        return xef; 
+        return tipusMenjar; 
     }  
-    public List<Xef> getListXef() throws HibernateException { 
-        List<Xef> listXef = null;  
+    public List<Tipus_Menjar> getListTipus_Menjars() throws HibernateException { 
+        List<Tipus_Menjar> listTipus_Menjars = null;  
         try { 
             connecta(); 
-            listXef = sesion.createQuery("from Xef").list(); 
+            listTipus_Menjars = sesion.createQuery("from Tipus_Menjar").list(); 
         } finally { 
             sesion.close(); 
         }  
-        return listXef; 
+        return listTipus_Menjars; 
     }      
     private void connecta() throws HibernateException { 
         sesion = ConnectorHB.getSession();
@@ -47,11 +42,11 @@ public class OperacionsXef {
         tx.rollback(); 
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he); 
     } 
-    public int guardarXef(Xef xef) throws HibernateException { 
+    public int guardarTipusMenjar(Tipus_Menjar tipus_Menjar) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            id = (int) sesion.save(xef); 
+            id = (int) sesion.save(tipus_Menjar); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -62,11 +57,11 @@ public class OperacionsXef {
         
         return id; 
     }
-    public int actualitzaXef(Xef xef) throws HibernateException { 
+    public int actualitzaTipusMenjar(Tipus_Menjar tipus_Menjar) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            sesion.update(xef); 
+            sesion.update(tipus_Menjar); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -77,11 +72,11 @@ public class OperacionsXef {
         
         return id; 
     }
-    public int borrarXef(Xef xef) throws HibernateException { 
+    public int borrarTipusMenjar(Tipus_Menjar tipus_Menjar) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            sesion.delete(xef); 
+            sesion.delete(tipus_Menjar); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 

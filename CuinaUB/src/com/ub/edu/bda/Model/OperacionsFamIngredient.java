@@ -15,29 +15,29 @@ import com.ub.edu.bda.Vista.ConnectorHB;
  *
  * @author oriol
  */
-public class OperacionsXef {
+public class OperacionsFamIngredient {
     private Session sesion; 
     private Transaction tx;
     
-    public Xef getXef(int id_Xef) throws HibernateException { 
-        Xef xef = null;  
+    public Familia_Ingredients getFamIngredient(int id_FamIngredient) throws HibernateException { 
+        Familia_Ingredients famIngredient = null;  
         try{ 
             connecta(); 
-            xef = (Xef) sesion.get(Xef.class, id_Xef); 
+            famIngredient = (Familia_Ingredients) sesion.get(Familia_Ingredients.class, id_FamIngredient); 
         } finally { 
             sesion.close(); 
         }  
-        return xef; 
+        return famIngredient; 
     }  
-    public List<Xef> getListXef() throws HibernateException { 
-        List<Xef> listXef = null;  
+    public List<Familia_Ingredients> getListFamIngredients() throws HibernateException { 
+        List<Familia_Ingredients> listFamIngredients = null;  
         try { 
             connecta(); 
-            listXef = sesion.createQuery("from Xef").list(); 
+            listFamIngredients = sesion.createQuery("from Familia_Ingredients").list(); 
         } finally { 
             sesion.close(); 
         }  
-        return listXef; 
+        return listFamIngredients; 
     }      
     private void connecta() throws HibernateException { 
         sesion = ConnectorHB.getSession();
@@ -47,11 +47,11 @@ public class OperacionsXef {
         tx.rollback(); 
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he); 
     } 
-    public int guardarXef(Xef xef) throws HibernateException { 
+    public int guardarFamIngredient(Familia_Ingredients famIngredient) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            id = (int) sesion.save(xef); 
+            id = (int) sesion.save(famIngredient); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -62,11 +62,11 @@ public class OperacionsXef {
         
         return id; 
     }
-    public int actualitzaXef(Xef xef) throws HibernateException { 
+    public int actualitzaFamIngredient(Familia_Ingredients famIngredient) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            sesion.update(xef); 
+            sesion.update(famIngredient); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 
@@ -77,11 +77,11 @@ public class OperacionsXef {
         
         return id; 
     }
-    public int borrarXef(Xef xef) throws HibernateException { 
+    public int borrarFamIngredient(Familia_Ingredients famIngredient) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 
-            sesion.delete(xef); 
+            sesion.delete(famIngredient); 
             tx.commit(); 
         } catch (HibernateException he) { 
             excepcio(he); 

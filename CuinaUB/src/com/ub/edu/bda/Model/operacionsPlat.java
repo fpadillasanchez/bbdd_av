@@ -15,7 +15,7 @@ import com.ub.edu.bda.Vista.ConnectorHB;
  *
  * @author oriol
  */
-public class operacionsPlat {
+public class OperacionsPlat {
     private Session sesion; 
     private Transaction tx;
     

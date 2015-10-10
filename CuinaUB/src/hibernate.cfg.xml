@@ -6,6 +6,7 @@
     <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
     <property name="hibernate.connection.url">jdbc:sqlite:cuinaub.db</property>
     <!-- Definimos propiedades de Hibernate para SQL -->
+    
     <property name="connection.pool_size">1</property>
     <property name="show_sql">false</property>
     <property name="format_sql">true</property>
@@ -13,9 +14,9 @@
     <!-- none, update, create -->
     
     <!-- Declaramos los archivos de mapping-->
-    
-    <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
-    <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>
+  
+    <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"></mapping>
+    <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"></mapping>
     
     <!--<mapping/>
     <mapping/>

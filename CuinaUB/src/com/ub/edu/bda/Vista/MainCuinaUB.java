@@ -1,6 +1,5 @@
 package com.ub.edu.bda.Vista;
 
-
 import com.ub.edu.bda.Model.Plat;
 import com.ub.edu.bda.Model.Ingredient;
 import com.ub.edu.bda.Model.Familia_Ingredients;
@@ -86,12 +85,11 @@ public class MainCuinaUB {
 
             switch (opcMenu) {
                 case 1://Recepta
-                    
-                 escriu("Accions disponibles a la base de dades\n");
-                 escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
-                 int inputRecepta = llegeixInt();
-                 menuRecepta(inputRecepta);
-                 
+
+                    escriu("Accions disponibles a la base de dades\n");
+                    escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
+                    int inputRecepta = llegeixInt();
+                    menuRecepta(inputRecepta);
 
                 case 2://Tipus Plat
 
@@ -139,13 +137,13 @@ public class MainCuinaUB {
     private static void menuPlat(int inputPlat) {
         switch (inputPlat) {
             case 1://add
-                addPlat();
+
                 break;
 
             case 2://delete
                 break;
             case 3:
-                mostrarPlats();//show
+
                 break;
 
         }
@@ -178,192 +176,16 @@ public class MainCuinaUB {
                 break;
 
             case 2://delete
-                
+
                 break;
 
             case 3:
-                mostrarXefs();//show
+
                 break;
 
         }
 
     }
-
-//    private static void menuIngredient(int inputIngredient) {
-//
-//        switch (inputIngredient) {
-//
-//            case 1://add
-//                addIngredient();
-//                break;
-//
-//            case 2://delete
-//                break;
-//
-//            case 3://show
-//                break;
-//
-//        }
-//
-//    }
-    private static void mostrarXefs() {
-        //TODO
-        try {
-            session = ConnectorHB.getSession();
-            tx = session.beginTransaction();
-            Query q = session.createQuery("from Xef");
-//            System.out.println("Els Xefs son:");
-//            List <Xef> xefs = session.createSQLQuery("SELECT * FROM XEF").addEntity(Xef.class).list();
-//	            for(Xef xef: xefs){
-//	                System.out.println(xef.getInt_Estrelles());
-//                        System.out.println(xef.getNom());
-                    
-//            PER ARA NO FUNCIONA AQUESTA PART COMENTADA
-//            for (Catalogo catalogo : listado) {
-//                System.out.println("sa<sda");
-//                System.out.println(catalogo.getDescripcion());
-//                for (Xef xef : catalogo.getXefs()) {
-//                    System.out.println(xef.toStringNomId());
-//                }
-//            }
-
-        } catch (HibernateException e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-
-        private static void mostrarPlats() {
-        //TODO
-        try {
-            
-            session = ConnectorHB.getSession();
-            tx = session.beginTransaction();
-//            List<Catalogo> listado = new ArrayList<Catalogo>();
-            Query q = session.createQuery("from Catalogo");
-//            listado = q.list();
-            System.out.println("Els Plats son:");
-            List <Plat> plats = session.createSQLQuery("SELECT * FROM PLAT").addEntity(Plat.class).list();
-	            for(Plat plat: plats)
-	                System.out.println(plat.getNom());
-//            PER ARA NO FUNCIONA AQUESTA PART COMENTADA
-//            for (Catalogo catalogo : listado) {
-//                System.out.println(catalogo.getDescripcion());
-//                for (Plat plat : catalogo.getPlats()) {
-//                    System.out.println(plat.getNom());
-//                }
-//            }
-
-        } catch (HibernateException e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-    
-//    private static void mostrarReceptes(){
-//        //TODO
-//        for(Recepta recepte: catalogo.getReceptes()){
-//            escriu(recepte.toStringNomReceptId());
-//        }
-//    }
-//    private static void mostrarFamilies() {
-//        //TODO
-//        for(Familia_Ingredients familia: catalogo.getFamiliaIngredients()){
-//            escriu(familia.toStringIDNom());
-//        }
-//    }
-    /*
-    private static void addRecepToBD(Recepta recepta) {
-        try {
-            session = ConnectorHB.getSession();
-            tx = session.beginTransaction();
-            session.save(recepta);
-            tx.commit();
-            System.out.println("Recepta guardat a la BD\n");
-        } catch (HibernateException e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-    */
-
-    private static void addPlatToBD(Plat plat) {
-
-        try {
-            session = ConnectorHB.getSession();
-            tx = session.beginTransaction();
-            session.save(plat);
-            tx.commit();
-
-        } catch (HibernateException e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-    /*
-     private static void addIngredientToBD(Ingredient ingredient) {
-     try {
-     session = ConnectorHB.getSession();
-     tx = session.beginTransaction();
-     session.save(ingredient);
-     tx.commit();
-     } catch (HibernateException e) {
-     if (tx != null && tx.isActive()) {
-     tx.rollback();
-     }
-     e.printStackTrace();
-     } finally {
-     if (session != null) {
-     session.close();
-     }
-     }
-     }
-     */
-
-    
-    private static void addPlat() {
-        int id_Recepta, id_Plat = 0;
-        String nom, descripcio;
-        
-        //id_Recepta = llegeixInt();
-
-        escriu("ID del plat automàtic.\n");
-        id_Plat = 1;
-
-        escriu("Nom del plat:\n");
-        nom = llegeixString();
-
-        escriu("Descripcio del plat");
-        descripcio = llegeixString();
-
-        Plat plat = new Plat(0, id_Plat, nom, descripcio);
-        addPlatToBD(plat);
-    }
-
 
     private static void addXef() {
         int int_Estrelles = 0;
@@ -379,14 +201,26 @@ public class MainCuinaUB {
         nom = llegeixString();
 
         Xef xef = new Xef(int_Estrelles, nom);
-        oXef.guardarXef(xef);
-        
+
+        try {
+            session = ConnectorHB.getSession();
+            tx = session.beginTransaction();
+            oXef.guardarXef(xef, session, tx);
+        } catch (HibernateException e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
     }
 
     private static void addRecepta() {
         Recepta recepta = new Recepta(null, null, null, null);
     }
-
-    
 
 }

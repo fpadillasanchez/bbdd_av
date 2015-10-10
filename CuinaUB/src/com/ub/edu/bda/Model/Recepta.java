@@ -6,7 +6,7 @@ private String elaboracio;
 private String temps;
 private String nom;
 private String dificultat;
-private Xef id_Xef;
+
 
 
 
@@ -65,13 +65,7 @@ public Recepta() {
         this.dificultat = dificultat;
     }
 
-    public Xef getId_Xef() {
-        return id_Xef;
-    }
-
-    public void setId_Xef(Xef id_Xef) {
-        this.id_Xef = id_Xef;
-    }
+    
 
    
 
@@ -79,16 +73,6 @@ public Recepta() {
     public String toStringNomReceptId() {
         return "Recepta{" + "id_Recepta=" + id_Recepta + ", nom=" + nom + '}';
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -46,7 +46,7 @@ public class operacionsXef {
         tx.rollback(); 
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he); 
     } 
-    public int guardarXef(Xef xef) throws HibernateException { 
+    public int guardarXef(Xef xef, Session session, Transaction tx) throws HibernateException { 
         int id = 0;  
         try { 
             connecta(); 

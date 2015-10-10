@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.ub.edu.bda.Model">
-    <class name="recepta" table="recepta">
-        <id name="id_Recepta" column="id_Recepta">
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+    
+    <class name="com.ub.edu.bda.Model.Recepta"  table="recepta">                        
+        <id name="id_Recepta" type="int" column="id_Recepta">
             <generator class="identity" />
         </id>
-        <property name="elaboracio" type="string" column="elaboracio" />
+        <property name="nom" type="string" column="nom" />
         <property name="temps" type="string" column="temps" />
-        <property name="nom" type="int" column="nom" />
         <property name="dificultat" type="string" column="dificultat" />
-
+        <property name="elaboracio" type="string" column="elaboracio" />        
         
-         <many-to-one name="xef" class="Xef" fetch="select">
-           <column name="ID" /> <!-- CAMP FK de la taula articulo IDENTICS A LES DUES ENTITATS --> 
-       </many-to-one>
+       
+        
     </class>
 </hibernate-mapping>

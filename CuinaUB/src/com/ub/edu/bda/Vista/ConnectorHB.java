@@ -11,7 +11,6 @@ import org.hibernate.cfg.Configuration;
 public class ConnectorHB {
     private static SessionFactory sf;
     
-    
     public ConnectorHB() {
 
     }

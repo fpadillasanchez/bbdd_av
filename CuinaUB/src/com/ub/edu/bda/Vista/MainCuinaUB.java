@@ -1,5 +1,7 @@
 package com.ub.edu.bda.Vista;
 
+import Gestions.GestionsFamiliaIngredient;
+import Gestions.GestionsIngredients;
 import Gestions.GestionsPlat;
 import Gestions.GestionsTipusMenjar;
 import Gestions.GestionsXef;
@@ -31,6 +33,8 @@ public class MainCuinaUB {
     static GestionsPlat gpPlat = new GestionsPlat();
     static GestionsTipusMenjar gpTMenjar = new GestionsTipusMenjar();
     static GestionsXef gfXef = new GestionsXef();
+    static GestionsIngredients gIngre = new GestionsIngredients();
+    static GestionsFamiliaIngredient gFamIngr = new GestionsFamiliaIngredient();
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void main(String[] args) {
@@ -77,20 +81,20 @@ public class MainCuinaUB {
                     break;
 
                 case 5://Ingredient
-
+                    OperacionsIngredient operacionsIngredient = new OperacionsIngredient();    
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir ingredient\n2-Eliminar recepta\n3-Mostrar receptes");
                     int inputIngredient = llegeixInt();
-                    menuIngredient(inputIngredient);
+                    gIngre.menuIngredient(inputIngredient,operacionsIngredient);
                     break;
 
                 //classes adicionals per decisions de disseny    
                 case 6://Familia Ingredient
-
+                    OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient(); 
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir Fmilia ingredients\n2-Eliminar Fmilia ingredients\n3-Mostrar Fmilia ingredients");
                     int inputFamIngredient = llegeixInt();
-                    menuFamIngredient(inputFamIngredient);
+                    gFamIngr.menuFamIngredient(inputFamIngredient,operacionsFamIngredient);
                     break;
 
             }
@@ -111,41 +115,6 @@ public class MainCuinaUB {
         }
     }
 
-    
-    
-
-    
-
-    private static void menuIngredient(int inputIngredient) {
-        switch (inputIngredient) {
-
-            case 1://add
-                addIngredient();
-                break;
-
-            case 2://delete
-//                deleteIngredient(0);
-                break;
-
-            case 3:
-                mostrarIngredient();//show
-                break;
-
-        }
-    }
-
-    private static void menuFamIngredient(int inputFamIngredient) {
-        switch (inputFamIngredient) {
-            case 1://add
-                addFamIngredient();
-                break;
-            case 2://delete
-                break;
-            case 3:
-                mostrarFamIngredient();//show
-                break;
-        }
-    }
     
     
 
@@ -176,67 +145,6 @@ public class MainCuinaUB {
 
    
 
-    private static void addIngredient() {
-        OperacionsIngredient operacionsIngredient = new OperacionsIngredient();
-
-        String nom, familia, refrigeracio;
-
-        escriu("Nom:\n");
-        nom = llegeixString();
-
-        escriu("familia:\n");
-        familia = llegeixString();
-
-        escriu("refrigeracio:\n");
-        refrigeracio = llegeixString();
-
-        Ingredient ingredient = new Ingredient(refrigeracio, familia, nom);
-        int ident = operacionsIngredient.guardarIngredient(ingredient);
-
-        System.out.println("Ingredient: " + ident + ",nom: " + ingredient.getNom());
-
-    }
-
-    private static void mostrarIngredient() {
-        OperacionsIngredient operacionsIngredient = new OperacionsIngredient();
-        // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
-        // Llistem tots els elements de Xef
-        List<Ingredient> listaingredients = operacionsIngredient.getListIngredients();
-        System.out.println("Tenim " + listaingredients.size() + " Xefs");
-        System.out.println("_____________________________");
-        for (Ingredient ingredient : listaingredients) {
-            System.out.println("--> Id: " + ingredient.getId_Ingredient() + ", nom: " + ingredient.getNom() + ", Refrigeracio: " + ingredient.getRefrigeracio() + ", Familia: " + ingredient.getFamilia());
-        }
-    }
-
-    private static void addFamIngredient() {
-        OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
-
-        String nom, descripcio;
-
-        escriu("Familia:\n");
-        nom = llegeixString();
-
-        escriu("Descripcio:\n");
-        descripcio = llegeixString();
-
-        Familia_Ingredients famIngredient = new Familia_Ingredients(descripcio, nom);
-        int ident = operacionsFamIngredient.guardarFamIngredient(famIngredient);
-
-        System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
-    }
-
-    private static void mostrarFamIngredient() {
-        OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
-        // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
-        // Llistem tots els elements de Xef
-        List<Familia_Ingredients> listaFamingredients = operacionsFamIngredient.getListFamIngredients();
-        System.out.println("Tenim " + listaFamingredients.size() + " Xefs");
-        System.out.println("_____________________________");
-        for (Familia_Ingredients Famingredient : listaFamingredients) {
-            System.out.println("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
-        }
-    }
 
     
 

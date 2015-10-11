@@ -7,7 +7,7 @@ public class Xef {
     private Integer int_Estrelles;
     private Integer id_Xef;
     private String nom;
-    private Set<Recepta> receptes;
+    private Set <Recepta> receptes;
 // afegim l'objecte cataleg en cardinalitat 1
 
     /**
@@ -55,11 +55,11 @@ public class Xef {
         return "Xef{" + "id_Xef=" + id_Xef + ", nom=" + nom + '}';
     }
 
-    public void setReceptes(Set<Recepta> recepta) {
+    public void setReceptes(Set recepta) {
         this.receptes = recepta;
     }
 
-    public Set<Recepta> getReceptes() {
+    public Set getReceptes() {
         return this.receptes;
     }
 

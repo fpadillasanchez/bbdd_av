@@ -19,12 +19,13 @@ public class Recepta {
 	// TODO Auto-generated constructor stub
     }
 
-    public Recepta(String elaboracio, String temps, String nom, String dificultat) {
+    public Recepta(String elaboracio, String temps, String nom, String dificultat, Xef xef) {
 
         this.elaboracio = elaboracio;
         this.temps = temps;
         this.nom = nom;
         this.dificultat = dificultat;
+        this.xef = xef;
 
     }
 

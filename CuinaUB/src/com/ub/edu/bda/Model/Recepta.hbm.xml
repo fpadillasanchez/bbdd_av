@@ -2,18 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package = "com.ub.edu.bda.Model">
-    <class name="com.ub.edu.bda.Model.Recepta" table="recepta">
-        <id name="ID" column="id_Recepta">
-            <generator class="identity" />
+<hibernate-mapping package="com.ub.edu.bda.Model">
+    <class name="Recepta" table="RECEPTA">
+        <id name="id_Recepta" column="IDRECEPTA">
+            <generator class="native"/>
         </id>
-        <property name="ELABORACIO" column="elaboracio" />
-        <property name="TEMPS" column="temps" />
-        <property name="NOM" column="nom" />
-        <property name="DIFICULTAT" column="dificultat" />
-        
-        <many-to-one name = "ID" class = "com.ub.edu.bda.Model.Xef"
-                     column = "ID" cascade = "all" not-null ="true"/>
-
-    </class>
+        <property name="elaboracio" column="ELABORACIO" />
+        <property name="temps" column="TEMPS" />
+        <property name="nom" column="NOM"/>
+          <property name="dificultat" column="DIFICULTAT"/>
+         
+        <many-to-one name="xef" class="Xef"
+            column="IDXEF" not-null="true"/>
+    </class> 
 </hibernate-mapping>

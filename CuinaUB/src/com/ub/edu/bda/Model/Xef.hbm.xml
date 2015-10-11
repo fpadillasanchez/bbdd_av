@@ -3,19 +3,20 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package = "com.ub.edu.bda.Model">
-    <class name="com.ub.edu.bda.Model.Xef" table="XEF">
-        <id column="ID" name="id_Xef">
-            <generator class="identity"/>
+    
+    <class name="Xef" table="XEF">
+        
+        <id name="id_Xef" column="IDXEF" >
+            <generator class="native"/>
         </id>
+        
         <property column="NOM" name="nom"/>
         <property column="ESTRELLES" name="int_Estrelles"/>
-        
-        <set name="receptes" >
-            <key column="ID"/>
-            <one-to-many class ="com.ub.edu.bda.Model.Recepta"/>
-        </set>
     
         
-
+        <set name="receptes" inverse="true" cascade ="all" >
+            <key column="IDXEF"/>
+            <one-to-many class ="Recepta"/>
+        </set>
     </class>
 </hibernate-mapping>

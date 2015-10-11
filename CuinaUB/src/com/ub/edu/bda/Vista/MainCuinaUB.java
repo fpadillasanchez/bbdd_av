@@ -128,7 +128,7 @@ public class MainCuinaUB {
         escriu("dificultat\n");
         dificultat = llegeixString();
 
-        Recepta recepta = new Recepta(elaboracio, temps, nom, dificultat);
+        Recepta recepta = new Recepta(elaboracio, temps, nom, dificultat,null);
         int ident = operacionsRecepta.guardarRecepta(recepta);
         // TODO FALTA MIRAR SI REALMENT S'HA INSERTAT
         System.out.println("Recepta insertat: " + ident + ",nom: " + recepta.getNom() + ",dificultat: " + recepta.getDificultat());

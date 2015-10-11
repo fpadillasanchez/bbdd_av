@@ -12,6 +12,7 @@ import com.ub.edu.bda.Model.OperacionsRecepta;
 import com.ub.edu.bda.Model.OperacionsXef;
 import com.ub.edu.bda.Model.Recepta;
 import com.ub.edu.bda.Model.Xef;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -63,7 +64,10 @@ public class GestionsXef {
         for(Recepta recep: receptes){
             escriu("Receptes:"+recep.getNom()+"Nom:"+recep.getId_Recepta());
         }
+        
         Recepta rec = recepta.getRecepta(llegeixInt());
+        HashSet set1 = new HashSet();
+        set1.add(rec);
         
         
 

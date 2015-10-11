@@ -1,6 +1,5 @@
 package com.ub.edu.bda.Model;
 
-import java.util.Set;
 
 public class Plat {
 
@@ -8,7 +7,7 @@ public class Plat {
     private String descripcio;
     private String nom;
     private Integer id_Recepta;
-    private Set<Recepta> receptes;
+    private Recepta recepta;
 
     /**
      *
@@ -20,9 +19,11 @@ public class Plat {
 	// TODO Auto-generated constructor stub
     }
 
-    public Plat(String nom, String descrip) {
+    public Plat(String nom, String descrip, Recepta recepta) {
         this.descripcio = descrip;
         this.nom = nom;
+        this.recepta = recepta;
+                
     }
 
     public Integer getId_Plat() {
@@ -49,18 +50,23 @@ public class Plat {
         this.nom = nom;
     }
 
-    public void setReceptes(Set<Recepta> recepta) {
-        this.receptes = recepta;
+    public Integer getId_Recepta() {
+        return id_Recepta;
     }
 
-    public Set<Recepta> getReceptes() {
-        return this.receptes;
+    public void setId_Recepta(Integer id_Recepta) {
+        this.id_Recepta = id_Recepta;
     }
 
-    /* Class functions */
-    public void addRecepta(Recepta recepta) {
-        this.receptes.add(recepta);
+    public Recepta getRecepta() {
+        return recepta;
     }
+
+    public void setRecepta(Recepta recepta) {
+        this.recepta = recepta;
+    }
+
+   
 
     @Override
     public String toString() {

@@ -12,6 +12,7 @@
     <!-- none, update, create -->
     <!-- Declaramos los archivos de mapping-->
     <property name="hibernate.hbm2ddl.auto">create</property>
+    
     <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Plat.hbm.xml"/>

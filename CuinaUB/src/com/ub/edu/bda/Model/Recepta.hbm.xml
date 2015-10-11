@@ -3,6 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ub.edu.bda.Model">
+    
     <class name="Recepta" table="RECEPTA">
         <id name="id_Recepta" column="IDRECEPTA">
             <generator class="native"/>
@@ -10,9 +11,22 @@
         <property name="elaboracio" column="ELABORACIO" />
         <property name="temps" column="TEMPS" />
         <property name="nom" column="NOM"/>
-          <property name="dificultat" column="DIFICULTAT"/>
+        <property name="dificultat" column="DIFICULTAT"/>
          
         <many-to-one name="xef" class="Xef"
-            column="IDXEF" />
+                     column="IDXEF" />
+        
+        
+        <set name="plats" inverse="true" cascade ="all" >
+            <key column="IDRECEPTA"/>
+            <one-to-many class ="Recepta"/>
+        </set>
+        
+        <set name="ingredients" table= "ReceptaIngredient" inverse="true" cascade ="all" >
+            <key column="IDRECEPTA"/>
+            <many-to-many class ="Ingredient"/>
+        </set>
     </class> 
+    
+    
 </hibernate-mapping>

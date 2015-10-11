@@ -1,5 +1,6 @@
 package com.ub.edu.bda.Model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,7 +14,7 @@ public class Ingredient {
     private String refrigeracio;
     private String familia;
     private String nom;
-    //private Set<Recepta> receptes;
+    private Set<Recepta> receptes = new HashSet<Recepta>();
 // afegim l'objecte cataleg en cardinalitat 1
 
     public Ingredient() {
@@ -58,6 +59,11 @@ public class Ingredient {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    
+    
 
 //NOUS GETTERS I SETTERS
+    public void setIngredients(Recepta recepta) {
+        this.receptes.add(recepta);
+    }
 }

@@ -1,5 +1,8 @@
 package com.ub.edu.bda.Model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Recepta {
 
     private Integer id_Recepta;
@@ -8,6 +11,10 @@ public class Recepta {
     private String nom;
     private String dificultat;
     private Xef xef;
+    private Set<Plat> plats;
+    private Tipus_Menjar tMenjar;
+    
+    private Set<Ingredient> ingredients = new HashSet<Ingredient>();
 
     /**
      *
@@ -19,13 +26,14 @@ public class Recepta {
 	// TODO Auto-generated constructor stub
     }
 
-    public Recepta(String elaboracio, String temps, String nom, String dificultat, Xef xef) {
+    public Recepta(String elaboracio, String temps, String nom, String dificultat, Xef xef, Tipus_Menjar tipMenjar) {
 
         this.elaboracio = elaboracio;
         this.temps = temps;
         this.nom = nom;
         this.dificultat = dificultat;
         this.xef = xef;
+        this.tMenjar = tMenjar;
 
     }
 
@@ -76,6 +84,29 @@ public class Recepta {
     public void setDificultat(String dificultat) {
         this.dificultat = dificultat;
     }
+
+    public Set<Plat> getPlats() {
+        return plats;
+    }
+
+    public void setPlats(Set<Plat> plats) {
+        this.plats = plats;
+    }
+
+    public Tipus_Menjar gettMenjar() {
+        return tMenjar;
+    }
+
+    public void settMenjar(Tipus_Menjar tMenjar) {
+        this.tMenjar = tMenjar;
+    }
+
+    public void setIngredients(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
+    
+   
+    
     
 
 }

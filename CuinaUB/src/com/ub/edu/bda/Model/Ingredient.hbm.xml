@@ -3,14 +3,21 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package = "com.ub.edu.bda.Model">
-    <class name="com.ub.edu.bda.Model.Ingredient" table="INGREDIENT">
-        <id column="ID" name="id_Ingredient">
+    
+    <class name="Ingredient" table="INGREDIENT">
+        
+        <id name="id_Ingredient" column="IDINGREDIENT" >
             <generator class="identity"/>
         </id>
+        
         <property column="NOM" name="nom"/> 
         <property column="FAMILIA" name="familia"/> 
         <property column="REFRIGERACIO" name="refrigeracio"/> 
         
+        <set name="receptes" table= "ReceptaIngredient" inverse="true" cascade ="all" >
+            <key column="IDINGREDIENT"/>
+            <many-to-many class ="Recepta"/>
+        </set>
 
     </class>
 </hibernate-mapping>

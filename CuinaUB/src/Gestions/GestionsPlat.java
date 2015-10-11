@@ -54,7 +54,7 @@ public class GestionsPlat {
         escriu("Introdueix la descripció del plat\n");
         descripcio = llegeixString();
 
-        Plat plat = new Plat(nom, descripcio);
+        Plat plat = new Plat(nom, descripcio,null);
         int ident = operacionsPlat.guardarPlat(plat);
         // TODO - aqui falta comprobar si se ha insertado
         System.out.println("Plat insertat: " + ident + ",nom: " + plat.getNom() + ",Descripcio: " + plat.getDescripcio());

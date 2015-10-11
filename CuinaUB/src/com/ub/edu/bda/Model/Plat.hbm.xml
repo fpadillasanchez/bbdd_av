@@ -4,14 +4,19 @@
   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
-    <class name="com.ub.edu.bda.Model.Plat" table="PLAT">
-    <id column="IDPLAT" name="id_Plat">
-      <generator class="identity"/>
-    </id>
-    <property column="NOM" name="nom"/>
-    <property column="DESCRIPCIO" name="descripcio"/>
-<!--FALTA RELACIONAR AMB RECEPTA-->
+<hibernate-mapping package = "com.ub.edu.bda.Model">
+    
+    <class name="Plat" table="PLAT">
+        
+        <id name="id_Plat" column="IDPLAT" >
+            <generator class="native"/>
+        </id>
+        
+        <property column="NOM" name="nom"/>
+        <property column="DESCRIPCIO" name="descripcio"/>
+
+        <many-to-one name="recepta" class="Recepta"
+                     column="IDRECEPTA" />
         
          
     </class>

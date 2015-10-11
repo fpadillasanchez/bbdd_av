@@ -52,7 +52,7 @@ public class GestionsFamiliaIngredient {
         Familia_Ingredients famIngredient = new Familia_Ingredients(descripcio, nom);
         int ident = operacionsFamIngredient.guardarFamIngredient(famIngredient);
 
-        System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
+        System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getNom());
     }
 
     private static void mostrarFamIngredient(OperacionsFamIngredient operacionsFamIngredient) {
@@ -63,7 +63,7 @@ public class GestionsFamiliaIngredient {
         System.out.println("Tenim " + listaFamingredients.size() + " Xefs");
         System.out.println("_____________________________");
         for (Familia_Ingredients Famingredient : listaFamingredients) {
-            System.out.println("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
+            System.out.println("--> Id: " + Famingredient.getId_FamiliaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
         }
     }
 

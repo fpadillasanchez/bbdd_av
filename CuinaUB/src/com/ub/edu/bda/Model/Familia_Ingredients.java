@@ -1,34 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.ub.edu.bda.Model;
 
 /**
  *
- * @author Oriol
  * @author Fernando
  */
 public class Familia_Ingredients {
-
-    private Integer id_familiaIngredients;
-    private String descripcio;
+    private Integer id_FamiliaIngredients;
     private String nom;
+    private String descripcio;
 
-// afegim l'objecte cataleg en cardinalitat 1
-    public Familia_Ingredients() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    public Familia_Ingredients(String descripcio, String nom) {
-        super();
-        this.descripcio = descripcio;
+    public Familia_Ingredients(String nom, String descripcio) {
         this.nom = nom;
+        this.descripcio = descripcio;
     }
 
-    public Integer getId_familiaIngredients() {
-        return id_familiaIngredients;
+    public Integer getId_FamiliaIngredients() {
+        return id_FamiliaIngredients;
     }
 
-    public void setId_familiaIngredients(Integer id_familiaIngredients) {
-        this.id_familiaIngredients = id_familiaIngredients;
+    public void setId_FamiliaIngredients(Integer id_FamiliaIngredients) {
+        this.id_FamiliaIngredients = id_FamiliaIngredients;
     }
 
     public String getNom() {
@@ -46,18 +42,7 @@ public class Familia_Ingredients {
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
     }
-
-    public String getnom() {
-        return nom;
-    }
-
-    public void setnom(String nom) {
-        this.nom = nom;
-    }
-//NOUS GETTERS I SETTERS
-
-    public String toStringIDNom() {
-        return "Familia_Ingredients{" + "id_Familia=" + id_familiaIngredients + ", nom=" + nom + '}';
-    }
-
+    
+    
+    
 }

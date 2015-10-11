@@ -20,7 +20,7 @@ import java.util.List;
  * @author Fernando
  */
 public class GestionsXef {
-    
+
     public static void menuXef(int inputXef, OperacionsXef op) {
 
         switch (inputXef) {
@@ -49,38 +49,35 @@ public class GestionsXef {
 
         int int_Estrelles = 0;
         String nom;
-        
+        Recepta rec = null;
+
         OperacionsRecepta recepta = new OperacionsRecepta();
-        
 
         escriu("Quantes estrelles té el xef:\n");
         int_Estrelles = llegeixInt();
 
         escriu("Nom del xef\n");
         nom = llegeixString();
-        
+
         escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
         List<Recepta> receptes = recepta.getListRecepta();
-        for(Recepta recep: receptes){
-            escriu("Receptes:"+recep.getNom()+"Nom:"+recep.getId_Recepta());
+
+        for (Recepta recep : receptes) {
+            escriu("Receptes:" + recep.getNom() + "Nom:" + recep.getId_Recepta());
         }
-        
-        Recepta rec = recepta.getRecepta(llegeixInt());
+        rec = recepta.getRecepta(llegeixInt());
         HashSet set1 = new HashSet();
         set1.add(rec);
-        
-        
 
         Xef xef = new Xef(int_Estrelles, nom);
         xef.addRecepta(rec);
         rec.setXef(xef);
+
         int idRec = recepta.actualitzaRecepta(rec);
-        escriu("Recepta"+idRec+"actualitzada.");
-        
+        escriu("Recepta" + idRec + "actualitzada.");
         int ident = op.guardarXef(xef);
-        
-        
-        
+
+        System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
 
         System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
     }

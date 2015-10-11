@@ -9,7 +9,6 @@ import com.ub.edu.bda.Model.*;
 import static com.ub.edu.bda.Controlador.Consola.escriu;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
 import static com.ub.edu.bda.Controlador.Consola.llegeixString;
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

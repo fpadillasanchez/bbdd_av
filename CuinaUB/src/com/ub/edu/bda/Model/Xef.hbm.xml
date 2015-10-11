@@ -9,6 +9,11 @@
         </id>
         <property column="NOM" name="nom"/>
         <property column="ESTRELLES" name="int_Estrelles"/>
+        
+        <set name="receptes" >
+            <key column="ID"/>
+            <one-to-many class ="com.ub.edu.bda.Model.Recepta"/>
+        </set>
     
         
 

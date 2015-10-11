@@ -9,7 +9,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import com.ub.edu.bda.Model.Xef;
 import com.ub.edu.bda.Vista.ConnectorHB;
 
 /**

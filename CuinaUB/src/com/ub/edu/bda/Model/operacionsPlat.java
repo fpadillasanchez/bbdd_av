@@ -10,7 +10,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.ub.edu.bda.Vista.ConnectorHB;
-import org.hibernate.Query;
 
 /**
  *

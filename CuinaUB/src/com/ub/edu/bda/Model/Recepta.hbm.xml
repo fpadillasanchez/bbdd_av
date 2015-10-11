@@ -11,6 +11,9 @@
         <property name="TEMPS" column="temps" />
         <property name="NOM" column="nom" />
         <property name="DIFICULTAT" column="dificultat" />
+        
+        <many-to-one name = "ID" class = "com.ub.edu.bda.Model.Xef"
+                     column = "ID" cascade = "all" not-null ="true"/>
 
     </class>
 </hibernate-mapping>

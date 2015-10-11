@@ -13,6 +13,7 @@
     <!-- Declaramos los archivos de mapping-->
     
     <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
+    <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Plat.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Tipus_Menjar.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Ingredient.hbm.xml"/>

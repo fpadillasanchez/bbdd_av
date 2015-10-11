@@ -7,6 +7,7 @@ public class Recepta {
     private String temps;
     private String nom;
     private String dificultat;
+    private Xef xef;
 
     /**
      *
@@ -29,6 +30,14 @@ public class Recepta {
 
     public Integer getId_Recepta() {
         return id_Recepta;
+    }
+
+    public Xef getXef() {
+        return xef;
+    }
+
+    public void setXef(Xef xef) {
+        this.xef = xef;
     }
 
     public void setId_Recepta(Integer id_Recepta) {
@@ -66,5 +75,6 @@ public class Recepta {
     public void setDificultat(String dificultat) {
         this.dificultat = dificultat;
     }
+    
 
 }

@@ -13,15 +13,11 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
-
 /**
  *
  * @author Oriol
  * @author Fernando
  */
-
-
 public class MainCuinaUB {
     /*
      /**
@@ -63,14 +59,14 @@ public class MainCuinaUB {
                     escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats\n4-Actualitza plats");
                     int inputPlat = llegeixInt();
                     gpPlat.menuPlat(inputPlat, operacionsPlat);
-                    
+
                     break;
                 case 3://Tipus Menjar
                     OperacionsTipusMenjar operacionsTipMenjar = new OperacionsTipusMenjar();
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir tipus de menjar\n2-Eliminar tipus de menjar\n3-Mostrar tipus de menjar");
                     int tipusMenjar = llegeixInt();
-                    gpTMenjar.menuTipusMenjar(tipusMenjar,operacionsTipMenjar);
+                    gpTMenjar.menuTipusMenjar(tipusMenjar, operacionsTipMenjar);
                     break;
                 case 4://Xef
                     OperacionsXef opXef = new OperacionsXef();
@@ -81,20 +77,20 @@ public class MainCuinaUB {
                     break;
 
                 case 5://Ingredient
-                    OperacionsIngredient operacionsIngredient = new OperacionsIngredient();    
+                    OperacionsIngredient operacionsIngredient = new OperacionsIngredient();
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir ingredient\n2-Eliminar recepta\n3-Mostrar receptes");
                     int inputIngredient = llegeixInt();
-                    gIngre.menuIngredient(inputIngredient,operacionsIngredient);
+                    gIngre.menuIngredient(inputIngredient, operacionsIngredient);
                     break;
 
                 //classes adicionals per decisions de disseny    
                 case 6://Familia Ingredient
-                    OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient(); 
+                    OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir Fmilia ingredients\n2-Eliminar Fmilia ingredients\n3-Mostrar Fmilia ingredients");
                     int inputFamIngredient = llegeixInt();
-                    gFamIngr.menuFamIngredient(inputFamIngredient,operacionsFamIngredient);
+                    gFamIngr.menuFamIngredient(inputFamIngredient, operacionsFamIngredient);
                     break;
 
             }
@@ -114,9 +110,6 @@ public class MainCuinaUB {
                 break;
         }
     }
-
-    
-    
 
     private static void addRecepta() {
 
@@ -142,12 +135,5 @@ public class MainCuinaUB {
         System.out.println("Recepta insertat: " + ident + ",nom: " + recepta.getNom() + ",dificultat: " + recepta.getDificultat());
 
     }
-
-   
-
-
-    
-
-   
 
 }

@@ -13,6 +13,6 @@
           <property name="dificultat" column="DIFICULTAT"/>
          
         <many-to-one name="xef" class="Xef"
-            column="IDXEF" not-null="true"/>
+            column="IDXEF" />
     </class> 
 </hibernate-mapping>

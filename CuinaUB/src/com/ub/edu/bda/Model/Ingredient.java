@@ -36,6 +36,14 @@ public class Ingredient {
         this.id_Ingredient = id_Ingredient;
     }
 
+    public Set<Recepta> getReceptes() {
+        return receptes;
+    }
+
+    public void setReceptes(Set<Recepta> receptes) {
+        this.receptes = receptes;
+    }
+
     public String getRefrigeracio() {
         return refrigeracio;
     }

@@ -19,10 +19,10 @@
         
         <set name="plats" inverse="true" cascade ="all" >
             <key column="IDRECEPTA"/>
-            <one-to-many class ="Recepta"/>
+            <one-to-many class ="Plat"/>
         </set>
         
-        <set name="ingredients" table= "ReceptaIngredient" inverse="true" cascade ="all" >
+        <set name="ingredients" table= "ReceptaIngredient" inverse="true"  >
             <key column="IDRECEPTA"/>
             <many-to-many class ="Ingredient"/>
         </set>

@@ -14,7 +14,7 @@
         <property column="FAMILIA" name="familia"/> 
         <property column="REFRIGERACIO" name="refrigeracio"/> 
         
-        <set name="receptes" table= "ReceptaIngredient" inverse="true" cascade ="all" >
+        <set name="receptes" table= "ReceptaIngredient" inverse="true">
             <key column="IDINGREDIENT"/>
             <many-to-many class ="Recepta"/>
         </set>

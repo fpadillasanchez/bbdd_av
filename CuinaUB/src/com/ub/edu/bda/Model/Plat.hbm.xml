@@ -16,7 +16,7 @@
         <property column="DESCRIPCIO" name="descripcio"/>
 
         <many-to-one name="recepta" class="Recepta"
-                     column="IDRECEPTA" />
+                     column="IDRECEPTA" not-null="false"/>
         
          
     </class>

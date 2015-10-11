@@ -37,6 +37,14 @@ public class Recepta {
 
     }
 
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public Integer getId_Recepta() {
         return id_Recepta;
     }

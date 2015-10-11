@@ -11,14 +11,14 @@
     <!-- Definimos que Hibernate cree las tablas none : no actualiza, update : act las dif, create :> machaca todo en la bd-->
     <!-- none, update, create -->
     <!-- Declaramos los archivos de mapping-->
-    <property name="hibernate.hbm2ddl.auto">create</property>
+   <!-- <property name="hibernate.hbm2ddl.auto">create</property>-->
     
     <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Plat.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Tipus_Menjar.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Ingredient.hbm.xml"/>
-    <mapping resource="com/ub/edu/bda/Model/Familia_Ingredients.hbm.xml"/>
+    
    
     
     <!--<mapping/>

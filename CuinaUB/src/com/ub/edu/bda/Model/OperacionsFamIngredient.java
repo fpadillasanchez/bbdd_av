@@ -71,6 +71,7 @@ public class OperacionsFamIngredient {
         try {
             connecta();
             id = (int) sesion.save(famIngredient);
+            System.out.println("sss"+id);
             tx.commit();
         } catch (HibernateException he) {
             excepcio(he);

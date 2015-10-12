@@ -53,7 +53,7 @@ public class GestionsFamiliaIngredient {
 
         escriu("Descripcio:\n");
         descripcio = llegeixString();
-
+escriu("Dccccccccc:\n"+descripcio);
         Familia_Ingredients famIngredient = new Familia_Ingredients(descripcio, nom);
         int ident = operacionsFamIngredient.guardarFamIngredient(famIngredient);
 

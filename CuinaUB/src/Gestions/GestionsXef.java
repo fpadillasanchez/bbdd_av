@@ -61,7 +61,7 @@ public class GestionsXef {
         
         Xef xef = new Xef(int_Estrelles, nom);
         for (Recepta recep : receptes) {
-            escriu("Receptes:" + recep.getNom() + "Nom:" + recep.getId_Recepta());
+            escriu("Receptes:" + recep.getNom() + "ID:" + recep.getId_Recepta());
         }
         escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
         int id_rec=llegeixInt();

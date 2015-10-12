@@ -34,7 +34,7 @@ public class GestioRecepta {
         System.out.println("Tenim " + listaRecepta.size() + " Receptes");
         System.out.println("_____________________________");
         for (Recepta recepta : listaRecepta) {
-            System.out.println("Nom recepta:"+recepta.getNom()+" ID:"+recepta.getId_Recepta());
+            System.out.println("Nom recepta:"+recepta.getNom()+" ID:"+recepta.getId_Recepta()+" Elaboracio:"+recepta.getElaboracio()+" Temps:"+recepta.getTemps()+" Dificultat:"+recepta.getDificultat());
         }
     }
 

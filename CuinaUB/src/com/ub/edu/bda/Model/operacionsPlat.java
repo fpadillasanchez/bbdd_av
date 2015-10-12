@@ -20,7 +20,12 @@ public class OperacionsPlat {
 
     private Session sesion;
     private Transaction tx;
-
+ /**
+  *Obte plat que correspon a la id
+  *
+  * @param id_Plat id a obtenir
+  * @return plat que correspon amb id
+  */
     public Plat getPlat(int id_Plat) throws HibernateException {
         Plat plat = null;
         try {
@@ -31,7 +36,11 @@ public class OperacionsPlat {
         }
         return plat;
     }
-
+ /**
+  *Obte el plat, fa la consulta a la bbdd
+  *
+  * @return listPlat de la bbdd
+  */
     public List<Plat> getListPlat() throws HibernateException {
         List<Plat> listPlat = null;
         try {
@@ -52,7 +61,11 @@ public class OperacionsPlat {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);
     }
-
+ /**
+  *Guarda el plat a la bbdd
+  * @param plat que volem guardar
+  * @return id del plat introduit
+  */
     public int guardarPlat(Plat plat) throws HibernateException {
         int id = 0;
         try {
@@ -68,7 +81,11 @@ public class OperacionsPlat {
 
         return id;
     }
-
+ /**
+  *Actualitza el plat a la bbdd
+  * @param plat que volem actualitzar
+  * @return id de l'plat
+  */
     public int actualitzaPlat(Plat plat) throws HibernateException {
         int id = 0;
         try {
@@ -84,7 +101,11 @@ public class OperacionsPlat {
 
         return id;
     }
-
+ /**
+  * Borra plats de la bbdd
+  * @param plat que volem actualitzar
+  * @return id del plat borrat
+  */
     public int borrarPlat(Plat plat) throws HibernateException {
         int id = 0;
         try {

@@ -13,7 +13,8 @@ import com.ub.edu.bda.Vista.ConnectorHB;
 
 /**
  *
- * @author oriol
+ * @author Fernando
+ * @author Oriol
  */
 public class OperacionsIngredient {
 

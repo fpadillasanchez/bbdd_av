@@ -14,7 +14,7 @@ public class Recepta {
     private Set<Plat> plats;
     private Tipus_Menjar tMenjar;
     
-    private Set<Ingredient> ingredients = new HashSet<Ingredient>();
+    private Set<Ingredient> ingredients;
 
     /**
      *
@@ -34,6 +34,8 @@ public class Recepta {
         this.dificultat = dificultat;
         this.xef = xef;
         this.tMenjar = tMenjar;
+        this.plats = new HashSet<Plat>();
+        this.ingredients = new HashSet<Ingredient>();
 
     }
 
@@ -113,6 +115,15 @@ public class Recepta {
         this.ingredients.add(ingredient);
     }
     
+    /* Class functions */
+    public void addPlat(Plat plat) {
+        this.plats.add(plat);
+    }
+    
+    /* Class functions */
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
    
     
     

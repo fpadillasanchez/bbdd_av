@@ -11,12 +11,13 @@ import com.ub.edu.bda.Model.OperacionsRecepta;
 import com.ub.edu.bda.Model.OperacionsXef;
 import com.ub.edu.bda.Model.Recepta;
 import com.ub.edu.bda.Model.Xef;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
  * @author Fernando
+ * @author Oriol
  */
 public class GestionsXef {
 
@@ -64,29 +65,33 @@ public class GestionsXef {
             escriu("Receptes:" + recep.getNom() + "ID:" + recep.getId_Recepta());
         }
         escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
-        int id_rec=llegeixInt();
-        rec = recepta.getRecepta(id_rec);
+
+        rec = recepta.getRecepta(llegeixInt());
 //        HashSet set1 = new HashSet();
 //        set1.add(rec);
-        xef.addRecepta(rec);
+       
+        xef.addRecepta(rec); 
         rec.setXef(xef);
 
-        int idRec = recepta.actualitzaRecepta(rec);
-        escriu("Recepta" + idRec + "actualitzada.");
+        
         int ident = op.guardarXef(xef);
+        int idRec = recepta.actualitzaRecepta(rec);
+        recepta.actualitzaRecepta(rec);
+        escriu("Recepta" + idRec + "actualitzada.");
 
         System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
 
-        System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
     }
 
     public static void mostrarXef(OperacionsXef op) {
 
         List<Xef> listaxefs = op.getListXef();
-        System.out.println("Tenim " + listaxefs.size() + " Xefs");
+        System.out.println("Tenim " + listaxefs.size() + " xefs");
         System.out.println("_____________________________");
         for (Xef xef : listaxefs) {
-            System.out.println("--> Id: " + xef.getId_Xef() + ", nom: " + xef.getNom() + ", estrelles: " + xef.getInt_Estrelles());
+            escriu(xef.toString());
+            Set xefReceptes = op.getXefReceptes(xef.getId_Xef());
+            escriu(xefReceptes.toString());
         }
     }
 

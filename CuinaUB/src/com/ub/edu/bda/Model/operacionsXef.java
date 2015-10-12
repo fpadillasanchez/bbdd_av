@@ -10,6 +10,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.ub.edu.bda.Vista.ConnectorHB;
+import java.util.Set;
 
 /**
  *
@@ -30,6 +31,17 @@ public class OperacionsXef {
             sesion.close();
         }
         return xef;
+    }
+    
+    public Set getXefReceptes(int id_Xef) throws HibernateException {
+        Xef xef = null;
+        try {
+            connecta();
+            xef = (Xef) sesion.get(Xef.class, id_Xef);
+        } finally {
+            sesion.close();
+        }
+        return xef.getReceptes();
     }
 
     public List<Xef> getListXef() throws HibernateException {

@@ -1,5 +1,6 @@
 package com.ub.edu.bda.Model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Xef {
@@ -24,7 +25,7 @@ public class Xef {
     public Xef(Integer int_Estrelles, String nom) {
         this.int_Estrelles = int_Estrelles;
         this.nom = nom;
-
+        this.receptes = new HashSet<Recepta>();
     }
 
     public Integer getInt_Estrelles() {
@@ -51,9 +52,12 @@ public class Xef {
         this.nom = nom;
     }
 
-    public String toStringNomId() {
-        return "Xef{" + "id_Xef=" + id_Xef + ", nom=" + nom + '}';
+    @Override
+    public String toString() {
+        return "Xef{" + "int_Estrelles=" + int_Estrelles + ", id_Xef=" + id_Xef + ", nom=" + nom + '}';
+    
     }
+    
 
     public void setReceptes(Set recepta) {
         this.receptes = recepta;

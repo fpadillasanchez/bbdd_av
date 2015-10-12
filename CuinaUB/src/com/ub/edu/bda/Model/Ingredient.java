@@ -14,7 +14,7 @@ public class Ingredient {
     private String refrigeracio;
     private String familia;
     private String nom;
-    private Set<Recepta> receptes = new HashSet<Recepta>();
+    private Set<Recepta> receptes;
 // afegim l'objecte cataleg en cardinalitat 1
 
     public Ingredient() {
@@ -26,6 +26,7 @@ public class Ingredient {
         this.refrigeracio = refrigeracio;
         this.familia = familia;
         this.nom = nom;
+        this.receptes = new HashSet<Recepta>();
     }
 
     public Integer getId_Ingredient() {
@@ -72,6 +73,10 @@ public class Ingredient {
 
 //NOUS GETTERS I SETTERS
     public void setIngredients(Recepta recepta) {
+        this.receptes.add(recepta);
+    }
+    
+    public void addRecepta(Recepta recepta) {
         this.receptes.add(recepta);
     }
 }

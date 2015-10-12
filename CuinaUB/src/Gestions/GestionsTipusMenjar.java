@@ -15,6 +15,7 @@ import java.util.List;
 /**
  *
  * @author Fernando
+ * @author Oriol
  */
 public class GestionsTipusMenjar {
 

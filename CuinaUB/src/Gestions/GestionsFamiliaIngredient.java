@@ -12,10 +12,10 @@ import com.ub.edu.bda.Model.Familia_Ingredients;
 import com.ub.edu.bda.Model.OperacionsFamIngredient;
 
 import java.util.List;
-
 /**
  *
  * @author Fernando
+ * @author Oriol
  */
 public class GestionsFamiliaIngredient {
 
@@ -28,11 +28,11 @@ public class GestionsFamiliaIngredient {
 
                 deleteFamIngredient(operacionsFamIngredient);
                 break;
-            case 3:
+            case 3://mostrar
                 mostrarFamIngredient(operacionsFamIngredient);//show
                 break;
 
-            case 4:
+            case 4://actualitzar
                 actualitzarFamIngredient(operacionsFamIngredient);//show
                 break;
         }

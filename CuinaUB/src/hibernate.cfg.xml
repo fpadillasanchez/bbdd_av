@@ -4,14 +4,14 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.SQLiteDialect</property>
     <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-    <property name="hibernate.connection.url">jdbc:sqlite:D:\hubiC\2015-2016\Base de Dades Avançades\bbdd_av\CuinaUB\cuinaub</property>
+    <property name="hibernate.connection.url">jdbc:sqlite:C:\Users\oriol\Documents\UB\quart\BBDDA\bbdd_av\CuinaUB\cuinaub</property>
     <!-- Definimos propiedades de Hibernate para SQL -->
     <property name="show_sql">false</property>
     <property name="format_sql">true</property>
     <!-- Definimos que Hibernate cree las tablas none : no actualiza, update : act las dif, create :> machaca todo en la bd-->
     <!-- none, update, create -->
     <!-- Declaramos los archivos de mapping-->
-   <!-- <property name="hibernate.hbm2ddl.auto">create</property>-->
+    <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
     
     <mapping resource="com/ub/edu/bda/Model/Xef.hbm.xml"/>
     <mapping resource="com/ub/edu/bda/Model/Recepta.hbm.xml"/>

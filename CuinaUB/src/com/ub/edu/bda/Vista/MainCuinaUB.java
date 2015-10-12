@@ -5,6 +5,7 @@ import Gestions.GestionsIngredients;
 import Gestions.GestionsPlat;
 import Gestions.GestionsTipusMenjar;
 import Gestions.GestionsXef;
+import Gestions.GestioRecepta;
 import com.ub.edu.bda.Model.*;
 import static com.ub.edu.bda.Controlador.Consola.escriu;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
@@ -25,13 +26,15 @@ public class MainCuinaUB {
 
     static Session session = null;
     static Transaction tx = null;
-    static GestionsPlat gpPlat = new GestionsPlat();
-    static GestionsTipusMenjar gpTMenjar = new GestionsTipusMenjar();
-    static GestionsXef gfXef = new GestionsXef();
-    static GestionsIngredients gIngre = new GestionsIngredients();
-    static GestionsFamiliaIngredient gFamIngr = new GestionsFamiliaIngredient();
+    static GestioRecepta gpRecepta = new GestioRecepta();//paquet on tenil la gestio de les diferents entitats
+    static GestionsPlat gpPlat = new GestionsPlat();//paquet on tenil la gestio de les diferents entitats
+    static GestionsTipusMenjar gpTMenjar = new GestionsTipusMenjar();//paquet on tenil la gestio de les diferents entitats
+    static GestionsXef gfXef = new GestionsXef();//paquet on tenil la gestio de les diferents entitats
+    static GestionsIngredients gIngre = new GestionsIngredients();//paquet on tenil la gestio de les diferents entitats
+    static GestionsFamiliaIngredient gFamIngr = new GestionsFamiliaIngredient();//paquet on tenil la gestio de les diferents entitats
 
     @SuppressWarnings({"unchecked", "rawtypes"})
+    // Menu de l'aplicacio
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
@@ -46,11 +49,12 @@ public class MainCuinaUB {
 
             switch (opcMenu) {
                 case 1://Recepta
-
+                    OperacionsRecepta operacionsRecepta = new OperacionsRecepta();
+                   
                     escriu("Accions disponibles a la base de dades\n");
                     escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
                     int inputRecepta = llegeixInt();
-                    menuRecepta(inputRecepta);
+                    gpRecepta.menuRecepta(inputRecepta,operacionsRecepta);
 
                 case 2://Tipus Plat
                     OperacionsPlat operacionsPlat = new OperacionsPlat();
@@ -70,7 +74,7 @@ public class MainCuinaUB {
                 case 4://Xef
                     OperacionsXef opXef = new OperacionsXef();
                     escriu("Accions disponibles a la base de dades\n");
-                    escriu("\n1-Afegir xef\n2-Eliminar xef\n3-Mostrar xefs");
+                    escriu("\n1-Afegir xef\n2-Eliminar xef\n3-Mostrar xefs\n4-Actualitzar xef");
                     int inputXef = llegeixInt();
                     gfXef.menuXef(inputXef, opXef);
                     break;
@@ -97,42 +101,4 @@ public class MainCuinaUB {
         }
 
     }
-
-    private static void menuRecepta(int inputRecepta) {
-        switch (inputRecepta) {
-            case 1://add
-                addRecepta();
-                break;
-            case 2://delete
-                break;
-            case 3://show
-                break;
-        }
-    }
-
-    private static void addRecepta() {
-
-        OperacionsRecepta operacionsRecepta = new OperacionsRecepta();
-
-        String nom, elaboracio, temps, dificultat;
-
-        escriu("Nom:\n");
-        nom = llegeixString();
-
-        escriu("elaboracio\n");
-        elaboracio = llegeixString();
-
-        escriu("temps\n");
-        temps = llegeixString();
-
-        escriu("dificultat\n");
-        dificultat = llegeixString();
-
-        Recepta recepta = new Recepta(elaboracio, temps, nom, dificultat,null,null);
-        int ident = operacionsRecepta.guardarRecepta(recepta);
-        // TODO FALTA MIRAR SI REALMENT S'HA INSERTAT
-        System.out.println("Recepta insertat: " + ident + ",nom: " + recepta.getNom() + ",dificultat: " + recepta.getDificultat());
-
-    }
-
 }

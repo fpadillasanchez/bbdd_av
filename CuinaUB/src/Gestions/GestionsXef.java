@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Aqui es gestionen les diferents activitats sobre els Xefs com borrar, actualitzar, donar d'altta i mostrar
+
  */
 package Gestions;
 
@@ -58,18 +57,17 @@ public class GestionsXef {
 
         escriu("Nom del xef\n");
         nom = llegeixString();
-
-        escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
         List<Recepta> receptes = recepta.getListRecepta();
-
+        
+        Xef xef = new Xef(int_Estrelles, nom);
         for (Recepta recep : receptes) {
             escriu("Receptes:" + recep.getNom() + "Nom:" + recep.getId_Recepta());
         }
-        rec = recepta.getRecepta(llegeixInt());
-        HashSet set1 = new HashSet();
-        set1.add(rec);
-
-        Xef xef = new Xef(int_Estrelles, nom);
+        escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
+        int id_rec=llegeixInt();
+        rec = recepta.getRecepta(id_rec);
+//        HashSet set1 = new HashSet();
+//        set1.add(rec);
         xef.addRecepta(rec);
         rec.setXef(xef);
 
@@ -107,13 +105,13 @@ public class GestionsXef {
 
     private static void actualizarXef(OperacionsXef op) {
         mostrarXef(op);
-        escriu("Escull un xef que vulgui borrar.\n");
+        escriu("Escull un xef que vulgui Actualitzar.\n");
         int idxef = llegeixInt();
         Xef xef = op.getXef(idxef);
-        menuActualitzaPlat(op, xef);
+        menuActualitzaXef(op, xef);
     }
 
-    private static void menuActualitzaPlat(OperacionsXef op, Xef xef) {
+    private static void menuActualitzaXef(OperacionsXef op, Xef xef) {
         escriu("Que desitja modificar?:");
         escriu("\n1-Estrelles\n2-Nom");
         int opcio = llegeixInt();

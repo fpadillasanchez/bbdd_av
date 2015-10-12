@@ -20,7 +20,12 @@ public class OperacionsIngredient {
 
     private Session sesion;
     private Transaction tx;
-
+ /**
+  *Obte lingredients que correspon a la id
+  *
+  * @param id_Ingredient id a obtenir
+  * @return Ingredient que correspon amb id
+  */
     public Ingredient getIngredient(int id_Ingredient) throws HibernateException {
         Ingredient ingredient = null;
         try {
@@ -31,7 +36,11 @@ public class OperacionsIngredient {
         }
         return ingredient;
     }
-
+ /**
+  *Onte l'ingredients, fa la consulta a la bbdd
+  *
+  * @return listIngredients de la bbdd
+  */
     public List<Ingredient> getListIngredients() throws HibernateException {
         List<Ingredient> listIngredients = null;
         try {
@@ -52,7 +61,11 @@ public class OperacionsIngredient {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);
     }
-
+ /**
+  *Guarda l'ingredients a la bbdd
+  * @param ingredient que volem guardar
+  * @return id de l'ingredient introduit
+  */
     public int guardarIngredient(Ingredient ingredient) throws HibernateException {
         int id = 0;
         try {
@@ -68,7 +81,11 @@ public class OperacionsIngredient {
 
         return id;
     }
-
+ /**
+  *Actualitza l'ingredient a la bbdd
+  * @param ingredient que volem actualitzar
+  * @return id de l'ingredient
+  */
     public int actualitzaIngredient(Ingredient ingredient) throws HibernateException {
         int id = 0;
         try {
@@ -84,7 +101,11 @@ public class OperacionsIngredient {
 
         return id;
     }
-
+ /**
+  * Borra ingredients de la bbdd
+  * @param ingredient que volem actualitzar
+  * @return id de lingredient borrat
+  */
     public int borrarIngredient(Ingredient ingredient) throws HibernateException {
         int id = 0;
         try {

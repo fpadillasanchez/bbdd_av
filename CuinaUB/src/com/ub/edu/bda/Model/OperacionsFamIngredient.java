@@ -20,7 +20,12 @@ public class OperacionsFamIngredient {
 
     private Session sesion;
     private Transaction tx;
-
+ /**
+  *Obte la familia d'ingredients que correspon a la id
+  *
+  * @param id_FamIngredient id a obtenir
+  * @return famIngredient que correspon amb id
+  */
     public Familia_Ingredients getFamIngredient(int id_FamIngredient) throws HibernateException {
         Familia_Ingredients famIngredient = null;
         try {
@@ -31,7 +36,11 @@ public class OperacionsFamIngredient {
         }
         return famIngredient;
     }
-
+ /**
+  *Onte les familia ingredients, fa la consulta a la bbdd
+  *
+  * @return listFamIngredients de la bbdd
+  */
     public List<Familia_Ingredients> getListFamIngredients() throws HibernateException {
         List<Familia_Ingredients> listFamIngredients = null;
         try {
@@ -52,7 +61,11 @@ public class OperacionsFamIngredient {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);
     }
-
+ /**
+  *Guarda una familia ingredients a la bbdd
+  * @param famIngredient que volem guardar
+  * @return id de la familia introduit
+  */
     public int guardarFamIngredient(Familia_Ingredients famIngredient) throws HibernateException {
         int id = 0;
         try {
@@ -68,7 +81,11 @@ public class OperacionsFamIngredient {
 
         return id;
     }
-
+ /**
+  *Actualitza la familia ingredients a la bbdd
+  * @param famIngredient que volem actualitzar
+  * @return id de la familia
+  */
     public int actualitzaFamIngredient(Familia_Ingredients famIngredient) throws HibernateException {
         int id = 0;
         try {
@@ -84,7 +101,11 @@ public class OperacionsFamIngredient {
 
         return id;
     }
-
+ /**
+  * Borra la familia ingredients a la bbdd
+  * @param famIngredient que volem actualitzar
+  * @return id de la familia borrada
+  */
     public int borrarFamIngredient(Familia_Ingredients famIngredient) throws HibernateException {
         int id = 0;
         try {

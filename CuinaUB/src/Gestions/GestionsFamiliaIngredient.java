@@ -18,7 +18,13 @@ import java.util.List;
  * @author Oriol
  */
 public class GestionsFamiliaIngredient {
+  /**
+  * Menu per interactuar sobre les Familia Ingredients
+  *
+  * @param inputFamIngredient Accio del menu que realitzem
+  * @param operacionsFamIngredient instancia a operacions que es realitzen sobre la taula de familia ingredients
 
+  */
     public void menuFamIngredient(int inputFamIngredient, OperacionsFamIngredient operacionsFamIngredient) {
         switch (inputFamIngredient) {
             case 1://add
@@ -53,7 +59,12 @@ public class GestionsFamiliaIngredient {
 
         System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
     }
+/**
+  *mostrar familiaingredients de la bbdd
+  *
+  * @param operacionsFamIngredient instancia a operacions que es realitzen sobre la taula de Familia ingredients
 
+  */
     private static void mostrarFamIngredient(OperacionsFamIngredient operacionsFamIngredient) {
 
         // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS

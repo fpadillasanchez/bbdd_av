@@ -18,7 +18,13 @@ import java.util.List;
  * @author Oriol
  */
 public class GestioRecepta {
+  /**
+  * Menu per interactuar sobre les receptes
+  *
+  * @param inputRecepta Accio que realitzem sobre recepta
+  * @param op instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public void menuRecepta(int inputRecepta, OperacionsRecepta op) {
         switch (inputRecepta) {
             case 1://add
@@ -36,7 +42,12 @@ public class GestioRecepta {
                 break;
         }
     }
+  /**
+  * Mostrar per pantalla les receptes guardades a la bbdd
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public static void mostrarRecepta(OperacionsRecepta op) {
 
         List<Recepta> listaRecepta = op.getListRecepta();
@@ -84,7 +95,12 @@ public class GestioRecepta {
         System.out.println("Recepta insertat: " + ident + ",nom: " + recepta.getNom() + ",dificultat: " + recepta.getDificultat());
 
     }
+  /**
+  * Borrar per pantalla les receptes guardades a la bbdd
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public static void deleteRecepta(OperacionsRecepta op) {
         List<Recepta> listaRecepta = op.getListRecepta();
         for (Recepta recepta : listaRecepta) {

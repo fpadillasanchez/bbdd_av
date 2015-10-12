@@ -17,7 +17,13 @@ import java.util.List;
  * @author Oriol
  */
 public class GestionsIngredients {
+  /**
+  * Menu per interactuar sobre les Familia Ingredients
+  *
+  * @param inputIngredient Accio del menu que realitzem
+  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula de ingredients
 
+  */
     public static void menuIngredient(int inputIngredient, OperacionsIngredient operacionsIngredient) {
         switch (inputIngredient) {
 
@@ -39,7 +45,12 @@ public class GestionsIngredients {
 
         }
     }
+ /**
+  *Afegir ingredient a la bbdd
+  *
+  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula de Ingredient
 
+  */
     public static void addIngredient(OperacionsIngredient operacionsIngredient) {
 
         String nom, familia, refrigeracio;
@@ -59,7 +70,12 @@ public class GestionsIngredients {
         System.out.println("Ingredient: " + ident + ",nom: " + ingredient.getNom());
 
     }
+  /**
+  * Mostrar per pantalla els ingredients guardadts a la bbdd
+  *
+  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public static void mostrarIngredient(OperacionsIngredient operacionsIngredient) {
 
         // Llistem tots els elements de Xef

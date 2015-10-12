@@ -21,7 +21,12 @@ public class OperacionsXef {
 
     private Session sesion;
     private Transaction tx;
-
+ /**
+  *Obte xef que correspon a la id
+  *
+  * @param id_Xef id a obtenir
+  * @return xef que correspon amb id
+  */
     public Xef getXef(int id_Xef) throws HibernateException {
         Xef xef = null;
         try {
@@ -33,6 +38,12 @@ public class OperacionsXef {
         return xef;
     }
     
+    /**
+     * obte les receptes que tenen el xef
+     * @param id_Xef
+     * @return xef.getReceptes()  receptes
+     * @throws HibernateException
+     */
     public Set getXefReceptes(int id_Xef) throws HibernateException {
         Xef xef = null;
         try {
@@ -43,7 +54,11 @@ public class OperacionsXef {
         }
         return xef.getReceptes();
     }
-
+ /**
+  *Onte els xefs, fa la consulta a la bbdd
+  *
+  * @return listXef de la bbdd
+  */
     public List<Xef> getListXef() throws HibernateException {
         List<Xef> listXef = null;
         try {
@@ -64,7 +79,11 @@ public class OperacionsXef {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);
     }
-
+ /**
+  *Guarda el xef a la bbdd
+  * @param xef que volem guardar
+  * @return id del xef introduit
+  */
     public int guardarXef(Xef xef) throws HibernateException {
         int id = 0;
         try {
@@ -80,7 +99,11 @@ public class OperacionsXef {
 
         return id;
     }
-
+ /**
+  *Actualitza el xef a la bbdd
+  * @param xef que volem actualitzar
+  * @return id del xef
+  */
     public int actualitzaXef(Xef xef) throws HibernateException {
         int id = 0;
         try {
@@ -96,7 +119,11 @@ public class OperacionsXef {
 
         return id;
     }
-
+ /**
+  * Borra xefs de la bbdd
+  * @param xef que volem actualitzar
+  * @return id de xef borrat
+  */
     public int borrarXef(Xef xef) throws HibernateException {
         int id = 0;
         try {

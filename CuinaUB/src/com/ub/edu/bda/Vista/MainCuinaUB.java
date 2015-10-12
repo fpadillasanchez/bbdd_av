@@ -42,7 +42,10 @@ public class MainCuinaUB {
     static OperacionsXef opXef = new OperacionsXef();
     static OperacionsIngredient operacionsIngredient = new OperacionsIngredient();
     static OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
-    
+    /**
+     * Menu principal per interactuar amb l'aplicacio
+     * @param args
+     */    
     @SuppressWarnings({"unchecked", "rawtypes"})
     // Menu de l'aplicacio
     public static void main(String[] args) {

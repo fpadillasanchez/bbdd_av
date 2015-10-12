@@ -20,7 +20,13 @@ import java.util.Set;
  * @author Oriol
  */
 public class GestionsXef {
+  /**
+  * Menu per interactuar sobre les Familia Ingredients
+  *
+  * @param inputXef Accio del menu que realitzem
+  * @param op instancia a operacions que es realitzen sobre la taula de xef
 
+  */
     public static void menuXef(int inputXef, OperacionsXef op) {
 
         switch (inputXef) {
@@ -44,7 +50,12 @@ public class GestionsXef {
         }
 
     }
+ /**
+  *Afegir xef a la bbdd
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
 
+  */
     public static void addXef(OperacionsXef op) {
 
         int int_Estrelles = 0;
@@ -82,7 +93,12 @@ public class GestionsXef {
         System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
 
     }
+ /**
+  *Mostrar xef per pantalla
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
 
+  */
     public static void mostrarXef(OperacionsXef op) {
 
         List<Xef> listaxefs = op.getListXef();
@@ -94,8 +110,12 @@ public class GestionsXef {
             escriu(xefReceptes.toString());
         }
     }
+ /**
+  *ABorrar xef de la bbdd
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
 
-    //TODO
+  */
     public static void deleteXef(OperacionsXef op) {
 
         mostrarXef(op);
@@ -107,7 +127,12 @@ public class GestionsXef {
         op.borrarXef(xef);
 
     }
+ /**
+  *Actualitzar xef a la bbdd
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
 
+  */
     private static void actualizarXef(OperacionsXef op) {
         mostrarXef(op);
         escriu("Escull un xef que vulgui Actualitzar.\n");
@@ -115,7 +140,12 @@ public class GestionsXef {
         Xef xef = op.getXef(idxef);
         menuActualitzaXef(op, xef);
     }
-
+ /**
+  *Menu d'opcions d'actualitzacio del xef
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
+  * @param xef instancia a xef
+  */
     private static void menuActualitzaXef(OperacionsXef op, Xef xef) {
         escriu("Que desitja modificar?:");
         escriu("\n1-Estrelles\n2-Nom");
@@ -130,7 +160,12 @@ public class GestionsXef {
 
         }
     }
-
+ /**
+  *Modificacio estrelles del xef
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
+  * @param xef instancia a xef
+  */
     private static void modificarEstrelles(OperacionsXef op, Xef xef) {
         escriu("Estrelles:" + xef.getInt_Estrelles());
         escriu("Quantes estrelles actuals:");
@@ -138,7 +173,12 @@ public class GestionsXef {
         xef.setInt_Estrelles(estrelles);
         op.actualitzaXef(xef);
     }
-
+ /**
+  *Modificacio Nom del xef
+  *
+  * @param op instancia a operacions que es realitzen sobre la taula de Xefs
+  * @param xef instancia a xef
+  */
     private static void modificarNom(OperacionsXef op, Xef xef) {
         escriu("Nom:" + xef.getInt_Estrelles());
         escriu("Nom actual:");

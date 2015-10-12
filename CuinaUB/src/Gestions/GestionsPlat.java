@@ -17,7 +17,13 @@ import java.util.List;
  * @author Oriol
  */
 public class GestionsPlat {
+  /**
+  * Menu per interactuar sobre les Familia Ingredients
+  *
+  * @param inputPlat Accio del menu que realitzem
+  * @param operacionsPlat instancia a operacions que es realitzen sobre la taula de ingredients
 
+  */
     public static void menuPlat(int inputPlat, OperacionsPlat operacionsPlat) {
 
         switch (inputPlat) {
@@ -40,10 +46,12 @@ public class GestionsPlat {
 
     }
 
-    /*
-     private static void addRecepta() {
+  /**
+  *Afegir plat a la bbdd
+  *
+  * @param operacionsPlat instancia a operacions que es realitzen sobre la taula de recepta
 
-     }*/
+  */
     public static void addPlat(OperacionsPlat operacionsPlat) {
 
         String nom, descripcio;
@@ -59,7 +67,12 @@ public class GestionsPlat {
         // TODO - aqui falta comprobar si se ha insertado
         System.out.println("Plat insertat: " + ident + ",nom: " + plat.getNom() + ",Descripcio: " + plat.getDescripcio());
     }
+    /**
+  * Mostrar per pantalla els Plat guardats a la bbdd
+  *
+  * @param operacionsPlat instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public static void mostrarPlat(OperacionsPlat operacionsPlat) {
 
         // llistem tots els elements de Plat
@@ -70,7 +83,12 @@ public class GestionsPlat {
             System.out.println("--> Id: " + plat.getId_Plat() + ", nom: " + plat.getNom() + ", descripcio: " + plat.getDescripcio());
         }
     }
+    /**
+  * Actualitzar els Plat guardats a la bbdd
+  *
+  * @param operacionsPlat instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public static void actualitzarPlat(OperacionsPlat operacionsPlat) {
         escriu("Escull un plat que vulguis actualitzar.");
         List<Plat> listPlats = operacionsPlat.getListPlat();
@@ -84,7 +102,12 @@ public class GestionsPlat {
         //operacionsPlat.actualitzaPlat(plat);
 
     }
+   /**
+  * Borrar Plats guardats a la bbdd
+  *
+  * @param operacionsPlat instancia a operacions que es realitzen sobre la taula de recepta
 
+  */
     public static void deletePlat(OperacionsPlat operacionsPlat) {
         escriu("Escull plat que vulgui borrar de la BBDD.");
         List<Plat> listPlats = operacionsPlat.getListPlat();
@@ -97,7 +120,12 @@ public class GestionsPlat {
         operacionsPlat.borrarPlat(plat);
 
     }
-
+ /**
+  * Menu per opions d'actualitzacio de plat
+  *
+  * @param ope instancia a operacions que es realitzen sobre la taula de recepta
+  * @param plat instancia a Plat
+  */
     public static void menuActualitzaPlat(OperacionsPlat ope, Plat plat) {
         escriu("Que desitja modificar?:");
         escriu("\n1-Descripcio\n2-Nom");
@@ -112,7 +140,12 @@ public class GestionsPlat {
 
         }
     }
-
+/**
+  * Modificacio de descripcio del plat
+  *
+  * @param operacions instancia a operacions que es realitzen sobre la taula de recepta
+  * @param obj instancia a Plat
+  */
     public static void modificarDescripcio(OperacionsPlat operacions, Object obj) {
         Plat plat = (Plat) obj;
         escriu("Descripcio original:" + plat.getDescripcio());
@@ -121,7 +154,12 @@ public class GestionsPlat {
         plat.setDescripcio(desc);
         operacions.actualitzaPlat(plat);
     }
-
+ /**
+  * Modificacio de nom del plat
+  *
+  * @param operacions instancia a operacions que es realitzen sobre la taula de recepta
+  * @param plat instancia a Plat
+  */
     public static void modificarNom(OperacionsPlat operacions, Plat plat) {
 
         escriu("Nom original:" + plat.getNom());

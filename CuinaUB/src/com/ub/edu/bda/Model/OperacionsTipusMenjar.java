@@ -15,7 +15,12 @@ public class OperacionsTipusMenjar {
 
     private Session sesion;
     private Transaction tx;
-
+ /**
+  *Obte tipus menjar que correspon a la id
+  *
+  * @param id_TipusMenjar id a obtenir
+  * @return tipusMenjar que correspon amb id
+  */
     public Tipus_Menjar getTipusMenjar(int id_TipusMenjar) throws HibernateException {
         Tipus_Menjar tipusMenjar = null;
         try {
@@ -26,7 +31,11 @@ public class OperacionsTipusMenjar {
         }
         return tipusMenjar;
     }
-
+ /**
+  *Onte tipus Menjar, fa la consulta a la bbdd
+  *
+  * @return listTipus_Menjars de la bbdd
+  */
     public List<Tipus_Menjar> getListTipus_Menjars() throws HibernateException {
         List<Tipus_Menjar> listTipus_Menjars = null;
         try {
@@ -47,7 +56,11 @@ public class OperacionsTipusMenjar {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);
     }
-
+ /**
+  *Guarda el tipus Menjar a la bbdd
+  * @param tipus_Menjar que volem guardar
+  * @return id de el tipus Menjar introduit
+  */
     public int guardarTipusMenjar(Tipus_Menjar tipus_Menjar) throws HibernateException {
         int id = 0;
         try {
@@ -63,7 +76,11 @@ public class OperacionsTipusMenjar {
 
         return id;
     }
-
+ /**
+  *Actualitza el tipus Menjar a la bbdd
+  * @param tipus_Menjar que volem actualitzar
+  * @return id del tipus Menjar
+  */
     public int actualitzaTipusMenjar(Tipus_Menjar tipus_Menjar) throws HibernateException {
         int id = 0;
         try {
@@ -79,7 +96,11 @@ public class OperacionsTipusMenjar {
 
         return id;
     }
-
+ /**
+  * Borra tipus Menjar de la bbdd
+  * @param tipus_Menjar que volem actualitzar
+  * @return id de tipus Menjar borrat
+  */
     public int borrarTipusMenjar(Tipus_Menjar tipus_Menjar) throws HibernateException {
         int id = 0;
         try {

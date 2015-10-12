@@ -20,7 +20,13 @@ import java.util.List;
  * @author Oriol
  */
 public class GestionsReceptaIngredient {
+  /**
+  * Menu per interactuar sobre les Familia Ingredients
+  *
+  * @param operacionsRecepta instancia a operacions que es realitzen sobre la taula de receptes
+  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula d ingredients
 
+  */
     public void menuRecIng(OperacionsIngredient operacionsIngredient, OperacionsRecepta operacionsRecepta) {
         List<Recepta> receptes = operacionsRecepta.getListRecepta();
         for (Recepta recep : receptes) {

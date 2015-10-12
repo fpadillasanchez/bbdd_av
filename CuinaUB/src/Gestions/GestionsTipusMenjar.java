@@ -1,9 +1,8 @@
 /*
-Aqui es gestionen les diferents activitats sobre el TipoMenjar com borrar, actualitzar, donar d'altta i mostrar
+ Aqui es gestionen les diferents activitats sobre el TipoMenjar com borrar, actualitzar, donar d'altta i mostrar
 
  */
 package Gestions;
-
 
 import static com.ub.edu.bda.Controlador.Consola.escriu;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
@@ -18,13 +17,15 @@ import java.util.List;
  * @author Oriol
  */
 public class GestionsTipusMenjar {
-/**
-  * Menu per interactuar sobre les Tipus de Menjar
-  *
-  * @param tipusMenjar Accio del menu que realitzem
-  * @param op instancia a operacions que es realitzen sobre la taula de tipus de menjar
 
-  */
+    /**
+     * Menu per interactuar sobre les Tipus de Menjar
+     *
+     * @param tipusMenjar Accio del menu que realitzem
+     * @param op instancia a operacions que es realitzen sobre la taula de tipus
+     * de menjar
+     *
+     */
     public static void menuTipusMenjar(int tipusMenjar, OperacionsTipusMenjar op) {
 
         switch (tipusMenjar) {
@@ -49,12 +50,14 @@ public class GestionsTipusMenjar {
         }
 
     }
-    /**
-  *Afegir tipus menjar a la bbdd
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de tipus menjar
 
-  */
+    /**
+     * Afegir tipus menjar a la bbdd
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de tipus
+     * menjar
+     *
+     */
     public static void addTipusMenjar(OperacionsTipusMenjar op) {
 
         String nom;
@@ -66,12 +69,14 @@ public class GestionsTipusMenjar {
         op.guardarTipusMenjar(tipus_Menjar);
 
     }
-  /**
-  * Mostrar per pantalla el tipus menjar guardades a la bbdd
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de tipus menjar
 
-  */
+    /**
+     * Mostrar per pantalla el tipus menjar guardades a la bbdd
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de tipus
+     * menjar
+     *
+     */
     public static void mostrarTipusMenjar(OperacionsTipusMenjar op) {
 
         // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
@@ -83,12 +88,14 @@ public class GestionsTipusMenjar {
             System.out.println("--> Id: " + tipus_Menjar.getId_Tipus() + ", nom: " + tipus_Menjar.getNom());
         }
     }
-  /**
-  * Borrar el tipus menjar guardades a la bbdd
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de tipus menjar
 
-  */
+    /**
+     * Borrar el tipus menjar guardades a la bbdd
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de tipus
+     * menjar
+     *
+     */
     private static void deleteTipusMenjar(OperacionsTipusMenjar op) {
         escriu("Escull plat que vulgui borrar de la BBDD.");
         List<Tipus_Menjar> listTMenjar = op.getListTipus_Menjars();
@@ -100,12 +107,14 @@ public class GestionsTipusMenjar {
         Tipus_Menjar tipMenjar = op.getTipusMenjar(idTipMenjar);
         op.borrarTipusMenjar(tipMenjar);
     }
-  /**
-  * Menu per les diferents opcions de modificacio del tipus de menjar
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de tipus menjar
-  * @param tipMenjar instanciaa tipus d menjar
-  */
+
+    /**
+     * Menu per les diferents opcions de modificacio del tipus de menjar
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de tipus
+     * menjar
+     * @param tipMenjar instanciaa tipus d menjar
+     */
     private static void menuModificarTipusMenjar(OperacionsTipusMenjar op, Tipus_Menjar tipMenjar) {
         escriu("Nom original:" + tipMenjar.getNom());
         escriu("Nou nom");
@@ -115,12 +124,14 @@ public class GestionsTipusMenjar {
         op.actualitzaTipusMenjar(tipMenjar);
 
     }
-  /**
-  * Actualitzar el tipus menjar guardat a la bbdd
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de tipus menjar
 
-  */
+    /**
+     * Actualitzar el tipus menjar guardat a la bbdd
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de tipus
+     * menjar
+     *
+     */
     private static void actualitzarTipusMenjar(OperacionsTipusMenjar op) {
         mostrarTipusMenjar(op);
         int idTipMenjar = llegeixInt();

@@ -18,13 +18,15 @@ import java.util.List;
  * @author Oriol
  */
 public class GestioRecepta {
-  /**
-  * Menu per interactuar sobre les receptes
-  *
-  * @param inputRecepta Accio que realitzem sobre recepta
-  * @param op instancia a operacions que es realitzen sobre la taula de recepta
 
-  */
+    /**
+     * Menu per interactuar sobre les receptes
+     *
+     * @param inputRecepta Accio que realitzem sobre recepta
+     * @param op instancia a operacions que es realitzen sobre la taula de
+     * recepta
+     *
+     */
     public void menuRecepta(int inputRecepta, OperacionsRecepta op) {
         switch (inputRecepta) {
             case 1://add
@@ -42,12 +44,14 @@ public class GestioRecepta {
                 break;
         }
     }
-  /**
-  * Mostrar per pantalla les receptes guardades a la bbdd
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de recepta
 
-  */
+    /**
+     * Mostrar per pantalla les receptes guardades a la bbdd
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de
+     * recepta
+     *
+     */
     public static void mostrarRecepta(OperacionsRecepta op) {
 
         List<Recepta> listaRecepta = op.getListRecepta();
@@ -57,6 +61,11 @@ public class GestioRecepta {
             System.out.println("Nom recepta:" + recepta.getNom() + " ID:" + recepta.getId_Recepta() + " Elaboracio:" + recepta.getElaboracio() + " Temps:" + recepta.getTemps() + " Dificultat:" + recepta.getDificultat());
         }
     }
+
+    /**
+     * Afegir una recepta a la bbdd
+     * @param operacionsRecepta
+     */
 
     private static void addRecepta(OperacionsRecepta operacionsRecepta) {
 
@@ -95,12 +104,14 @@ public class GestioRecepta {
         System.out.println("Recepta insertat: " + ident + ",nom: " + recepta.getNom() + ",dificultat: " + recepta.getDificultat());
 
     }
-  /**
-  * Borrar per pantalla les receptes guardades a la bbdd
-  *
-  * @param op instancia a operacions que es realitzen sobre la taula de recepta
 
-  */
+    /**
+     * Borrar per pantalla les receptes guardades a la bbdd
+     *
+     * @param op instancia a operacions que es realitzen sobre la taula de
+     * recepta
+     *
+     */
     public static void deleteRecepta(OperacionsRecepta op) {
         List<Recepta> listaRecepta = op.getListRecepta();
         for (Recepta recepta : listaRecepta) {
@@ -114,6 +125,10 @@ public class GestioRecepta {
 
     }
 
+    /**
+     * Actualitza una recepta en concret
+     * @param op
+     */
     private void actualitzarRecepta(OperacionsRecepta op) {
         mostrarRecepta(op);
         escriu("Escriu la recepta que vulgui actualizar.");
@@ -121,6 +136,11 @@ public class GestioRecepta {
         menuRecepta(op, recepta);
     }
 
+    /**
+     *  Mostra el menu principal de recepta
+     * @param op
+     * @param recepta
+     */
     private void menuRecepta(OperacionsRecepta op, Recepta recepta) {
         /*
          this.elaboracio = elaboracio;
@@ -151,30 +171,50 @@ public class GestioRecepta {
 
     }
 
+    /**
+     * Modifica la elaboracio de recepta
+     * @param op
+     * @param recepta
+     */
     private void modificarElaboracio(OperacionsRecepta op, Recepta recepta) {
         escriu("Elaboracio:" + recepta.getElaboracio());
         escriu("Quantes estrelles actuals:");
         recepta.setElaboracio(llegeixString());
         op.actualitzaRecepta(recepta);
-        
+
     }
 
+    /**
+     * Modifica el temps de recepta
+     * @param op
+     * @param recepta
+     */
     private void modificarTemps(OperacionsRecepta op, Recepta recepta) {
         escriu("Temps:" + recepta.getTemps());
         escriu("Temps actuals:");
         recepta.setTemps(llegeixString());
         op.actualitzaRecepta(recepta);
-        
+
     }
 
+    /**
+     * Modifica el nom de la recepta
+     * @param op
+     * @param recepta
+     */
     private void modificarNom(OperacionsRecepta op, Recepta recepta) {
-         escriu("Nom:" + recepta.getNom());
+        escriu("Nom:" + recepta.getNom());
         escriu("Nom actuals:");
         recepta.setElaboracio(llegeixString());
         op.actualitzaRecepta(recepta);
-        
+
     }
 
+    /**
+     * Modifica la dificultat de recepta
+     * @param op
+     * @param recepta
+     */
     private void modificarDificultat(OperacionsRecepta op, Recepta recepta) {
         escriu("Dificultat:" + recepta.getDificultat());
         escriu("Dificultat actuals:");

@@ -1,5 +1,5 @@
 /*
-Aqui es gestionen les diferents activitats sobre les Ingredients com borrar, actualitzar, donar d'altta i mostrar
+ Aqui es gestionen les diferents activitats sobre les Ingredients com borrar, actualitzar, donar d'altta i mostrar
 
  */
 package Gestions;
@@ -17,13 +17,15 @@ import java.util.List;
  * @author Oriol
  */
 public class GestionsIngredients {
-  /**
-  * Menu per interactuar sobre les Familia Ingredients
-  *
-  * @param inputIngredient Accio del menu que realitzem
-  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula de ingredients
 
-  */
+    /**
+     * Menu per interactuar sobre les Familia Ingredients
+     *
+     * @param inputIngredient Accio del menu que realitzem
+     * @param operacionsIngredient instancia a operacions que es realitzen sobre
+     * la taula de ingredients
+     *
+     */
     public static void menuIngredient(int inputIngredient, OperacionsIngredient operacionsIngredient) {
         switch (inputIngredient) {
 
@@ -45,12 +47,14 @@ public class GestionsIngredients {
 
         }
     }
- /**
-  *Afegir ingredient a la bbdd
-  *
-  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula de Ingredient
 
-  */
+    /**
+     * Afegir ingredient a la bbdd
+     *
+     * @param operacionsIngredient instancia a operacions que es realitzen sobre
+     * la taula de Ingredient
+     *
+     */
     public static void addIngredient(OperacionsIngredient operacionsIngredient) {
 
         String nom, familia, refrigeracio;
@@ -70,12 +74,14 @@ public class GestionsIngredients {
         System.out.println("Ingredient: " + ident + ",nom: " + ingredient.getNom());
 
     }
-  /**
-  * Mostrar per pantalla els ingredients guardadts a la bbdd
-  *
-  * @param operacionsIngredient instancia a operacions que es realitzen sobre la taula de recepta
 
-  */
+    /**
+     * Mostrar per pantalla els ingredients guardadts a la bbdd
+     *
+     * @param operacionsIngredient instancia a operacions que es realitzen sobre
+     * la taula de recepta
+     *
+     */
     public static void mostrarIngredient(OperacionsIngredient operacionsIngredient) {
 
         // Llistem tots els elements de Xef
@@ -87,6 +93,10 @@ public class GestionsIngredients {
         }
     }
 
+    /**
+     * Elminina ingredient de la bbdd
+     * @param operacionsIngredient
+     */
     private static void deleteIngredient(OperacionsIngredient operacionsIngredient) {
 
         mostrarIngredient(operacionsIngredient);
@@ -95,6 +105,10 @@ public class GestionsIngredients {
         operacionsIngredient.borrarIngredient(ingredient);
     }
 
+    /**
+     * Actualiza un ingredient
+     * @param operacionsIngredient
+     */
     private static void actualitzarIngredient(OperacionsIngredient operacionsIngredient) {
         mostrarIngredient(operacionsIngredient);
         Ingredient ingredient = operacionsIngredient.getIngredient(llegeixInt());
@@ -102,6 +116,11 @@ public class GestionsIngredients {
 
     }
 
+    /**
+     * Menu principal dels ingredients
+     * @param ope
+     * @param ingr
+     */
     private static void menuActualitzaIngredient(OperacionsIngredient ope, Ingredient ingr) {
         escriu("Que desitja modificar?:");
         escriu("\n1-Refrigeracio\n2-Familia\n3-Nom");
@@ -119,6 +138,11 @@ public class GestionsIngredients {
         }
     }
 
+    /**
+     * Modifica la refrigeració del ingredient
+     * @param ope
+     * @param ingr
+     */
     private static void modificarRefrigeracio(OperacionsIngredient ope, Ingredient ingr) {
         escriu("Refrigeracio:" + ingr.getRefrigeracio());
         escriu("Refrigeracio?");
@@ -126,6 +150,11 @@ public class GestionsIngredients {
         ope.actualitzaIngredient(ingr);
     }
 
+    /**
+     * Modifica la familia del ingredient
+     * @param ope
+     * @param ingr
+     */
     private static void modificarFamilia(OperacionsIngredient ope, Ingredient ingr) {
         escriu("Familia:" + ingr.getRefrigeracio());
         escriu("Familia?");
@@ -133,6 +162,11 @@ public class GestionsIngredients {
         ope.actualitzaIngredient(ingr);
     }
 
+    /**
+     * Modifica el nom del ingredient
+     * @param ope
+     * @param ingr
+     */
     private static void modificarNom(OperacionsIngredient ope, Ingredient ingr) {
         escriu("Nom:" + ingr.getRefrigeracio());
         escriu("Nou nom:");

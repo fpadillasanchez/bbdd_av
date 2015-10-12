@@ -1,5 +1,5 @@
 /*
-Aqui es gestionen les diferents activitats sobre les FamiliaIngredients com borrar, actualitzar, donar d'altta i mostrar
+ Aqui es gestionen les diferents activitats sobre les FamiliaIngredients com borrar, actualitzar, donar d'altta i mostrar
 
  */
 package Gestions;
@@ -12,19 +12,22 @@ import com.ub.edu.bda.Model.Familia_Ingredients;
 import com.ub.edu.bda.Model.OperacionsFamIngredient;
 
 import java.util.List;
+
 /**
  *
  * @author Fernando
  * @author Oriol
  */
 public class GestionsFamiliaIngredient {
-  /**
-  * Menu per interactuar sobre les Familia Ingredients
-  *
-  * @param inputFamIngredient Accio del menu que realitzem
-  * @param operacionsFamIngredient instancia a operacions que es realitzen sobre la taula de familia ingredients
 
-  */
+    /**
+     * Menu per interactuar sobre les Familia Ingredients
+     *
+     * @param inputFamIngredient Accio del menu que realitzem
+     * @param operacionsFamIngredient instancia a operacions que es realitzen
+     * sobre la taula de familia ingredients
+     *
+     */
     public void menuFamIngredient(int inputFamIngredient, OperacionsFamIngredient operacionsFamIngredient) {
         switch (inputFamIngredient) {
             case 1://add
@@ -44,6 +47,10 @@ public class GestionsFamiliaIngredient {
         }
     }
 
+    /**
+     * Afegeix familia dun ingredient
+     * @param operacionsFamIngredient
+     */
     private static void addFamIngredient(OperacionsFamIngredient operacionsFamIngredient) {
 
         String nom, descripcio;
@@ -53,18 +60,20 @@ public class GestionsFamiliaIngredient {
 
         escriu("Descripcio:\n");
         descripcio = llegeixString();
-escriu("Dccccccccc:\n"+descripcio);
+        escriu("Dccccccccc:\n" + descripcio);
         Familia_Ingredients famIngredient = new Familia_Ingredients(descripcio, nom);
         int ident = operacionsFamIngredient.guardarFamIngredient(famIngredient);
 
         System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
     }
-/**
-  *mostrar familiaingredients de la bbdd
-  *
-  * @param operacionsFamIngredient instancia a operacions que es realitzen sobre la taula de Familia ingredients
 
-  */
+    /**
+     * Mostrar familiaingredients de la bbdd
+     *
+     * @param operacionsFamIngredient instancia a operacions que es realitzen
+     * sobre la taula de Familia ingredients
+     *
+     */
     private static void mostrarFamIngredient(OperacionsFamIngredient operacionsFamIngredient) {
 
         // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
@@ -77,6 +86,10 @@ escriu("Dccccccccc:\n"+descripcio);
         }
     }
 
+    /**
+     * Elimina una familia dingredients de la bbdd
+     * @param operacionsFamIngredient
+     */
     private void deleteFamIngredient(OperacionsFamIngredient operacionsFamIngredient) {
         mostrarFamIngredient(operacionsFamIngredient);
         escriu("Escull la familia dingredients");
@@ -84,12 +97,21 @@ escriu("Dccccccccc:\n"+descripcio);
         operacionsFamIngredient.borrarFamIngredient(fmIngredient);
     }
 
+    /**
+     * Actualitza una familia dingredients de la bbdd
+     * @param operacionsFamIngredient
+     */
     private void actualitzarFamIngredient(OperacionsFamIngredient operacionsFamIngredient) {
         mostrarFamIngredient(operacionsFamIngredient);
         Familia_Ingredients famIngredient = operacionsFamIngredient.getFamIngredient(llegeixInt());
         menuActualitzaIngredient(operacionsFamIngredient, famIngredient);
     }
 
+    /**
+     *  Menu principal de la familia dingredients
+     * @param ope
+     * @param famIng
+     */
     private void menuActualitzaIngredient(OperacionsFamIngredient ope, Familia_Ingredients famIng) {
         escriu("Que desitja modificar?:");
         escriu("\n1-Familia\n2-Descripcio");
@@ -105,6 +127,11 @@ escriu("Dccccccccc:\n"+descripcio);
         }
     }
 
+    /**
+     * Modificar la familia de la classe
+     * @param ope
+     * @param famIng
+     */
     private void modificarFamilia(OperacionsFamIngredient ope, Familia_Ingredients famIng) {
         escriu("Familia:" + famIng.getDescripcio());
         escriu("Familia?");
@@ -112,6 +139,11 @@ escriu("Dccccccccc:\n"+descripcio);
         ope.actualitzaFamIngredient(famIng);
     }
 
+    /**
+     * Modifica la descripcio de la familia dingredients
+     * @param ope
+     * @param famIng
+     */
     private void modificarDescripcio(OperacionsFamIngredient ope, Familia_Ingredients famIng) {
         escriu("Descripcio:" + famIng.getDescripcio());
         escriu("Familia?");

@@ -10,7 +10,6 @@ import Gestions.GestionsReceptaIngredient;
 import com.ub.edu.bda.Model.*;
 import static com.ub.edu.bda.Controlador.Consola.escriu;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
-import static com.ub.edu.bda.Controlador.Consola.llegeixString;
 import org.hibernate.Session;
 import java.io.IOException;
 import org.hibernate.Transaction;
@@ -69,7 +68,7 @@ public class MainCuinaUB {
             
             boolean logginOK = registre();
             if( logginOK == true ){
-                escriu("Menú Principal CuinaUB");
+                escriu("-------------------MENÚ PRINCIPAL CUINAUB-------------------");
                 escriu("\n1-Recepta\n2-Tipus de plat\n3-Tipus de menjar\n4-Xef\n5-Ingredient\n6-Familiia ingredient");
                 opcMenu = llegeixInt();
 
@@ -78,7 +77,7 @@ public class MainCuinaUB {
 
 
                         escriu("Accions disponibles a la base de dades\n");
-                        escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes");
+                        escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes\n");
                         int inputRecepta = llegeixInt();
                         gpRecepta.menuRecepta(inputRecepta, operacionsRecepta);
                         break;
@@ -86,7 +85,7 @@ public class MainCuinaUB {
                     case 2://Tipus Plat
 
                         escriu("Accions disponibles a la base de dades\n");
-                        escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats\n4-Actualitza plats");
+                        escriu("\n1-Afegir plat\n2-Eliminar plat\n3-Mostrar plats\n4-Actualitza plats\n");
                         int inputPlat = llegeixInt();
                         gpPlat.menuPlat(inputPlat, operacionsPlat);
 
@@ -94,14 +93,14 @@ public class MainCuinaUB {
                     case 3://Tipus Menjar
 
                         escriu("Accions disponibles a la base de dades\n");
-                        escriu("\n1-Afegir tipus de menjar\n2-Eliminar tipus de menjar\n3-Mostrar tipus de menjar");
+                        escriu("\n1-Afegir tipus de menjar\n2-Eliminar tipus de menjar\n3-Mostrar tipus de menjar\n");
                         int tipusMenjar = llegeixInt();
                         gpTMenjar.menuTipusMenjar(tipusMenjar, operacionsTipMenjar);
                         break;
                     case 4://Xef
 
                         escriu("Accions disponibles a la base de dades\n");
-                        escriu("\n1-Afegir xef\n2-Eliminar xef\n3-Mostrar xefs\n4-Actualitzar xef");
+                        escriu("\n1-Afegir xef\n2-Eliminar xef\n3-Mostrar xefs\n4-Actualitzar xef\n");
                         int inputXef = llegeixInt();
                         gfXef.menuXef(inputXef, opXef);
                         break;
@@ -109,7 +108,7 @@ public class MainCuinaUB {
                     case 5://Ingredient
 
                         escriu("Accions disponibles a la base de dades\n");
-                        escriu("\n1-Afegir ingredient\n2-Eliminar recepta\n3-Mostrar receptes");
+                        escriu("\n1-Afegir ingredient\n2-Eliminar recepta\n3-Mostrar receptes\n");
                         int inputIngredient = llegeixInt();
                         gIngre.menuIngredient(inputIngredient, operacionsIngredient);
                         break;
@@ -118,13 +117,14 @@ public class MainCuinaUB {
                     case 6://Familia Ingredient
 
                         escriu("Accions disponibles a la base de dades\n");
-                        escriu("\n1-Afegir Fmilia ingredients\n2-Eliminar Fmilia ingredients\n3-Mostrar Fmilia ingredients");
+                        escriu("\n1-Afegir Fmilia ingredients\n2-Eliminar Fmilia ingredients\n3-Mostrar Fmilia ingredients\n");
                         int inputFamIngredient = llegeixInt();
                         gFamIngr.menuFamIngredient(inputFamIngredient, operacionsFamIngredient);
                         break;
 
                     case 7: // afegir a les receptes els seus ingredients
                         gRecIngre.menuRecIng(operacionsIngredient,operacionsRecepta);
+                        break;
 
                 }
 

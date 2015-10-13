@@ -40,11 +40,11 @@ public class GestionsXef {
                 deleteXef(op);
                 break;
 
-            case 3:
+            case 3://show
                 mostrarXef(op);//show
                 break;
 
-            case 4:
+            case 4://show
                 actualizarXef(op);//actualitzar
                 break;
 
@@ -60,7 +60,7 @@ public class GestionsXef {
      */
     public static void addXef(OperacionsXef op) {
 
-        int int_Estrelles = 0;
+        int int_Estrelles, mesReceptes = 0;
         String nom;
         Recepta rec = null;
 
@@ -77,12 +77,20 @@ public class GestionsXef {
         for (Recepta recep : receptes) {
             escriu("Receptes:" + recep.getNom() + "ID:" + recep.getId_Recepta());
         }
-        escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
+        escriu("------------------------------------------------------");
+        while (mesReceptes != 1) {
+            for (Recepta recep : receptes) {
+                escriu("Receptes:" + recep.getNom() + "ID:" + recep.getId_Recepta());
+            }
+            escriu("Quines són les receptes del xef: " + xef.getNom());
 
-        rec = recepta.getRecepta(llegeixInt());
+            rec = recepta.getRecepta(llegeixInt());
 
-        xef.addRecepta(rec);
-        rec.setXef(xef);
+            xef.addRecepta(rec);
+            rec.setXef(xef);
+            escriu("Vols afegir més receptes?(0->SI|| 1->NO)");
+            mesReceptes = llegeixInt();
+        }
 
         int ident = op.guardarXef(xef);
         int idRec = recepta.actualitzaRecepta(rec);

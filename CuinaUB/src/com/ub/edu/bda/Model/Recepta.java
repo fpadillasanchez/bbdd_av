@@ -206,7 +206,14 @@ public class Recepta {
 
     @Override
     public String toString() {
-        return "Recepta{" + "id_Recepta=" + id_Recepta + ", elaboracio=" + elaboracio + ", temps=" + temps + ", nom=" + nom + ", dificultat=" + dificultat + ", xef=" + xef + ", tMenjar=" + tMenjar + '}';
+        return "Recepta{" 
+                + "ID de la recepta" + id_Recepta 
+                + "Com es fa la recepta?" + elaboracio 
+                + "Quan es triga?" + temps 
+                + "Nom de la recepta=" + nom 
+                + "Es dificil?=" + dificultat 
+                + "Idea original de" + xef 
+                + "Quin tipus de menjar te" + tMenjar;
     }
    
     

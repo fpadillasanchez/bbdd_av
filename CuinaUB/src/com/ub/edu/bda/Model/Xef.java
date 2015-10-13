@@ -76,7 +76,10 @@ public class Xef {
 
     @Override
     public String toString() {
-        return "Xef{" + "int_Estrelles=" + int_Estrelles + ", id_Xef=" + id_Xef + ", nom=" + nom + '}';
+        return "Xef\n"
+                + "" + "Estrelles:" + int_Estrelles 
+                + ", ID del xef:" + id_Xef 
+                + ", nom:" + nom;
     
     }
     /**

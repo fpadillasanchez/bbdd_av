@@ -108,7 +108,11 @@ public class Plat {
 
     @Override
     public String toString() {
-        return "Plat{" + "id_Plat=" + id_Plat + ", descripcio=" + descripcio + ", nom=" + nom + ", id_Recepta=" + id_Recepta + '}';
+        return "Plat{" 
+                + "ID del plat:" + id_Plat 
+                + "Descripció del plat:" + descripcio 
+                + "Nom de plat:" + nom 
+                + "ID  de la recepta a la que pertany:" + id_Recepta;
     }
 
 }

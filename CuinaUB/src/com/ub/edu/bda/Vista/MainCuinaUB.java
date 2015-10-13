@@ -134,6 +134,11 @@ public class MainCuinaUB {
         }
         }
     }
+     /**
+     * Classe usada per controlar el login d'usuari, compara pass i nom
+     * @return true si el login es correcte
+     * @throws HibernateException
+     */
     private static boolean registre(){
         boolean ok = false;
         try{

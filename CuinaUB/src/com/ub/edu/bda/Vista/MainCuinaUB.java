@@ -9,6 +9,7 @@ import Gestions.GestioRecepta;
 import Gestions.GestionsReceptaIngredient;
 import com.ub.edu.bda.Model.*;
 import static com.ub.edu.bda.Controlador.Consola.escriu;
+import static com.ub.edu.bda.Controlador.Consola.escriuLin;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
 import org.hibernate.Session;
 import java.io.IOException;
@@ -17,7 +18,6 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.util.List;
 import org.hibernate.HibernateException;
-
 
 /**
  *
@@ -32,7 +32,7 @@ public class MainCuinaUB {
 
     static Session session = null;
     static Transaction tx = null;
-    
+
     static GestioRecepta gpRecepta = new GestioRecepta();//paquet on tenil la gestio de les diferents entitats
     static GestionsPlat gpPlat = new GestionsPlat();//paquet on tenil la gestio de les diferents entitats
     static GestionsTipusMenjar gpTMenjar = new GestionsTipusMenjar();//paquet on tenil la gestio de les diferents entitats
@@ -40,7 +40,6 @@ public class MainCuinaUB {
     static GestionsIngredients gIngre = new GestionsIngredients();//paquet on tenil la gestio de les diferents entitats
     static GestionsFamiliaIngredient gFamIngr = new GestionsFamiliaIngredient();//paquet on tenil la gestio de les diferents entitats
     static GestionsReceptaIngredient gRecIngre = new GestionsReceptaIngredient();
- 
 
     static OperacionsTipusMenjar operacionsTipMenjar = new OperacionsTipusMenjar();
     static OperacionsRecepta operacionsRecepta = new OperacionsRecepta();
@@ -50,18 +49,17 @@ public class MainCuinaUB {
     static OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
     private static final InputStreamReader imr = new InputStreamReader(System.in);
     private static final BufferedReader bfr = new BufferedReader(imr);
-    
-    
+
     /**
      * Menu principal per interactuar amb l'aplicacio
+     *
      * @param args
-     */    
+     */
     @SuppressWarnings({"unchecked", "rawtypes"})
     // Menu de l'aplicacio
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
-        
         int opcMenu = 0;
 
         int exitCuinaUB = -1;
@@ -70,16 +68,14 @@ public class MainCuinaUB {
         //guardarUsuari();
         boolean logginOK = registre();
         while (exitCuinaUB != 1) {
-            
-            
-            if( logginOK == true ){
+
+            if (logginOK == true) {
                 escriu("-------------------MENÚ PRINCIPAL CUINAUB-------------------");
                 escriu("\n1-Recepta\n2-Tipus de plat\n3-Tipus de menjar\n4-Xef\n5-Ingredient\n6-Familiia ingredient");
                 opcMenu = llegeixInt();
 
                 switch (opcMenu) {
                     case 1://Recepta
-
 
                         escriu("Accions disponibles a la base de dades\n");
                         escriu("\n1-Afegir recepta\n2-Eliminar recepta\n3-Mostrar receptes\n");
@@ -128,60 +124,62 @@ public class MainCuinaUB {
                         break;
 
                     case 7: // afegir a les receptes els seus ingredients
-                        gRecIngre.menuRecIng(operacionsIngredient,operacionsRecepta);
+                        gRecIngre.menuRecIng(operacionsIngredient, operacionsRecepta);
                         break;
 
                 }
 
-            }else{
-            System.out.println("No has pogut entrar, login incorrecte,");
-        }
+            } else {
+                System.out.println("No has pogut entrar, login incorrecte,");
+            }
         }
     }
-     /**
+
+    /**
      * Classe usada per controlar el login d'usuari, compara pass i nom
+     *
      * @return true si el login es correcte
      * @throws HibernateException
      */
-    private static boolean registre(){
+    private static boolean registre() {
         escriu("usuari:proba");
         escriu("password:1234");
         boolean ok = false;
-        try{
+        try {
             escriu("####Registre####");
-            escriu("Introdueix el Nom: " );
+            escriuLin("Introdueix el com: ");
             String nik = bfr.readLine();
-            escriu("Introdueix la Contrassenya: " );
+            escriuLin("Introdueix la contrassenya: ");
             String pass = bfr.readLine();
-            
+
             Session sesion = ConnectorHB.getSession();
-            
-            List<Usuari> listUser = sesion.createQuery("from Usuari").list(); 
-            for(Usuari usuari : listUser){ 
-                if( usuari.getNom().equals(nik) && usuari.getPass().equals(pass) ){
+
+            List<Usuari> listUser = sesion.createQuery("from Usuari").list();
+            for (Usuari usuari : listUser) {
+                if (usuari.getNom().equals(nik) && usuari.getPass().equals(pass)) {
                     ok = true;
-                    escriu("Benvingut "+ nik +"");
+                    escriu("Benvingut " + nik + "");
                     break;
-                }
-                else{
+                } else {
                     escriu("Login incorrecte");
                     break;
                 }
             }
-            sesion.close();              
-        }catch(IOException ioe){
+            sesion.close();
+        } catch (IOException ioe) {
             escriu("ERROR al registre");
         }
         return ok;
-    }   
+    }
 
     /**
      * Classe usada per introduir usuari a la bbdd anulada temporalment
+     *
      * @return id
      * @throws HibernateException
      */
     public static int guardarUsuari() throws HibernateException {
-        Session sesion = ConnectorHB.getSession();  
+        Session sesion = ConnectorHB.getSession();
         Usuari usuari = new Usuari("prova", "1234");
         int id = 0;
         try {
@@ -216,5 +214,5 @@ public class MainCuinaUB {
     public static void excepcio(HibernateException he) throws HibernateException {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);
-    }        
+    }
 }

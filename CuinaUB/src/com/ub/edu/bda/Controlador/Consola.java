@@ -22,6 +22,15 @@ public class Consola {
     public static void escriu(String s) {
         System.out.println(s);
     }
+    
+    /**
+     * Mostra un text per pantalla (sense salt de línia al final).
+     *
+     * @param s text a mostrar.
+     */
+    public static void escriuLin(String s) {
+        System.out.print(s);
+    }
 
     /**
      * Mostra un enter per pantalla.

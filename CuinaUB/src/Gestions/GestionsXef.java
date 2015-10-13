@@ -80,8 +80,6 @@ public class GestionsXef {
         escriu("Receptes disonibles. Escull alguna que pertanyi al xef.");
 
         rec = recepta.getRecepta(llegeixInt());
-//        HashSet set1 = new HashSet();
-//        set1.add(rec);
 
         xef.addRecepta(rec);
         rec.setXef(xef);

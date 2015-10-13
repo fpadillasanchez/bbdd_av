@@ -64,9 +64,10 @@ public class MainCuinaUB {
         int exitCuinaUB = -1;
 //        int ident;
 //        ident = guardarUsuari();
+        boolean logginOK = registre();
         while (exitCuinaUB != 1) {
             
-            boolean logginOK = registre();
+            
             if( logginOK == true ){
                 escriu("-------------------MENÚ PRINCIPAL CUINAUB-------------------");
                 escriu("\n1-Recepta\n2-Tipus de plat\n3-Tipus de menjar\n4-Xef\n5-Ingredient\n6-Familiia ingredient");
@@ -162,7 +163,13 @@ public class MainCuinaUB {
         }
         return ok;
     }   
-        public static int guardarUsuari() throws HibernateException {
+
+    /**
+     * Classe usada per introduir usuari a la bbdd anulada temporalment
+     * @return id
+     * @throws HibernateException
+     */
+    public static int guardarUsuari() throws HibernateException {
         Session sesion = ConnectorHB.getSession();  
         Usuari usuari = new Usuari("prova", "1234");
         int id = 0;
@@ -179,12 +186,22 @@ public class MainCuinaUB {
 
         return id;
     }
+
+    /**
+     *
+     * @throws HibernateException
+     */
     public static void connecta() throws HibernateException {
         Session sesion = ConnectorHB.getSession();
         sesion = ConnectorHB.getSession();
         tx = sesion.beginTransaction();
     }
 
+    /**
+     *
+     * @param he
+     * @throws HibernateException
+     */
     public static void excepcio(HibernateException he) throws HibernateException {
         tx.rollback();
         throw new HibernateException("Ocurrio un error al intentar accceder a los datos", he);

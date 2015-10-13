@@ -1,5 +1,7 @@
 package com.ub.edu.bda.Model;
 
+import java.util.Set;
+
 /**
  *
  * @author Oriol
@@ -10,6 +12,8 @@ public class Familia_Ingredients {
     private Integer id_familiaIngredients;
     private String descripcio;
     private String nom;
+    
+    private Set <Ingredient> ingredient;
  /**
   *constructor Familia_ingredients afegim l'objecte cataleg en cardinalitat 1
   */ 
@@ -89,6 +93,15 @@ public class Familia_Ingredients {
     public void setnom(String nom) {
         this.nom = nom;
     }
+    public Set getIngredient()
+    {
+        return ingredient;
+    }
+
+    public void setIngredient(Set ingredient)
+    {
+        this.ingredient = ingredient;
+    }
 //NOUS GETTERS I SETTERS
 /**
   *Retorna  string
@@ -97,5 +110,7 @@ public class Familia_Ingredients {
     public String toStringIDNom() {
         return "Familia_Ingredients{" + "id_Familia=" + id_familiaIngredients + ", nom=" + nom + '}';
     }
-
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredient.add(ingredient);
+    }
 }

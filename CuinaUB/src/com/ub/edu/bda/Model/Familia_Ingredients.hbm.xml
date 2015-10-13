@@ -9,7 +9,10 @@
         </id>
         <property column="NOM" name="nom"/> 
         <property column="DESCRIPCIO" name="descripcio"/> 
-
+        <set name="ingredient" inverse="true" cascade ="all" >
+            <key column="ID"/>
+            <one-to-many class ="Recepta"/>
+        </set>
         
 
     </class>

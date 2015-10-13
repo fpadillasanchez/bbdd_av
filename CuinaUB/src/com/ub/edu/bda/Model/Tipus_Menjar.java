@@ -53,9 +53,9 @@ public class Tipus_Menjar {
 
     @Override
     public String toString() {
-        return "Tipus de menjar:" 
-                +  "ID del tipus de menjar:" + id_Tipus 
-                +  "Nom:" + nom;
+        return " Tipus de menjar: " 
+                +  " ID del tipus de menjar: " + id_Tipus 
+                +   "Nom: " + nom;
     }
 
 }

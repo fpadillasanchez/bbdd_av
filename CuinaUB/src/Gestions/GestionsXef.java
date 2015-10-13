@@ -75,13 +75,10 @@ public class GestionsXef {
 
         Xef xef = new Xef(int_Estrelles, nom);
         for (Recepta recep : receptes) {
-            escriu("Receptes:" + recep.getNom() + "ID:" + recep.getId_Recepta());
+            escriu(recep.toString());
         }
         escriu("------------------------------------------------------");
         while (mesReceptes != 1) {
-            for (Recepta recep : receptes) {
-                escriu("Receptes:" + recep.getNom() + "ID:" + recep.getId_Recepta());
-            }
             escriu("Quines són les receptes del xef: " + xef.getNom());
 
             rec = recepta.getRecepta(llegeixInt());

@@ -114,11 +114,11 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return "Ingredient{" 
-                + "ID del ingredient:" + id_Ingredient 
-                + "Necessita refrigeracio" + refrigeracio 
-                + "Familia del ingredient=" + familia 
-                + "Nom del ingredient=" + nom;
+        return " Ingredient " 
+                + " ID del ingredient: " + id_Ingredient 
+                + " Necessita refrigeracio: " + refrigeracio 
+                + " Familia del ingredient: " + familia 
+                + " Nom del ingredient: " + nom;
     }
     
     

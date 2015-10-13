@@ -108,9 +108,9 @@ public class Familia_Ingredients {
   * @return string amb tect i id i nom
   */
     public String toStringIDNom() {
-        return "Familia_Ingredients{" 
-                + "ID de la familia=" + id_familiaIngredients 
-                + "Nom de la familia de ingredients" + nom;
+        return " Familia_Ingredients " 
+                + " ID de la familia " + id_familiaIngredients 
+                + " Nom de la familia de ingredients " + nom;
     }
     public void addIngredient(Ingredient ingredient) {
         this.ingredient.add(ingredient);

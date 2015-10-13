@@ -14,7 +14,7 @@
         <property column="ESTRELLES" name="int_Estrelles"/>
     
         
-        <set name="receptes" inverse="true" cascade ="all" >
+        <set name="receptes" inverse="true"  cascade ="all" >
             <key column="IDXEF"/>
             <one-to-many class ="Recepta"/>
         </set>

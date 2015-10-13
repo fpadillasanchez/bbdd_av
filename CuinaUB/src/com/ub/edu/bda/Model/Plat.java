@@ -109,10 +109,10 @@ public class Plat {
     @Override
     public String toString() {
         return "Plat{" 
-                + "ID del plat:" + id_Plat 
-                + "Descripció del plat:" + descripcio 
-                + "Nom de plat:" + nom 
-                + "ID  de la recepta a la que pertany:" + id_Recepta;
+                + " ID del plat: " + id_Plat 
+                + " Descripció del plat: " + descripcio 
+                + " Nom de plat: " + nom 
+                + " ID  de la recepta a la que pertany: " + id_Recepta;
     }
 
 }

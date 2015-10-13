@@ -80,8 +80,8 @@ public class GestionsFamiliaIngredient {
         List<Familia_Ingredients> listaFamingredients = operacionsFamIngredient.getListFamIngredients();
         escriu("Tenim " + listaFamingredients.size() + " Xefs");
         escriu("_____________________________");
-        for (Familia_Ingredients Famingredient : listaFamingredients) {
-            escriu("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
+        for (Familia_Ingredients famingredient : listaFamingredients) {
+            escriu(famingredient.toString());
         }
     }
 

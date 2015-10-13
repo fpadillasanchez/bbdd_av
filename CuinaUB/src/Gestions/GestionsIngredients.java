@@ -89,7 +89,7 @@ public class GestionsIngredients {
         escriu("Tenim " + listaingredients.size() + " Xefs");
         escriu("_____________________________");
         for (Ingredient ingredient : listaingredients) {
-            escriu("--> Id: " + ingredient.getId_Ingredient() + ", nom: " + ingredient.getNom() + ", Refrigeracio: " + ingredient.getRefrigeracio() + ", Familia: " + ingredient.getFamilia());
+            escriu(ingredient.toString());
         }
     }
 

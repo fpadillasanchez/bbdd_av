@@ -58,18 +58,19 @@ public class GestioRecepta {
         System.out.println("Tenim " + listaRecepta.size() + " receptes.\n");
         System.out.println("_____________________________");
         for (Recepta recepta : listaRecepta) {
-            System.out.println("Nom recepta:" + recepta.getNom() + " ID:" + recepta.getId_Recepta() + " Elaboracio:" + recepta.getElaboracio() + " Temps:" + recepta.getTemps() + " Dificultat:" + recepta.getDificultat());
+            System.out.println(recepta.toString());
         }
     }
 
     /**
      * Afegir una recepta a la bbdd
+     *
      * @param operacionsRecepta
      */
-
     private static void addRecepta(OperacionsRecepta operacionsRecepta) {
 
-        Plat plat;
+        Plat plat = null;
+        int platsRecepta = 0;
         String nom, elaboracio, temps, dificultat;
         OperacionsPlat plats = new OperacionsPlat();
 
@@ -91,16 +92,19 @@ public class GestioRecepta {
         for (Plat pla : listPlats) {
             escriu(pla.toString());
         }
-        escriu("Escull el plat corresponent a la recepta.");
-        plat = plats.getPlat(llegeixInt());
+        while (platsRecepta != 1) {
+            escriu("Escull el plat corresponent a la recepta.");
+            plat = plats.getPlat(llegeixInt());
 
-        recepta.addPlat(plat);
-        plat.setId_Recepta(recepta.getId_Recepta());
-
+            recepta.addPlat(plat);
+            plat.setId_Recepta(recepta.getId_Recepta());
+            escriu("Vols afegir més plats?(0->SI|| 1->NO)");
+            platsRecepta = llegeixInt();
+        }
         int ident = operacionsRecepta.guardarRecepta(recepta);
         plats.actualitzaPlat(plat);
         plats.actualitzaPlat(plat);
-        // TODO FALTA MIRAR SI REALMENT S'HA INSERTAT
+        
         System.out.println("Recepta insertat: " + ident + ",nom: " + recepta.getNom() + ",dificultat: " + recepta.getDificultat());
 
     }
@@ -127,6 +131,7 @@ public class GestioRecepta {
 
     /**
      * Actualitza una recepta en concret
+     *
      * @param op
      */
     private void actualitzarRecepta(OperacionsRecepta op) {
@@ -137,17 +142,12 @@ public class GestioRecepta {
     }
 
     /**
-     *  Mostra el menu principal de recepta
+     * Mostra el menu principal de recepta
+     *
      * @param op
      * @param recepta
      */
     private void menuRecepta(OperacionsRecepta op, Recepta recepta) {
-        /*
-         this.elaboracio = elaboracio;
-         this.temps = temps;
-         this.nom = nom;
-         this.dificultat = dificultat;
-         */
 
         escriu("Que desitja modificar?:");
         escriu("\n1-Estrelles\n2-Nom");
@@ -173,6 +173,7 @@ public class GestioRecepta {
 
     /**
      * Modifica la elaboracio de recepta
+     *
      * @param op
      * @param recepta
      */
@@ -186,6 +187,7 @@ public class GestioRecepta {
 
     /**
      * Modifica el temps de recepta
+     *
      * @param op
      * @param recepta
      */
@@ -199,6 +201,7 @@ public class GestioRecepta {
 
     /**
      * Modifica el nom de la recepta
+     *
      * @param op
      * @param recepta
      */
@@ -212,6 +215,7 @@ public class GestioRecepta {
 
     /**
      * Modifica la dificultat de recepta
+     *
      * @param op
      * @param recepta
      */

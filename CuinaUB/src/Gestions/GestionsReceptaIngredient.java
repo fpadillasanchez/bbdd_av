@@ -5,7 +5,6 @@
  */
 package Gestions;
 
-import com.ub.edu.bda.Controlador.Consola;
 import static com.ub.edu.bda.Controlador.Consola.escriu;
 import static com.ub.edu.bda.Controlador.Consola.llegeixInt;
 import com.ub.edu.bda.Model.Ingredient;

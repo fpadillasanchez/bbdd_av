@@ -97,7 +97,7 @@ public class GestionsXef {
         recepta.actualitzaRecepta(rec);
         escriu("Recepta" + idRec + "actualitzada.");
 
-        System.out.println("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
+        escriu("Xef insertat: " + ident + ",nom: " + xef.getNom() + ",estrellas: " + xef.getInt_Estrelles());
 
     }
 

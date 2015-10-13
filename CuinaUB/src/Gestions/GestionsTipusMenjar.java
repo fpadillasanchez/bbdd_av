@@ -62,7 +62,7 @@ public class GestionsTipusMenjar {
 
         String nom;
 
-        escriu("Nom:\n");
+        escriu("Nom del tipus de menjar:\n");
         nom = llegeixString();
 
         Tipus_Menjar tipus_Menjar = new Tipus_Menjar(nom);
@@ -85,7 +85,7 @@ public class GestionsTipusMenjar {
         escriu("Tenim " + listaTipusMenjar.size() + " Xefs");
         escriu("_____________________________");
         for (Tipus_Menjar tipus_Menjar : listaTipusMenjar) {
-            escriu("--> Id: " + tipus_Menjar.getId_Tipus() + ", nom: " + tipus_Menjar.getNom());
+            escriu(tipus_Menjar.toString());
         }
     }
 

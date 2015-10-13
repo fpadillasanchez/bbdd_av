@@ -78,8 +78,8 @@ public class Xef {
     public String toString() {
         return "Xef\n"
                 + "" + "Estrelles:" + int_Estrelles 
-                + ", ID del xef:" + id_Xef 
-                + ", nom:" + nom;
+                +  " ID del xef:" + id_Xef 
+                +  " Nom:" + nom;
     
     }
     /**

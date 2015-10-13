@@ -63,9 +63,7 @@ public class MainCuinaUB {
         int opcMenu = 0;
 
         int exitCuinaUB = -1;
-//        int ident;
-//        ident = guardarUsuari();
-        //guardarUsuari();
+
         boolean logginOK = registre();
         while (exitCuinaUB != 1) {
 
@@ -142,8 +140,9 @@ public class MainCuinaUB {
      * @throws HibernateException
      */
     private static boolean registre() {
-        escriu("usuari:proba");
+        escriu("usuari:prova");
         escriu("password:1234");
+        escriu("-------------------------------------\n");
         boolean ok = false;
         try {
             escriu("####Registre####");

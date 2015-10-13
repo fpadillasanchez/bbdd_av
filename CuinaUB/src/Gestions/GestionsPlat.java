@@ -85,7 +85,7 @@ public class GestionsPlat {
         escriu("Tenim " + listaplat.size() + " Plats");
         escriu("_____________________________");
         for (Plat plat : listaplat) {
-            escriu("--> Id: " + plat.getId_Plat() + ", nom: " + plat.getNom() + ", descripcio: " + plat.getDescripcio());
+            escriu(plat.toString());
         }
     }
 
@@ -106,7 +106,7 @@ public class GestionsPlat {
 
         Plat plat = operacionsPlat.getPlat(idPlat);
         menuActualitzaPlat(operacionsPlat, plat);
-        //operacionsPlat.actualitzaPlat(plat);
+        
 
     }
 

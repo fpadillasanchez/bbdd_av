@@ -82,10 +82,10 @@ public class GestionsTipusMenjar {
         // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
         // Llistem tots els elements de Xef
         List<Tipus_Menjar> listaTipusMenjar = op.getListTipus_Menjars();
-        System.out.println("Tenim " + listaTipusMenjar.size() + " Xefs");
-        System.out.println("_____________________________");
+        escriu("Tenim " + listaTipusMenjar.size() + " Xefs");
+        escriu("_____________________________");
         for (Tipus_Menjar tipus_Menjar : listaTipusMenjar) {
-            System.out.println("--> Id: " + tipus_Menjar.getId_Tipus() + ", nom: " + tipus_Menjar.getNom());
+            escriu("--> Id: " + tipus_Menjar.getId_Tipus() + ", nom: " + tipus_Menjar.getNom());
         }
     }
 
@@ -100,7 +100,7 @@ public class GestionsTipusMenjar {
         escriu("Escull plat que vulgui borrar de la BBDD.");
         List<Tipus_Menjar> listTMenjar = op.getListTipus_Menjars();
         for (Tipus_Menjar tipMenjar : listTMenjar) {
-            System.out.println(tipMenjar.toString());
+            escriu(tipMenjar.toString());
         }
         int idTipMenjar = llegeixInt();
 

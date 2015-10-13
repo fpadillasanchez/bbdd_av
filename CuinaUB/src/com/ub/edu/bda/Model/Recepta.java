@@ -203,6 +203,11 @@ public class Recepta {
     public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
     }
+
+    @Override
+    public String toString() {
+        return "Recepta{" + "id_Recepta=" + id_Recepta + ", elaboracio=" + elaboracio + ", temps=" + temps + ", nom=" + nom + ", dificultat=" + dificultat + ", xef=" + xef + ", tMenjar=" + tMenjar + '}';
+    }
    
     
     

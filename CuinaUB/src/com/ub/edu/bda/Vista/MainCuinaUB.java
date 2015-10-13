@@ -50,6 +50,8 @@ public class MainCuinaUB {
     static OperacionsFamIngredient operacionsFamIngredient = new OperacionsFamIngredient();
     private static final InputStreamReader imr = new InputStreamReader(System.in);
     private static final BufferedReader bfr = new BufferedReader(imr);
+    
+    
     /**
      * Menu principal per interactuar amb l'aplicacio
      * @param args
@@ -59,11 +61,13 @@ public class MainCuinaUB {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
+        
         int opcMenu = 0;
 
         int exitCuinaUB = -1;
 //        int ident;
 //        ident = guardarUsuari();
+        //guardarUsuari();
         boolean logginOK = registre();
         while (exitCuinaUB != 1) {
             
@@ -140,12 +144,14 @@ public class MainCuinaUB {
      * @throws HibernateException
      */
     private static boolean registre(){
+        escriu("usuari:proba");
+        escriu("password:1234");
         boolean ok = false;
         try{
-            System.out.println("####Registre####");
-            System.out.print("Introdueix el Nom: " );
+            escriu("####Registre####");
+            escriu("Introdueix el Nom: " );
             String nik = bfr.readLine();
-            System.out.print("Introdueix la Contrassenya: " );
+            escriu("Introdueix la Contrassenya: " );
             String pass = bfr.readLine();
             
             Session sesion = ConnectorHB.getSession();
@@ -154,17 +160,17 @@ public class MainCuinaUB {
             for(Usuari usuari : listUser){ 
                 if( usuari.getNom().equals(nik) && usuari.getPass().equals(pass) ){
                     ok = true;
-                    System.out.println("Benvingut "+ nik +"");
+                    escriu("Benvingut "+ nik +"");
                     break;
                 }
                 else{
-                    System.out.println("Login incorrecte");
+                    escriu("Login incorrecte");
                     break;
                 }
             }
             sesion.close();              
         }catch(IOException ioe){
-            System.out.println("ERROR al registre");
+            escriu("ERROR al registre");
         }
         return ok;
     }   

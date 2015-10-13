@@ -86,10 +86,10 @@ public class GestionsIngredients {
 
         // Llistem tots els elements de Xef
         List<Ingredient> listaingredients = operacionsIngredient.getListIngredients();
-        System.out.println("Tenim " + listaingredients.size() + " Xefs");
-        System.out.println("_____________________________");
+        escriu("Tenim " + listaingredients.size() + " Xefs");
+        escriu("_____________________________");
         for (Ingredient ingredient : listaingredients) {
-            System.out.println("--> Id: " + ingredient.getId_Ingredient() + ", nom: " + ingredient.getNom() + ", Refrigeracio: " + ingredient.getRefrigeracio() + ", Familia: " + ingredient.getFamilia());
+            escriu("--> Id: " + ingredient.getId_Ingredient() + ", nom: " + ingredient.getNom() + ", Refrigeracio: " + ingredient.getRefrigeracio() + ", Familia: " + ingredient.getFamilia());
         }
     }
 

@@ -111,6 +111,11 @@ public class Ingredient {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" + "id_Ingredient=" + id_Ingredient + ", refrigeracio=" + refrigeracio + ", familia=" + familia + ", nom=" + nom + '}';
+    }
     
     
 

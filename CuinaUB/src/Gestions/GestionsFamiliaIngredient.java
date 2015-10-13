@@ -55,15 +55,15 @@ public class GestionsFamiliaIngredient {
 
         String nom, descripcio;
 
-        escriu("Familia:\n");
+        escriu("A quina familia pertany l'ingredient:\n");
         nom = llegeixString();
 
-        escriu("Descripcio:\n");
+        escriu("Descripcio del ingredient:\n");
         descripcio = llegeixString();
         Familia_Ingredients famIngredient = new Familia_Ingredients(descripcio, nom);
         int ident = operacionsFamIngredient.guardarFamIngredient(famIngredient);
 
-        System.out.println("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
+        escriu("Familia: " + ident + ",Descripcio: " + famIngredient.getnom());
     }
 
     /**
@@ -78,10 +78,10 @@ public class GestionsFamiliaIngredient {
         // TODO FALTA DEMANAR SI MOSTREM UN O VARIS XEFS
         // Llistem tots els elements de Xef
         List<Familia_Ingredients> listaFamingredients = operacionsFamIngredient.getListFamIngredients();
-        System.out.println("Tenim " + listaFamingredients.size() + " Xefs");
-        System.out.println("_____________________________");
+        escriu("Tenim " + listaFamingredients.size() + " Xefs");
+        escriu("_____________________________");
         for (Familia_Ingredients Famingredient : listaFamingredients) {
-            System.out.println("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
+            escriu("--> Id: " + Famingredient.getId_familiaIngredients() + ", nom: " + Famingredient.getNom() + ", Descripcio: " + Famingredient.getDescripcio());
         }
     }
 

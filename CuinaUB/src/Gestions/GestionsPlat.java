@@ -68,7 +68,7 @@ public class GestionsPlat {
         Plat plat = new Plat(nom, descripcio, null);
         int ident = operacionsPlat.guardarPlat(plat);
         // TODO - aqui falta comprobar si se ha insertado
-        System.out.println("Plat insertat: " + ident + ",nom: " + plat.getNom() + ",Descripcio: " + plat.getDescripcio());
+        escriu("Plat insertat: " + ident + ",nom: " + plat.getNom() + ",Descripcio: " + plat.getDescripcio());
     }
 
     /**
@@ -82,10 +82,10 @@ public class GestionsPlat {
 
         // llistem tots els elements de Plat
         List<Plat> listaplat = operacionsPlat.getListPlat();
-        System.out.println("Tenim " + listaplat.size() + " Plats");
-        System.out.println("_____________________________");
+        escriu("Tenim " + listaplat.size() + " Plats");
+        escriu("_____________________________");
         for (Plat plat : listaplat) {
-            System.out.println("--> Id: " + plat.getId_Plat() + ", nom: " + plat.getNom() + ", descripcio: " + plat.getDescripcio());
+            escriu("--> Id: " + plat.getId_Plat() + ", nom: " + plat.getNom() + ", descripcio: " + plat.getDescripcio());
         }
     }
 
@@ -100,7 +100,7 @@ public class GestionsPlat {
         escriu("Escull un plat que vulguis actualitzar.");
         List<Plat> listPlats = operacionsPlat.getListPlat();
         for (Plat plat : listPlats) {
-            System.out.println(plat.toString());
+            escriu(plat.toString());
         }
         int idPlat = llegeixInt();
 
@@ -121,7 +121,7 @@ public class GestionsPlat {
         escriu("Escull plat que vulgui borrar de la BBDD.");
         List<Plat> listPlats = operacionsPlat.getListPlat();
         for (Plat plat : listPlats) {
-            System.out.println(plat.toString());
+            escriu(plat.toString());
         }
         int idPlat = llegeixInt();
 

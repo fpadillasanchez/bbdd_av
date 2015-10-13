@@ -51,4 +51,9 @@ public class Tipus_Menjar {
         this.nom = nom;
     }
 
+    @Override
+    public String toString() {
+        return "Tipus_Menjar{" + "id_Tipus=" + id_Tipus + ", nom=" + nom + '}';
+    }
+
 }

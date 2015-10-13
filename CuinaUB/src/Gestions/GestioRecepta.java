@@ -55,7 +55,7 @@ public class GestioRecepta {
     public static void mostrarRecepta(OperacionsRecepta op) {
 
         List<Recepta> listaRecepta = op.getListRecepta();
-        System.out.println("Tenim " + listaRecepta.size() + " Receptes");
+        System.out.println("Tenim " + listaRecepta.size() + " receptes.\n");
         System.out.println("_____________________________");
         for (Recepta recepta : listaRecepta) {
             System.out.println("Nom recepta:" + recepta.getNom() + " ID:" + recepta.getId_Recepta() + " Elaboracio:" + recepta.getElaboracio() + " Temps:" + recepta.getTemps() + " Dificultat:" + recepta.getDificultat());

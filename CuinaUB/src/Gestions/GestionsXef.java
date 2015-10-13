@@ -104,8 +104,8 @@ public class GestionsXef {
     public static void mostrarXef(OperacionsXef op) {
 
         List<Xef> listaxefs = op.getListXef();
-        System.out.println("Tenim " + listaxefs.size() + " xefs");
-        System.out.println("_____________________________");
+        escriu("Tenim " + listaxefs.size() + " xefs");
+        escriu("_____________________________");
         for (Xef xef : listaxefs) {
             escriu(xef.toString());
             Set xefReceptes = op.getXefReceptes(xef.getId_Xef());

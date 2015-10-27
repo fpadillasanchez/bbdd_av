@@ -2,7 +2,8 @@
 
 CREATE TABLE fisica (
 
-  DNI TEXT PRIMARY KEY,
+  FOREIGN KEY (nom) REFERENCES persona(nom),
+  DNI TEXT PRIMARY KEY
   
 
   

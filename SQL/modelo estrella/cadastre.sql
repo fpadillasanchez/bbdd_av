@@ -2,8 +2,6 @@
 
 CREATE TABLE cadastre{
 
-	m2 FOREIGN KEY (sol) REFERENCES sol(superficie),
-	inscripcions INTEGER,
 	id_AltaInscripcio   ,
 	id_BaixaInscripcio  ,
 	id_Inmoble FOREIGN KEY (sol) REFERENCES sol(superficie),

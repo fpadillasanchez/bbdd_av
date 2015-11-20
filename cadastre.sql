@@ -2,12 +2,16 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.5beta2
+-- Dumped by pg_dump version 9.5beta2
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
@@ -30,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: cadastre; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: cadastre; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE cadastre (
@@ -40,22 +44,43 @@ CREATE TABLE cadastre (
 );
 
 
-ALTER TABLE public.cadastre OWNER TO oriol;
+ALTER TABLE cadastre OWNER TO postgres;
 
 --
--- Name: fisica; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: estInmoble; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "estInmoble" (
+    "id_personaFisica" integer,
+    "id_TipusInmoble" integer,
+    "id_PersonaJuridica" integer,
+    "id_SubInmoble" integer,
+    "id_TipusSol" integer,
+    "id_Sol" integer,
+    "id_Any" integer,
+    "id_Mes" integer,
+    "id_Dia" integer,
+    "superficieTotal" integer
+);
+
+
+ALTER TABLE "estInmoble" OWNER TO postgres;
+
+--
+-- Name: fisica; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE fisica (
     nom text,
-    dni text
+    dni text,
+    "idPersona" integer
 );
 
 
-ALTER TABLE public.fisica OWNER TO oriol;
+ALTER TABLE fisica OWNER TO postgres;
 
 --
--- Name: geolocalizacion; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: geolocalizacion; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE geolocalizacion (
@@ -66,14 +91,14 @@ CREATE TABLE geolocalizacion (
 );
 
 
-ALTER TABLE public.geolocalizacion OWNER TO oriol;
+ALTER TABLE geolocalizacion OWNER TO postgres;
 
 --
--- Name: inmoble; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: inmoble; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE inmoble (
-    "id_Inmoble" integer,
+    "id_Inmoble" integer NOT NULL,
     data_baixa date,
     data_alta date,
     estat text,
@@ -85,37 +110,39 @@ CREATE TABLE inmoble (
 );
 
 
-ALTER TABLE public.inmoble OWNER TO oriol;
+ALTER TABLE inmoble OWNER TO postgres;
 
 --
--- Name: juridica; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: juridica; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE juridica (
     nom text,
     "NIF" text,
     "primer_Cognom" text,
-    "segon_Cognom" text
+    "segon_Cognom" text,
+    "idPersona" integer
 );
 
 
-ALTER TABLE public.juridica OWNER TO oriol;
+ALTER TABLE juridica OWNER TO postgres;
 
 --
--- Name: persona; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: persona; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE persona (
     nom text NOT NULL,
     telefon text,
-    direccio text
+    direccio text,
+    "id_Persona" integer
 );
 
 
-ALTER TABLE public.persona OWNER TO oriol;
+ALTER TABLE persona OWNER TO postgres;
 
 --
--- Name: sol; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: sol; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE sol (
@@ -125,10 +152,10 @@ CREATE TABLE sol (
 );
 
 
-ALTER TABLE public.sol OWNER TO oriol;
+ALTER TABLE sol OWNER TO postgres;
 
 --
--- Name: subtipus_inmoble; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: subtipus_inmoble; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE subtipus_inmoble (
@@ -138,10 +165,10 @@ CREATE TABLE subtipus_inmoble (
 );
 
 
-ALTER TABLE public.subtipus_inmoble OWNER TO oriol;
+ALTER TABLE subtipus_inmoble OWNER TO postgres;
 
 --
--- Name: tipus_inmoble; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: tipus_inmoble; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE tipus_inmoble (
@@ -151,10 +178,10 @@ CREATE TABLE tipus_inmoble (
 );
 
 
-ALTER TABLE public.tipus_inmoble OWNER TO oriol;
+ALTER TABLE tipus_inmoble OWNER TO postgres;
 
 --
--- Name: tipus_sol; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: tipus_sol; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE tipus_sol (
@@ -164,10 +191,10 @@ CREATE TABLE tipus_sol (
 );
 
 
-ALTER TABLE public.tipus_sol OWNER TO oriol;
+ALTER TABLE tipus_sol OWNER TO postgres;
 
 --
--- Name: us; Type: TABLE; Schema: public; Owner: oriol; Tablespace: 
+-- Name: us; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE us (
@@ -177,10 +204,10 @@ CREATE TABLE us (
 );
 
 
-ALTER TABLE public.us OWNER TO oriol;
+ALTER TABLE us OWNER TO postgres;
 
 --
--- Data for Name: cadastre; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: cadastre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY cadastre ("id_Cadastre", "any", ciutat) FROM stdin;
@@ -188,15 +215,23 @@ COPY cadastre ("id_Cadastre", "any", ciutat) FROM stdin;
 
 
 --
--- Data for Name: fisica; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: estInmoble; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY fisica (nom, dni) FROM stdin;
+COPY "estInmoble" ("id_personaFisica", "id_TipusInmoble", "id_PersonaJuridica", "id_SubInmoble", "id_TipusSol", "id_Sol", "id_Any", "id_Mes", "id_Dia", "superficieTotal") FROM stdin;
 \.
 
 
 --
--- Data for Name: geolocalizacion; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: fisica; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY fisica (nom, dni, "idPersona") FROM stdin;
+\.
+
+
+--
+-- Data for Name: geolocalizacion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY geolocalizacion (id_geolocalitzacio, x, y, z) FROM stdin;
@@ -204,7 +239,7 @@ COPY geolocalizacion (id_geolocalitzacio, x, y, z) FROM stdin;
 
 
 --
--- Data for Name: inmoble; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: inmoble; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY inmoble ("id_Inmoble", data_baixa, data_alta, estat, internet, referencia_cadastral, num_residents, planta, "id_Cadastre") FROM stdin;
@@ -212,24 +247,24 @@ COPY inmoble ("id_Inmoble", data_baixa, data_alta, estat, internet, referencia_c
 
 
 --
--- Data for Name: juridica; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: juridica; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY juridica (nom, "NIF", "primer_Cognom", "segon_Cognom") FROM stdin;
+COPY juridica (nom, "NIF", "primer_Cognom", "segon_Cognom", "idPersona") FROM stdin;
 \.
 
 
 --
--- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY persona (nom, telefon, direccio) FROM stdin;
-Oriol	619417550	C7Major 17
+COPY persona (nom, telefon, direccio, "id_Persona") FROM stdin;
+Oriol	619417550	C7Major 17	\N
 \.
 
 
 --
--- Data for Name: sol; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: sol; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY sol (id_sol, superficie, "id_Cadastre") FROM stdin;
@@ -237,7 +272,7 @@ COPY sol (id_sol, superficie, "id_Cadastre") FROM stdin;
 
 
 --
--- Data for Name: subtipus_inmoble; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: subtipus_inmoble; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY subtipus_inmoble (id_subtipus, descripcio, nom) FROM stdin;
@@ -245,7 +280,7 @@ COPY subtipus_inmoble (id_subtipus, descripcio, nom) FROM stdin;
 
 
 --
--- Data for Name: tipus_inmoble; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: tipus_inmoble; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY tipus_inmoble (id_subtipus, nom, descripcio) FROM stdin;
@@ -253,7 +288,7 @@ COPY tipus_inmoble (id_subtipus, nom, descripcio) FROM stdin;
 
 
 --
--- Data for Name: tipus_sol; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: tipus_sol; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY tipus_sol (id_tipusol, nom, descripcio) FROM stdin;
@@ -261,7 +296,7 @@ COPY tipus_sol (id_tipusol, nom, descripcio) FROM stdin;
 
 
 --
--- Data for Name: us; Type: TABLE DATA; Schema: public; Owner: oriol
+-- Data for Name: us; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY us (id_us, nom, descripcio) FROM stdin;
@@ -269,7 +304,7 @@ COPY us (id_us, nom, descripcio) FROM stdin;
 
 
 --
--- Name: geolocalizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: geolocalizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY geolocalizacion
@@ -277,7 +312,7 @@ ALTER TABLE ONLY geolocalizacion
 
 
 --
--- Name: id_Cadastre; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: id_Cadastre; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cadastre
@@ -285,15 +320,23 @@ ALTER TABLE ONLY cadastre
 
 
 --
--- Name: nom; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: id_Inmoble; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inmoble
+    ADD CONSTRAINT "id_Inmoble" PRIMARY KEY ("id_Inmoble");
+
+
+--
+-- Name: id_Persona; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY persona
-    ADD CONSTRAINT nom PRIMARY KEY (nom);
+    ADD CONSTRAINT "id_Persona" UNIQUE ("id_Persona");
 
 
 --
--- Name: sol_pkey; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: sol_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY sol
@@ -301,7 +344,7 @@ ALTER TABLE ONLY sol
 
 
 --
--- Name: subtipus_inmoble_pkey; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: subtipus_inmoble_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY subtipus_inmoble
@@ -309,7 +352,7 @@ ALTER TABLE ONLY subtipus_inmoble
 
 
 --
--- Name: tipus_inmoble_pkey; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: tipus_inmoble_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tipus_inmoble
@@ -317,7 +360,7 @@ ALTER TABLE ONLY tipus_inmoble
 
 
 --
--- Name: tipus_sol_pkey; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: tipus_sol_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tipus_sol
@@ -325,7 +368,7 @@ ALTER TABLE ONLY tipus_sol
 
 
 --
--- Name: us_pkey; Type: CONSTRAINT; Schema: public; Owner: oriol; Tablespace: 
+-- Name: us_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY us
@@ -333,15 +376,23 @@ ALTER TABLE ONLY us
 
 
 --
--- Name: id_Cadastre; Type: FK CONSTRAINT; Schema: public; Owner: oriol
+-- Name: idPersona; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY inmoble
-    ADD CONSTRAINT "id_Cadastre" FOREIGN KEY ("id_Cadastre") REFERENCES cadastre("id_Cadastre");
+ALTER TABLE ONLY fisica
+    ADD CONSTRAINT "idPersona" FOREIGN KEY ("idPersona") REFERENCES persona("id_Persona");
 
 
 --
--- Name: id_Cadastre; Type: FK CONSTRAINT; Schema: public; Owner: oriol
+-- Name: idPersona; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY juridica
+    ADD CONSTRAINT "idPersona" FOREIGN KEY ("idPersona") REFERENCES persona("id_Persona");
+
+
+--
+-- Name: id_Cadastre; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY sol
@@ -349,23 +400,47 @@ ALTER TABLE ONLY sol
 
 
 --
--- Name: nom; Type: FK CONSTRAINT; Schema: public; Owner: oriol
+-- Name: id_PersonFisica; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY fisica
-    ADD CONSTRAINT nom FOREIGN KEY (nom) REFERENCES persona(nom);
-
-
---
--- Name: nom; Type: FK CONSTRAINT; Schema: public; Owner: oriol
---
-
-ALTER TABLE ONLY juridica
-    ADD CONSTRAINT nom FOREIGN KEY (nom) REFERENCES persona(nom);
+ALTER TABLE ONLY "estInmoble"
+    ADD CONSTRAINT "id_PersonFisica" FOREIGN KEY ("id_personaFisica") REFERENCES persona("id_Persona");
 
 
 --
--- Name: tipus_inmoble_id_subtipus_fkey; Type: FK CONSTRAINT; Schema: public; Owner: oriol
+-- Name: id_PersonaJuridica; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "estInmoble"
+    ADD CONSTRAINT "id_PersonaJuridica" FOREIGN KEY ("id_PersonaJuridica") REFERENCES persona("id_Persona");
+
+
+--
+-- Name: id_Sol; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "estInmoble"
+    ADD CONSTRAINT "id_Sol" FOREIGN KEY ("id_Sol") REFERENCES sol(id_sol);
+
+
+--
+-- Name: id_SubInmoble; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "estInmoble"
+    ADD CONSTRAINT "id_SubInmoble" FOREIGN KEY ("id_SubInmoble") REFERENCES subtipus_inmoble(id_subtipus);
+
+
+--
+-- Name: id_TipusSol; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "estInmoble"
+    ADD CONSTRAINT "id_TipusSol" FOREIGN KEY ("id_TipusSol") REFERENCES tipus_sol(id_tipusol);
+
+
+--
+-- Name: tipus_inmoble_id_subtipus_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tipus_inmoble

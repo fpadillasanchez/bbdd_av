@@ -39,8 +39,8 @@ SET default_with_oids = false;
 
 CREATE TABLE cadastre (
     "id_Cadastre" integer NOT NULL,
-    "any" date,
-    ciutat text
+    ciutat text,
+    "any" integer
 );
 
 
@@ -132,7 +132,6 @@ ALTER TABLE juridica OWNER TO postgres;
 --
 
 CREATE TABLE persona (
-    nom text NOT NULL,
     telefon text,
     direccio text,
     "id_Persona" integer
@@ -187,7 +186,8 @@ ALTER TABLE tipus_inmoble OWNER TO postgres;
 CREATE TABLE tipus_sol (
     id_tipusol integer NOT NULL,
     nom text NOT NULL,
-    descripcio character varying(30)
+    descripcio character varying(30),
+    "id_Sol" integer
 );
 
 
@@ -210,7 +210,9 @@ ALTER TABLE us OWNER TO postgres;
 -- Data for Name: cadastre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY cadastre ("id_Cadastre", "any", ciutat) FROM stdin;
+COPY cadastre ("id_Cadastre", ciutat, "any") FROM stdin;
+1	barcelona	2000
+2	madrid	2002
 \.
 
 
@@ -227,6 +229,10 @@ COPY "estInmoble" ("id_personaFisica", "id_TipusInmoble", "id_PersonaJuridica", 
 --
 
 COPY fisica (nom, dni, "idPersona") FROM stdin;
+Oriol	15247859A	1
+Fernando	15247859B	3
+Jaume	15247859A	4
+carles	1564646867a	5
 \.
 
 
@@ -243,6 +249,8 @@ COPY geolocalizacion (id_geolocalitzacio, x, y, z) FROM stdin;
 --
 
 COPY inmoble ("id_Inmoble", data_baixa, data_alta, estat, internet, referencia_cadastral, num_residents, planta, "id_Cadastre") FROM stdin;
+3	1991-12-20	1992-12-20	perfecto	si	1565645fa4f5d6asf4	4	2	2
+4	1991-12-20	1993-12-20	perfecto	no	15651234fa4f5d6asf4	4	2	2
 \.
 
 
@@ -251,6 +259,7 @@ COPY inmoble ("id_Inmoble", data_baixa, data_alta, estat, internet, referencia_c
 --
 
 COPY juridica (nom, "NIF", "primer_Cognom", "segon_Cognom", "idPersona") FROM stdin;
+empresa textil	45678964R	queso	manchego	1
 \.
 
 
@@ -258,8 +267,13 @@ COPY juridica (nom, "NIF", "primer_Cognom", "segon_Cognom", "idPersona") FROM st
 -- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY persona (nom, telefon, direccio, "id_Persona") FROM stdin;
-Oriol	619417550	C7Major 17	\N
+COPY persona (telefon, direccio, "id_Persona") FROM stdin;
+619417550	C7Major 17	\N
+5555555	c/falsa 123	1
+1111111	c/rosello	3
+2222222	c/dos de maig	4
+333332222	c/tres de maig	5
+44442222	c/cinc de maig	6
 \.
 
 
@@ -268,6 +282,8 @@ Oriol	619417550	C7Major 17	\N
 --
 
 COPY sol (id_sol, superficie, "id_Cadastre") FROM stdin;
+3	25	1
+2	40	2
 \.
 
 
@@ -276,6 +292,8 @@ COPY sol (id_sol, superficie, "id_Cadastre") FROM stdin;
 --
 
 COPY subtipus_inmoble (id_subtipus, descripcio, nom) FROM stdin;
+3	zona para empresas	los x
+2	zona para particulares	los y
 \.
 
 
@@ -284,6 +302,7 @@ COPY subtipus_inmoble (id_subtipus, descripcio, nom) FROM stdin;
 --
 
 COPY tipus_inmoble (id_subtipus, nom, descripcio) FROM stdin;
+3	piso de proteccion oficial	piso landa
 \.
 
 
@@ -291,7 +310,8 @@ COPY tipus_inmoble (id_subtipus, nom, descripcio) FROM stdin;
 -- Data for Name: tipus_sol; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY tipus_sol (id_tipusol, nom, descripcio) FROM stdin;
+COPY tipus_sol (id_tipusol, nom, descripcio, "id_Sol") FROM stdin;
+1	sol per a concerts	sol pavimentat	2
 \.
 
 
@@ -420,6 +440,14 @@ ALTER TABLE ONLY "estInmoble"
 --
 
 ALTER TABLE ONLY "estInmoble"
+    ADD CONSTRAINT "id_Sol" FOREIGN KEY ("id_Sol") REFERENCES sol(id_sol);
+
+
+--
+-- Name: id_Sol; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY tipus_sol
     ADD CONSTRAINT "id_Sol" FOREIGN KEY ("id_Sol") REFERENCES sol(id_sol);
 
 

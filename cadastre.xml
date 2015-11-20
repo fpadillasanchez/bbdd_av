@@ -1,0 +1,24 @@
+<Schema name="New Schema1">
+  <Cube name="inmoble" visible="true" cache="true" enabled="true">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Persona" name="persona f&#237;sica">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_subtipus" name="tipus inmoble">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Persona" name="persona_juridica">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_tipusol" name="tipus sol">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="sol">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+  </Cube>
+</Schema>

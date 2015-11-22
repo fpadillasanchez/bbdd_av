@@ -1,0 +1,28 @@
+<Schema name="New Schema3">
+  <Cube name="Inmoble" visible="true" cache="true" enabled="true">
+    <Dimension type="TimeDimension" visible="true" foreignKey="id_Dia" name="Data">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true" primaryKeyTable="cadastre">
+      </Hierarchy>
+      <Hierarchy name="New Hierarchy 1" visible="true" hasAll="true">
+      </Hierarchy>
+      <Hierarchy name="New Hierarchy 2" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="idPersona" name="juridica">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true" primaryKeyTable="juridica">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="idPersona" name="fisica">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_sol" name="sol">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_SubInmoble" name="Subtipusinmoble">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      </Hierarchy>
+    </Dimension>
+  </Cube>
+</Schema>

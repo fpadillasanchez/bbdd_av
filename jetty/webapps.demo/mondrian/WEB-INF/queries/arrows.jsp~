@@ -9,7 +9,7 @@
 
 <jp:mondrianQuery id="query01" 
 jdbcDriver="org.postgresql.Driver" 
-jdbcUrl="jdbc:derby:classpath:/foodmart" catalogUri="/WEB-INF/queries/inmoble.xml"
+jdbcUrl="jdbc:derby:classpath:/foodmart" catalogUri="/WEB-INF/queries/FoodMart.xml"
 jdbcUser="sa" jdbcPassword="sa" connectionPooling="false">
 
 select {[Measures].[persones]} on columns

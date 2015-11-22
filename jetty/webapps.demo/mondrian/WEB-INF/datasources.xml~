@@ -45,7 +45,7 @@
              Catalogs can override the connect string with their own
              <DataSourceInfo> element.
           -->
-        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:oracle:thin:foodmart/foodmart@//marmalade.hydromatic.net:1521/XE;JdbcUser=foodmart;JdbcPassword=foodmart;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/queries/FoodMart.xml</DataSourceInfo>
+        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:oracle:thin:foodmart/foodmart@//marmalade.hydromatic.net:1521/XE;JdbcUser=foodmart;JdbcPassword=foodmart;JdbcDrivers=oracle.jdbc.OracleDriver;Catalog=/WEB-INF/queries/FoodMart.xml</DataSourceInfo>
 
  
         <!-- 

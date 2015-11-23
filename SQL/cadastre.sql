@@ -1,9 +1,9 @@
 \echo cadastre
 
-CREATE TABLE cadastre{
+CREATE TABLE cadastre(
 
-	any INTEGER PRIMARY KEY,
+	ano INTEGER PRIMARY KEY,
 	ciutat TEXT NOT NULL
 
 
-};
+);

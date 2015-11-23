@@ -1,16 +1,16 @@
-<Schema name="Inmoble">
+<Schema name="Cadastre">
   <Cube name="Inmoble" visible="true" cache="true" enabled="true">
-    <Table name="inmobleEstrella" schema="public">
+    <Table name="estInmoble" schema="public">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_Personajuridica" highCardinality="false" name="dimJuridica">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaJuridica" highCardinality="false" name="Juridica">
       <Hierarchy visible="true" hasAll="true">
-        <Table name="dim_juridica" schema="public">
+        <Table name="dim_fisica" schema="public">
         </Table>
         <Level name="Media Type" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Measure name="persones" column="id_PersonaJuridica" aggregator="count" visible="true">
+    <Measure name="persones" column="id_personaFisica" aggregator="count" visible="true">
     </Measure>
   </Cube>
 </Schema>

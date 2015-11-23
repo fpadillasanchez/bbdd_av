@@ -1,0 +1,3 @@
+﻿INSERT INTO "estInmoble"(
+            "id_personaFisica", "id_PersonaJuridica")
+    VALUES (1, 2);

@@ -1,8 +1,8 @@
 <Schema name="Inmoble">
   <Cube name="Inmoble" visible="true" cache="true" enabled="true">
-    <Table name="estInmoble" schema="public">
+    <Table name="inmobleEstrella" schema="public">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaJuridica" highCardinality="false" name="Juridica">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Personajuridica" highCardinality="false" name="dimJuridica">
       <Hierarchy visible="true" hasAll="true">
         <Table name="dim_juridica" schema="public">
         </Table>

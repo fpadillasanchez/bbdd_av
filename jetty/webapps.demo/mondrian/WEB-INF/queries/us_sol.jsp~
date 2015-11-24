@@ -4,10 +4,10 @@
 
 <jp:mondrianQuery id="query01" jdbcDriver="org.postgresql.Driver" jdbcUrl="jdbc:postgresql://localhost:5432/cadastre?user=oriol&password=29051984"
 catalogUri="/WEB-INF/queries/inmoble.xml">
-select {[Subtipusinmoble].[All Inmobles]} ON COLUMNS
-from [Inmoble] 
+select {[Tipus_Sol].[All Tipus Sol]} ON COLUMNS,
+{[Us].[All Us]} ON ROWS
+from [Sol] 
 </jp:mondrianQuery>
-
 
 
 

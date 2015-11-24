@@ -4,13 +4,13 @@
 
 <jp:mondrianQuery id="query01" jdbcDriver="org.postgresql.Driver" jdbcUrl="jdbc:postgresql://localhost:5432/cadastre?user=oriol&password=29051984"
 catalogUri="/WEB-INF/queries/inmoble.xml">
-select {[Us].[All Us]} ON COLUMNS
+select {[Tipus_Sol].[All Tipus Sol]} ON COLUMNS,
+{[Us].[All Us]} ON ROWS
 from [Sol] 
 </jp:mondrianQuery>
 
 
 
 
-
-<c:set var="title01" scope="session">Persones </c:set>
+<c:set var="title01" scope="session">Us tipus sol </c:set>
 

@@ -96,31 +96,41 @@
         </Level>
         <Level name="Dia" visible="true" column="descDia" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
         </Level>
+        <Level name="id_data" visible="true" column="id_Data" uniqueMembers="false">
+        </Level>
+        <Level name="id_dia" visible="true" column="id_Dia" uniqueMembers="false">
+        </Level>
+        <Level name="id_mes" visible="true" column="id_Mes" uniqueMembers="false">
+        </Level>
+        <Level name="id_any" visible="true" column="id_Any" uniqueMembers="false">
+        </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_Us" name="Us">
-      <Hierarchy visible="true" hasAll="true">
-        <Table name="dim_Us" schema="public" alias="">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Us" highCardinality="false" name="Us">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Us">
+        <Table name="dim_Us" schema="public">
         </Table>
-        <Level name="DescUs" visible="true" column="descUs" type="String" uniqueMembers="false">
+        <Level name="DescUs" visible="true" column="descUs" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="id_Us" visible="true" column="id_Us" uniqueMembers="false">
+        <Level name="id_Us" visible="true" column="id_Us" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_TipusSol" name="Tipus_Sol">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_TipusSol" highCardinality="false" name="Tipus_Sol">
       <Hierarchy visible="true" hasAll="true" allMemberName="All Tipus Sol">
-        <Table name="dim_TipusSol" schema="public" alias="">
+        <Table name="dim_TipusSol" schema="public">
         </Table>
-        <Level name="descTipusSol" visible="true" column="descTipusSol" type="String" uniqueMembers="false">
+        <Level name="descTipusSol" visible="true" column="descTipusSol" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="id_TipusSol" visible="true" column="id_TipusSol" uniqueMembers="false">
+        <Level name="id_TipusSol" visible="true" column="id_TipusSol" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
     <Measure name="num juridiques" column="id_PersonaJuridica" aggregator="count" visible="true">
     </Measure>
     <Measure name="num fisiques" column="id_PersonaFisica" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="num Usos Sol" column="id_Us" aggregator="count" visible="true">
     </Measure>
   </Cube>
 </Schema>

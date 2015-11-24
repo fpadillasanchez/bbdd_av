@@ -71,7 +71,7 @@
     <Table name="solEstrella" schema="public">
     </Table>
     <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaJuridica" highCardinality="false" name="Juridica">
-      <Hierarchy visible="true" hasAll="true">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Juridica">
         <Table name="dim_juridica" schema="public">
         </Table>
         <Level name="Descripcio" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
@@ -79,7 +79,7 @@
       </Hierarchy>
     </Dimension>
     <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaFisica" highCardinality="false" name="Fisica">
-      <Hierarchy visible="true" hasAll="true">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Fisica">
         <Table name="dim_fisica" schema="public">
         </Table>
         <Level name="Descripcio" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
@@ -102,15 +102,19 @@
       <Hierarchy visible="true" hasAll="true">
         <Table name="dim_Us" schema="public" alias="">
         </Table>
-        <Level name="New Level 0" visible="true" column="descUs" type="String" uniqueMembers="false">
+        <Level name="DescUs" visible="true" column="descUs" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="id_Us" visible="true" column="id_Us" uniqueMembers="false">
         </Level>
       </Hierarchy>
     </Dimension>
     <Dimension type="StandardDimension" visible="true" foreignKey="id_TipusSol" name="Tipus_Sol">
-      <Hierarchy visible="true" hasAll="true">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Tipus Sol">
         <Table name="dim_TipusSol" schema="public" alias="">
         </Table>
         <Level name="descTipusSol" visible="true" column="descTipusSol" type="String" uniqueMembers="false">
+        </Level>
+        <Level name="id_TipusSol" visible="true" column="id_TipusSol" uniqueMembers="false">
         </Level>
       </Hierarchy>
     </Dimension>

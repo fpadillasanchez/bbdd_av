@@ -364,6 +364,8 @@ COPY persona (nom, telefon, direccio) FROM stdin;
 
 COPY "solEstrella" ("id_TipusSol", "id_PersonaFisica", "id_PersonaJuridica", "id_Us", "superficieSol", "id_solEstrella", "id_Data") FROM stdin;
 1	1	1	1	10	1	1
+2	1	1	2	33	2	2
+1	2	2	1	13	3	2
 \.
 
 

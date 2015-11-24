@@ -96,14 +96,6 @@
         </Level>
         <Level name="Dia" visible="true" column="descDia" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
         </Level>
-        <Level name="id_data" visible="true" column="id_Data" uniqueMembers="false">
-        </Level>
-        <Level name="id_dia" visible="true" column="id_Dia" uniqueMembers="false">
-        </Level>
-        <Level name="id_mes" visible="true" column="id_Mes" uniqueMembers="false">
-        </Level>
-        <Level name="id_any" visible="true" column="id_Any" uniqueMembers="false">
-        </Level>
       </Hierarchy>
     </Dimension>
     <Dimension type="StandardDimension" visible="true" foreignKey="id_Us" highCardinality="false" name="Us">

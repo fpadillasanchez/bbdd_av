@@ -12,5 +12,5 @@ from [Sol]
 
 
 
-<c:set var="title01" scope="session">Us tipus sol </c:set>
+<c:set var="title01" scope="session">Numero d'usos tipus sol </c:set>
 

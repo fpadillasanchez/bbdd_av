@@ -4,7 +4,9 @@
 
 <jp:mondrianQuery id="query01" jdbcDriver="org.postgresql.Driver" jdbcUrl="jdbc:postgresql://localhost:5432/cadastre?user=oriol&password=29051984"
 catalogUri="/WEB-INF/queries/inmoble.xml">
-select {[Measures].[persones]} on columns
+select {[Measures].[persones Juridiques]} on columns,
+{[Sol].[All Sol]} on rows
+
  from [Inmoble]
 </jp:mondrianQuery>
 

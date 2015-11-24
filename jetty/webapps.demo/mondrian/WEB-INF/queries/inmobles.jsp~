@@ -4,13 +4,14 @@
 
 <jp:mondrianQuery id="query01" jdbcDriver="org.postgresql.Driver" jdbcUrl="jdbc:postgresql://localhost:5432/cadastre?user=oriol&password=29051984"
 catalogUri="/WEB-INF/queries/inmoble.xml">
-select {[Measures].[persones]} on columns
- from [Inmoble]
+select {[Measures].[persones Juridiques],[Measures].[Quantitat Sol]}  on columns,
+{([Sol].[All Sol] ) } on rows
+  from Inmoble where ([Data].[2001-09-28])
 </jp:mondrianQuery>
 
 
 
 
 
-<c:set var="title01" scope="session">Persones Juridiques</c:set>
+<c:set var="title01" scope="session">Persones </c:set>
 

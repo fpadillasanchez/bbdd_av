@@ -32,8 +32,8 @@ analyze very large datasets stored in SQL databases without writing SQL.">
 
 <p>Sol:</p>
 <ul>
-<li><a href="testpage.jsp?query=persones_fisiques_sol">Extensio de sol</a></li>
-<li><a href="testpage.jsp?query=persones_juridiques_sol">Quantitat tipus de sol</a></li>
+<li><a href="testpage.jsp?query=persones_fisiques_sol">Persones fisiques</a></li>
+<li><a href="testpage.jsp?query=persones_juridiques_sol">Persones juridiques</a></li>
 <li><a href="testpage.jsp?query=proves_sol">Proves generals</a></li>
 <li><a href="testpage.jsp?query=data_sol">Data</a></li>
 <li><a href="testpage.jsp?query=us_sol">Us</a></li>

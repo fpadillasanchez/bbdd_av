@@ -1,16 +1,122 @@
 <Schema name="Cadastre">
   <Cube name="Inmoble" visible="true" cache="true" enabled="true">
-    <Table name="estInmoble" schema="public">
+    <Table name="inmobleEstrella" schema="public">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaJuridica" highCardinality="false" name="Juridica">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Personajuridica" highCardinality="false" name="Juridica">
       <Hierarchy visible="true" hasAll="true">
         <Table name="dim_fisica" schema="public">
         </Table>
-        <Level name="Media Type" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="Descripcio" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="id_persona" visible="true" column="id_PersonaFisica" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Measure name="persones" column="id_personaFisica" aggregator="count" visible="true">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaFisica" highCardinality="false" name="Fisica">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Fisica" primaryKey="id_PersonaFisica">
+        <Table name="dim_fisica" schema="public">
+        </Table>
+        <Level name="Descripcio" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Id_personaFisica" visible="true" column="id_PersonaFisica" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Sol" highCardinality="false" name="Sol">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Sol">
+        <Table name="dim_Sol" schema="public">
+        </Table>
+        <Level name="descSol" visible="true" table="dim_Sol" column="descSol" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="id_sol" visible="true" table="dim_Sol" column="id_Sol" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_TipusInmoble" highCardinality="false" name="Subtipusinmoble">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Inmobles" primaryKey="id_TipusInmoble">
+        <Table name="dim_Subtipusimoble" schema="public">
+        </Table>
+        <Level name="descSubtipus" visible="true" table="dim_Subtipusimoble" column="descSubInmoble" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="idSubTipusInmoble" visible="true" table="dim_Subtipusimoble" column="id_SubInmoble" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="idTipusInmoble" visible="true" column="id_TipusInmoble" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="descTipusInmoble" visible="true" column="descTipusInmoble" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="IfBlankName">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="id_Data" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Data">
+        <Table name="dim_Data" schema="public">
+        </Table>
+        <Level name="Any" visible="true" column="descAny" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" column="descMes" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="descDia" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="persones Fisiques" column="id_PersonaFisica" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Persones Juridiques" column="id_Personajuridica" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Quantitat Subtipus Inmoble" column="id_SubInmoble" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Quantitat Sol" column="id_Sol" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="Sol" visible="true" cache="true" enabled="true">
+    <Table name="solEstrella" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaJuridica" highCardinality="false" name="Juridica">
+      <Hierarchy visible="true" hasAll="true">
+        <Table name="dim_juridica" schema="public">
+        </Table>
+        <Level name="Descripcio" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_PersonaFisica" highCardinality="false" name="Fisica">
+      <Hierarchy visible="true" hasAll="true">
+        <Table name="dim_fisica" schema="public">
+        </Table>
+        <Level name="Descripcio" visible="true" column="descripcio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="id_Data" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Data">
+        <Table name="dim_Data" schema="public">
+        </Table>
+        <Level name="Any" visible="true" column="descAny" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" column="descMes" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="descDia" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_Us" name="Us">
+      <Hierarchy visible="true" hasAll="true">
+        <Table name="dim_Us" schema="public" alias="">
+        </Table>
+        <Level name="New Level 0" visible="true" column="descUs" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_TipusSol" name="Tipus_Sol">
+      <Hierarchy visible="true" hasAll="true">
+        <Table name="dim_TipusSol" schema="public" alias="">
+        </Table>
+        <Level name="descTipusSol" visible="true" column="descTipusSol" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="num juridiques" column="id_PersonaJuridica" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="num fisiques" column="id_PersonaFisica" aggregator="count" visible="true">
     </Measure>
   </Cube>
 </Schema>

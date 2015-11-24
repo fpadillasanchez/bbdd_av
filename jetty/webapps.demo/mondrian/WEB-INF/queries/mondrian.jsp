@@ -4,7 +4,7 @@
 
 <jp:mondrianQuery id="query01" jdbcDriver="org.postgresql.Driver" jdbcUrl="jdbc:postgresql://localhost:5432/cadastre?user=oriol&password=29051984"
 catalogUri="/WEB-INF/queries/inmoble.xml">
-select {[Measures].[persones]} on columns
+select {[Measures].[persones Fisiques]} on columns
  from [Inmoble]
 </jp:mondrianQuery>
 
@@ -12,5 +12,5 @@ select {[Measures].[persones]} on columns
 
 
 
-<c:set var="title01" scope="session">Test Query uses Mondrian OLAP</c:set>
+<c:set var="title01" scope="session">Persones Juridiques</c:set>
 
